@@ -624,23 +624,54 @@ tr:hover td { background: rgba(245,166,35,0.06); }
 
 /* ── scouting report layout ──────────────────────────────────────────────── */
 .report-layout  { display: flex; gap: 1.25rem; align-items: flex-start; }
-.filter-panel   { width: 240px; flex-shrink: 0; position: sticky; top: 68px; }
+
+/* Filter panel: sticky + independent vertical scroll */
+.filter-panel {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 68px;
+  max-height: calc(100vh - 88px);  /* viewport minus topbar */
+  overflow-y: auto;
+  overflow-x: hidden;              /* prevent horizontal bleed */
+  /* subtle scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245,166,35,.4) transparent;
+}
+.filter-panel::-webkit-scrollbar       { width: 4px; }
+.filter-panel::-webkit-scrollbar-thumb { background: rgba(245,166,35,.4); border-radius: 4px; }
+
 .filter-panel h3 { margin: .8rem 0 .4rem; font-size: .82rem; color: var(--muted);
                    text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
 .filter-panel .card { padding: .8rem; }
-.report-main    { flex: 1; min-width: 0; }
-.report-scroll  { overflow-x: auto; }
+
+/* Force every form control inside the panel to stay within its width */
+.filter-panel .form-input,
+.filter-panel select,
+.filter-panel input[type="number"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Report main: flex column, table area gets its own scroll */
+.report-main    { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+/* Table wrapper: horizontal scroll only, full page height */
+.report-table-wrap {
+  overflow-x: auto;
+}
+
 .summary-cards  { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
                   gap: .6rem; margin-bottom: .9rem; }
 .summary-cards .stat { padding: .6rem .75rem; }
 .board-panel    { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .9rem; }
 .board-panel .stat { flex: 1; min-width: 110px; padding: .6rem .75rem; }
-.report-scroll table { font-size: .82rem; }
-.report-scroll th, .report-scroll td { padding: .32rem .45rem; white-space: nowrap; }
 .add-btn-form   { display: inline; }
+
 @media (max-width: 900px) {
   .report-layout { flex-direction: column; }
-  .filter-panel  { width: 100%; position: static; }
+  .filter-panel  { width: 100%; position: static; max-height: none; overflow-y: visible; }
 }
 
 /* ── player cards (search results) ──────────────────────────────────────── */
@@ -709,12 +740,11 @@ tr:hover td { background: rgba(245,166,35,0.06); }
   color: var(--gold);
 }
 
-/* ── scouting report table (no overflow, compact) ────────────────────────── */
-.report-table-wrap { width: 100%; }
-.report-table-wrap table { font-size: .73rem; }
+/* ── scouting report table (compact) ────────────────────────────────────── */
+.report-table-wrap table { font-size: .73rem; width: 100%; }
 .report-table-wrap th,
 .report-table-wrap td  { padding: .28rem .32rem; white-space: nowrap; }
-/* Player name can truncate if needed */
+/* Player name truncates rather than blowing out the column */
 .report-table-wrap td:first-child { max-width: 130px; overflow: hidden; text-overflow: ellipsis; }
 
 /* ══════════════════════════════════════════════════════════════════════════

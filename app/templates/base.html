@@ -23,6 +23,7 @@
         {% if has_endpoint('draft.board') %}<a href="{{ url_for('draft.board') }}">Draft Board</a>{% endif %}
         {% if has_endpoint('report.scouting') %}<a href="{{ url_for('report.scouting') }}">Scouting Report</a>{% endif %}
         {% if has_endpoint('players.profile') %}<a href="{{ url_for('players.search_page') }}">Players</a>{% endif %}
+        {% if has_endpoint('draft.my_boards') and current_user %}<a href="{{ url_for('draft.my_boards') }}">My Boards</a>{% endif %}
       </nav>
       <div class="topbar-right">
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
@@ -36,14 +37,19 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        {% if current_scout %}
-          <span class="nav-user">Playing as <strong>{{ current_scout.display_name }}</strong></span>
+        {% if current_user %}
+          <span class="nav-user">Playing as <strong>{{ current_user.display_name }}</strong></span>
           <form method="post" action="{{ url_for('auth.logout') }}" style="display:inline">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <button class="btn btn-outline btn-sm" type="submit">Logout</button>
           </form>
+        {% elif is_guest %}
+          <span class="nav-user" style="color:rgba(255,255,255,.6)">Guest</span>
+          <a href="{{ url_for('auth.login') }}" class="btn btn-outline btn-sm">Sign in</a>
+          <a href="{{ url_for('auth.signup') }}" class="btn btn-gold btn-sm">Sign up</a>
         {% else %}
-          <a href="{{ url_for('auth.login') }}" class="btn btn-gold btn-sm">Login</a>
+          <a href="{{ url_for('auth.login') }}" class="btn btn-outline btn-sm">Sign in</a>
+          <a href="{{ url_for('auth.signup') }}" class="btn btn-gold btn-sm">Sign up</a>
         {% endif %}
       </div>
     </div>

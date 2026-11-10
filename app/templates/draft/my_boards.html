@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}My Boards — IPL Analytics{% endblock %}
+{% block content %}
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+  <h1 style="margin:0">My Boards</h1>
+  <a href="{{ url_for('draft.create_board') }}" class="btn btn-gold btn-sm">+ New Board</a>
+</div>
+
+{% if boards %}
+<section class="card">
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Board name</th>
+        <th>Franchise</th>
+        <th>Season</th>
+        <th>Your role</th>
+        <th></th>
+        <th>Share (owners only)</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for b in boards %}
+    <tr>
+      <td style="font-weight:600">{{ b.name }}</td>
+      <td>
+        <img src="{{ url_for('static', filename='img/teams/' + b.franchise_code|lower + '-logo.png') }}"
+             class="team-logo" alt="{{ b.franchise_code }}" title="{{ b.franchise_name }}"
+             style="height:22px;vertical-align:middle;margin-right:.3rem">
+        {{ b.franchise_name }}
+      </td>
+      <td>{{ b.target_season }}</td>
+      <td><span class="badge badge-{{ b.role }}">{{ b.role|capitalize }}</span></td>
+      <td>
+        <form method="post" action="{{ url_for('draft.switch_board') }}" style="display:inline">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="board_id" value="{{ b.board_id }}">
+          <button class="btn btn-secondary btn-sm" type="submit">Switch to</button>
+        </form>
+      </td>
+      <td>
+        {% if b.role == 'owner' %}
+        <form method="post" action="{{ url_for('draft.share_board', board_id=b.board_id) }}"
+              style="display:flex;gap:.4rem;align-items:center">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="text" name="username" class="form-input" style="width:130px"
+                 placeholder="username" required>
+          <select name="role" class="form-input" style="width:90px">
+            <option value="editor">Editor</option>
+            <option value="viewer">Viewer</option>
+          </select>
+          <button class="btn btn-primary btn-sm" type="submit">Share</button>
+        </form>
+        {% else %}
+          <span style="color:var(--muted);font-size:.85rem">—</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% else %}
+<div class="card">
+  <p style="color:var(--muted)">You are not a member of any board yet.
+    <a href="{{ url_for('draft.create_board') }}">Create one</a>.</p>
+</div>
+{% endif %}
+{% endblock %}

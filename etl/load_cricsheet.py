@@ -114,15 +114,16 @@ def seed_reference(conn: psycopg.Connection) -> None:
                 (r["alias"], r["venue_name"]),
             )
     run_sql_file(conn, DB_DIR / "seed_reference.sql")
-    # Set default dev password "scout123" for all scouts seeded above.
+    # Set password from env var, never hard-coded
+    import os
     from werkzeug.security import generate_password_hash
+    demo_pw = os.environ.get("DEMO_USER_PASSWORD", "Scout_dev_2027!")
+    hashed  = generate_password_hash(demo_pw)
     with conn.cursor() as cur:
-        rows = cur.execute("SELECT scout_id FROM scout").fetchall()
-        for row in rows:
-            cur.execute(
-                "UPDATE scout SET password_hash = %s WHERE scout_id = %s",
-                (generate_password_hash("scout123"), row[0]),
-            )
+        cur.execute(
+            "UPDATE app_user SET password_hash = %s WHERE password_hash = 'PLACEHOLDER'",
+            (hashed,),
+        )
     conn.commit()
 
 
@@ -381,10 +382,22 @@ def derive_after_load(conn: psycopg.Connection, board_franchise: str) -> None:
             )
         # Demo draft board for the 2027 auction.
         cur.execute(
-            """INSERT INTO draft_board (name, franchise_id, target_season, purse_cr, max_squad, max_overseas, overseas_cap_cr)
-               SELECT '2027 Auction Plan', f.franchise_id, s.season_year, s.purse_cr, s.max_squad, s.max_overseas, s.overseas_cap_cr
+            """INSERT INTO draft_board (name, franchise_id, target_season, purse_cr,
+                                        max_squad, max_overseas, overseas_cap_cr, owner_id)
+               SELECT '2027 Auction Plan', f.franchise_id, s.season_year, s.purse_cr,
+                      s.max_squad, s.max_overseas, s.overseas_cap_cr,
+                      (SELECT user_id FROM app_user WHERE LOWER(username)='om')
                FROM franchise f, season s WHERE f.short_code = %s AND s.season_year = 2027""",
             (board_franchise,),
+        )
+        # After inserting the demo draft board, add 'om' as the owner in board_member
+        cur.execute(
+            """INSERT INTO board_member (board_id, user_id, role)
+               SELECT b.board_id, u.user_id, 'owner'
+               FROM draft_board b
+               JOIN app_user u ON LOWER(u.username) = 'om'
+               WHERE b.name = '2027 Auction Plan'
+               ON CONFLICT DO NOTHING""",
         )
     conn.commit()
     run_sql_file(conn, DB_DIR / "indexes.sql")

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Sign Up — IPL Analytics{% endblock %}
+{% block content %}
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-card-header">
+      <img src="{{ url_for('static', filename='img/cricket-ball.png') }}"
+           alt="IPL Analytics" style="height:70px;width:auto;margin-bottom:.75rem;mix-blend-mode:multiply">
+      <h1>IPL Analytics</h1>
+      <p>Create an account to manage your draft board</p>
+    </div>
+
+    <form method="post" action="{{ url_for('auth.signup_post') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="form-group" style="margin-bottom:.9rem">
+        <label class="form-label" for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-input"
+               placeholder="3-40 characters"
+               value="{{ username or '' }}"
+               autocomplete="username" required autofocus>
+      </div>
+
+      <div class="form-group" style="margin-bottom:.9rem">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-input"
+               placeholder="you@example.com"
+               value="{{ email or '' }}"
+               autocomplete="email" required>
+      </div>
+
+      <div class="form-group" style="margin-bottom:.9rem">
+        <label class="form-label" for="display_name">Display name <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+        <input type="text" name="display_name" id="display_name" class="form-input"
+               placeholder="How you want to appear in the app"
+               value="{{ display_name or '' }}"
+               autocomplete="nickname">
+      </div>
+
+      <div class="form-group" style="margin-bottom:.9rem">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-input"
+               placeholder="At least 8 characters"
+               autocomplete="new-password" required>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1.25rem">
+        <label class="form-label" for="confirm_password">Confirm password</label>
+        <input type="password" name="confirm_password" id="confirm_password" class="form-input"
+               placeholder="Repeat your password"
+               autocomplete="new-password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:.55rem">
+        Create account
+      </button>
+    </form>
+
+    <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:1rem">
+      Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -62,7 +62,7 @@ _Required by the course AI policy. Keep this up to date and discuss it in the St
 - Designing the schema.
 - Writing the Cricsheet loader, SQL views and deployment scripts.
 - Drafting `plan.md`.
-- _(add each feature as you build it)_
+- Building the user accounts system: replaced `scout` table with `app_user`, added `board_member` and `owner_id` to `draft_board`, rewrote `auth.py` with sign-up/login (by username or email)/lockout/guest mode, updated `draft.py` with `_require_editor` checks and `my_boards`/`share_board` routes, updated all templates, and added `tests/test_auth.py` with 11 new tests (all 52 tests pass).
 
 **How the output was verified or modified:**
 - The loaded data is tested against published figures (`tests/test_data.py`): Orange and

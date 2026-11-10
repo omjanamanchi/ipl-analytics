@@ -34,17 +34,19 @@ def create_app(conninfo: str | None = None) -> Flask:
         return {"has_endpoint": lambda name: name in app.view_functions}
 
     @app.context_processor
-    def inject_current_scout():
-        """Expose current_scout dict (with display_name) to all templates."""
-        scout_id = session.get("scout_id")
-        if scout_id:
+    def inject_current_user():
+        """Expose current_user dict to all templates."""
+        user_id = session.get("user_id")
+        if user_id:
             from .db import query_one
             row = query_one(
-                "SELECT scout_id, display_name FROM scout WHERE scout_id = %s",
-                (scout_id,),
+                "SELECT user_id, display_name FROM app_user WHERE user_id = %s",
+                (user_id,),
             )
             if row:
-                return {"current_scout": dict(row)}
-        return {"current_scout": None}
+                return {"current_user": dict(row), "is_guest": False}
+        if session.get("is_guest"):
+            return {"current_user": None, "is_guest": True}
+        return {"current_user": None, "is_guest": False}
 
     return app

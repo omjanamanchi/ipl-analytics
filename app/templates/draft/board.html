@@ -62,21 +62,6 @@
 </div>
 {% endif %}
 
-{# ── scout selector ── #}
-<form class="scout-bar" method="post" action="{{ url_for('draft.set_scout') }}">
-  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-  <label for="scout_sel" style="font-weight:600;white-space:nowrap">Editing as:</label>
-  <select id="scout_sel" name="scout_id" class="form-input" style="width:auto">
-    <option value="">— select scout —</option>
-    {% for sc in scouts %}
-      <option value="{{ sc.scout_id }}"
-        {% if sc.scout_id == scout_id %}selected{% endif %}>
-        {{ sc.display_name }}
-      </option>
-    {% endfor %}
-  </select>
-  <button class="btn btn-secondary btn-sm" type="submit">Switch</button>
-</form>
 
 {# ── add target player ── #}
 <section class="card" style="margin:0 0 1rem">

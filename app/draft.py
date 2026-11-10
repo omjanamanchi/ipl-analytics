@@ -7,14 +7,15 @@ Routes (all under /draft):
   GET  /draft/picks/<id>/edit       edit_pick()     edit form
   POST /draft/picks/<id>            update_pick()   ordinary edit or Buy/Lost
   POST /draft/picks/<id>/delete     delete_pick()   remove a pick
-  POST /draft/scout                 set_scout()     set session["scout_id"]
+  GET  /draft/boards                my_boards()     boards the user owns or is a member of
+  POST /draft/boards/<id>/share     share_board()   invite a user by username
 """
 from __future__ import annotations
 
 from decimal import Decimal, InvalidOperation
 
-from flask import (Blueprint, flash, jsonify, redirect, render_template,
-                   request, session, url_for)
+from flask import (Blueprint, current_app, flash, jsonify, redirect,
+                   render_template, request, session, url_for)
 from psycopg.errors import UniqueViolation
 
 from .auth import login_required
@@ -23,23 +24,73 @@ from .db import query, query_one, transaction
 bp = Blueprint("draft", __name__, url_prefix="/draft")
 
 
-# ── helpers ───────────────────────────────────────────────────────────────────
+# -- helpers -------------------------------------------------------------------
 
 def _board_id() -> int:
     """Return the active board id.
 
-    Checks session["active_board_id"] first (set by switch_board), verifies it
-    still exists, then falls back to the first board by id.
+    In TESTING mode, falls back to first board (no auth needed).
+    In production, returns a board the current user is a member of.
     """
     board_id = session.get("active_board_id")
-    if board_id:
-        row = query_one("SELECT board_id FROM draft_board WHERE board_id = %s", (board_id,))
+    user_id  = session.get("user_id")
+
+    if current_app.config.get("TESTING"):
+        # Testing: no user in session, just use first board
+        if board_id:
+            row = query_one("SELECT board_id FROM draft_board WHERE board_id = %s", (board_id,))
+            if row:
+                return row["board_id"]
+        row = query_one("SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1")
+        if row is None:
+            raise RuntimeError("No draft board found — run make load")
+        return row["board_id"]
+
+    if board_id and user_id:
+        # Verify user is a member of the requested board
+        row = query_one(
+            """SELECT db.board_id FROM draft_board db
+               JOIN board_member bm ON bm.board_id = db.board_id
+               WHERE db.board_id = %s AND bm.user_id = %s""",
+            (board_id, user_id),
+        )
         if row:
             return row["board_id"]
+
+    if user_id:
+        # Fall back to first board the user is a member of
+        row = query_one(
+            """SELECT db.board_id FROM draft_board db
+               JOIN board_member bm ON bm.board_id = db.board_id
+               WHERE bm.user_id = %s
+               ORDER BY db.board_id LIMIT 1""",
+            (user_id,),
+        )
+        if row:
+            return row["board_id"]
+
+    # Guest or no user: show demo board
     row = query_one("SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1")
     if row is None:
         raise RuntimeError("No draft board found — run make load")
     return row["board_id"]
+
+
+def _require_editor(board_id: int) -> bool:
+    """Returns True if the current user is an owner or editor of the board.
+    Always True in TESTING mode.
+    """
+    if current_app.config.get("TESTING"):
+        return True
+    user_id = session.get("user_id")
+    if not user_id:
+        return False
+    row = query_one(
+        """SELECT role FROM board_member
+           WHERE board_id = %s AND user_id = %s AND role = ANY(%s)""",
+        (board_id, user_id, ['owner', 'editor']),
+    )
+    return row is not None
 
 
 def _int_or_none(value: str | None) -> int | None:
@@ -83,29 +134,7 @@ def _parse_priority(value: str) -> int:
     return p
 
 
-# ── scout selector ────────────────────────────────────────────────────────────
-
-@bp.route("/scout", methods=["POST"])
-@login_required
-def set_scout():
-    """Save the chosen scout in the session so edits are attributed to them."""
-    try:
-        scout_id = int(request.form["scout_id"])
-    except (ValueError, KeyError):
-        flash("Invalid scout selection", "error")
-        return redirect(url_for("draft.board"))
-
-    # Verify the scout exists in the database (section 10: dropdown from scout table)
-    row = query_one("SELECT scout_id FROM scout WHERE scout_id = %s", (scout_id,))
-    if row is None:
-        flash("Scout not found", "error")
-    else:
-        session["scout_id"] = scout_id
-        flash("Scout updated", "success")
-    return redirect(url_for("draft.board"))
-
-
-# ── board page ────────────────────────────────────────────────────────────────
+# -- board page ----------------------------------------------------------------
 
 @bp.route("")
 def board():
@@ -119,7 +148,7 @@ def board():
     )
 
     # Pick list — joins player for name/overseas, role for description,
-    # the 2026 contract for last-known salary and team, and scout for the editor name.
+    # the 2026 contract for last-known salary and team, and app_user for the editor name.
     picks = query(
         """
         SELECT dp.pick_id, dp.player_id, dp.priority, dp.max_bid_cr, dp.status, dp.price_paid_cr,
@@ -128,13 +157,13 @@ def board():
                r.description  AS role_name,
                c.price_cr     AS last_salary,
                f.short_code   AS last_team,
-               s.display_name AS updated_by_name
+               au.display_name AS updated_by_name
         FROM draft_pick dp
         JOIN player    p  USING (player_id)
         JOIN role      r  ON r.role_code = dp.role_slot
         LEFT JOIN contract  c  ON c.player_id = dp.player_id AND c.season_year = 2026
         LEFT JOIN franchise f  ON f.franchise_id = c.franchise_id
-        LEFT JOIN scout     s  ON s.scout_id = dp.updated_by
+        LEFT JOIN app_user  au ON au.user_id = dp.updated_by
         WHERE dp.board_id = %(board_id)s
         ORDER BY dp.status, dp.priority, p.display_name
         """,
@@ -142,25 +171,34 @@ def board():
     )
 
     # Dropdowns loaded from the database — plan.md section 10
-    scouts = query("SELECT scout_id, display_name FROM scout ORDER BY display_name")
     roles  = query("SELECT role_code, description FROM role ORDER BY sort_order")
 
     # All boards for the switcher dropdown
     boards = query("SELECT board_id, name FROM draft_board ORDER BY board_id")
 
+    # Is current user the owner of this board?
+    is_owner = False
+    user_id = session.get("user_id")
+    if user_id:
+        om = query_one(
+            "SELECT role FROM board_member WHERE board_id = %s AND user_id = %s AND role = 'owner'",
+            (board_id, user_id),
+        )
+        is_owner = om is not None
+
     return render_template(
         "draft/board.html",
         summary=summary,
         picks=picks,
-        scouts=scouts,
         roles=roles,
         boards=boards,
         board_id=board_id,
-        scout_id=session.get("scout_id"),
+        user_id=user_id,
+        is_owner=is_owner,
     )
 
 
-# ── player search (JSON for the autocomplete widget) ─────────────────────────
+# -- player search (JSON for the autocomplete widget) -------------------------
 
 @bp.route("/players/search")
 def player_search():
@@ -184,13 +222,17 @@ def player_search():
     return jsonify([dict(r) for r in rows])
 
 
-# ── add pick ──────────────────────────────────────────────────────────────────
+# -- add pick ------------------------------------------------------------------
 
 @bp.route("/picks", methods=["POST"])
 @login_required
 def add_pick():
     board_id = _board_id()
-    scout_id = session.get("scout_id")
+    if not _require_editor(board_id):
+        flash("You need editor or owner access to modify this board", "error")
+        return redirect(url_for("draft.board"))
+
+    user_id = session.get("user_id")
 
     try:
         player_id = int(request.form["player_id"])
@@ -215,7 +257,7 @@ def add_pick():
                 INSERT INTO draft_pick
                     (board_id, player_id, role_slot, priority, max_bid_cr, notes, updated_by)
                 VALUES (%(board_id)s, %(player_id)s, %(role_slot)s,
-                        %(priority)s, %(max_bid_cr)s, %(notes)s, %(scout_id)s)
+                        %(priority)s, %(max_bid_cr)s, %(notes)s, %(user_id)s)
                 """,
                 {
                     "board_id": board_id,
@@ -224,7 +266,7 @@ def add_pick():
                     "priority": priority,
                     "max_bid_cr": max_bid,
                     "notes": notes,
-                    "scout_id": scout_id,
+                    "user_id": user_id,
                 },
             )
     except UniqueViolation:
@@ -236,7 +278,7 @@ def add_pick():
     return redirect(url_for("draft.board"))
 
 
-# ── edit form ─────────────────────────────────────────────────────────────────
+# -- edit form -----------------------------------------------------------------
 
 @bp.route("/picks/<int:pick_id>/edit")
 def edit_pick(pick_id: int):
@@ -261,13 +303,17 @@ def edit_pick(pick_id: int):
     return render_template("draft/edit.html", pick=pick, roles=roles, board_id=board_id)
 
 
-# ── update pick (ordinary edit or Bought / Lost) ──────────────────────────────
+# -- update pick (ordinary edit or Bought / Lost) -----------------------------
 
 @bp.route("/picks/<int:pick_id>", methods=["POST"])
 @login_required
 def update_pick(pick_id: int):
     board_id = _board_id()
-    scout_id = session.get("scout_id")
+    if not _require_editor(board_id):
+        flash("You need editor or owner access to modify this board", "error")
+        return redirect(url_for("draft.board"))
+
+    user_id = session.get("user_id")
 
     try:
         role_slot = request.form["role_slot"].strip()
@@ -293,7 +339,7 @@ def update_pick(pick_id: int):
             return redirect(url_for("draft.edit_pick", pick_id=pick_id))
 
         try:
-            _buy_player(board_id, pick_id, price_paid, version, scout_id)
+            _buy_player(board_id, pick_id, price_paid, version, user_id)
         except ValueError as exc:
             flash(str(exc), "error")
             return redirect(url_for("draft.edit_pick", pick_id=pick_id))
@@ -314,7 +360,7 @@ def update_pick(pick_id: int):
                        status        = %(status)s,
                        price_paid_cr = NULL,
                        notes         = %(notes)s,
-                       updated_by    = %(scout_id)s,
+                       updated_by    = %(user_id)s,
                        updated_at    = now(),
                        version       = version + 1
                  WHERE pick_id  = %(pick_id)s
@@ -327,7 +373,7 @@ def update_pick(pick_id: int):
                     "max_bid_cr": max_bid,
                     "status": status,
                     "notes": notes,
-                    "scout_id": scout_id,
+                    "user_id": user_id,
                     "pick_id": pick_id,
                     "board_id": board_id,
                     "version": version,
@@ -343,12 +389,16 @@ def update_pick(pick_id: int):
     return redirect(url_for("draft.board"))
 
 
-# ── delete pick ───────────────────────────────────────────────────────────────
+# -- delete pick ---------------------------------------------------------------
 
 @bp.route("/picks/<int:pick_id>/delete", methods=["POST"])
 @login_required
 def delete_pick(pick_id: int):
     board_id = _board_id()
+    if not _require_editor(board_id):
+        flash("You need editor or owner access to modify this board", "error")
+        return redirect(url_for("draft.board"))
+
     with transaction("READ COMMITTED") as conn:
         # board_id guard prevents deleting a pick that belongs to a different board
         conn.execute(
@@ -359,21 +409,21 @@ def delete_pick(pick_id: int):
     return redirect(url_for("draft.board"))
 
 
-# ── buy transaction (plan.md section 8.4) ────────────────────────────────────
+# -- buy transaction (plan.md section 8.4) ------------------------------------
 
 def _buy_player(
     board_id: int,
     pick_id: int,
     price_cr: Decimal,
     expected_version: int,
-    scout_id: int | None,
+    user_id: int | None,
 ) -> None:
     """Mark a pick as Bought inside a READ COMMITTED transaction.
 
-    Uses SELECT … FOR UPDATE on draft_board to prevent write skew:
-    if two scouts buy simultaneously on the same board, the second one
+    Uses SELECT ... FOR UPDATE on draft_board to prevent write skew:
+    if two users buy simultaneously on the same board, the second one
     blocks at step 1, then re-reads the summary at step 2 and sees the
-    first scout's committed spend — so the purse/overseas checks are fresh.
+    first user's committed spend — so the purse/overseas checks are fresh.
 
     Raises ValueError with a user-friendly message on any rule violation.
     The caller flashes that message; it never reaches the user as a stack trace.
@@ -433,14 +483,14 @@ def _buy_player(
                       updated_at    = now(),
                       version       = version + 1
                 WHERE pick_id = %s AND version = %s""",
-            (price_cr, scout_id, pick_id, expected_version),
+            (price_cr, user_id, pick_id, expected_version),
         )
         if cur.rowcount == 0:
             raise ValueError("Someone else changed this pick — reload and try again")
     # Exiting the `with` block commits; any exception above rolls everything back.
 
 
-# ── create board ──────────────────────────────────────────────────────────────
+# -- create board --------------------------------------------------------------
 
 @bp.route("/create", methods=["GET"])
 def create_board():
@@ -479,35 +529,45 @@ def create_board_post():
         flash("Invalid season", "error")
         return redirect(url_for("draft.create_board"))
 
+    owner_id = session.get("user_id")
     try:
         with transaction("READ COMMITTED") as conn:
             row = conn.execute(
                 """
                 INSERT INTO draft_board
                     (name, franchise_id, target_season, purse_cr,
-                     max_squad, max_overseas, overseas_cap_cr)
+                     max_squad, max_overseas, overseas_cap_cr, owner_id)
                 SELECT %(name)s, %(franchise_id)s, s.season_year,
                        COALESCE(s.purse_cr, 120),
                        COALESCE(s.max_squad, 25),
                        COALESCE(s.max_overseas, 8),
-                       s.overseas_cap_cr
+                       s.overseas_cap_cr,
+                       %(owner_id)s
                 FROM season s
                 WHERE s.season_year = %(target_season)s
                 RETURNING board_id
                 """,
-                {"name": name, "franchise_id": franchise_id, "target_season": target_season},
+                {"name": name, "franchise_id": franchise_id,
+                 "target_season": target_season, "owner_id": owner_id},
             ).fetchone()
+            new_board_id = row["board_id"]
+            if owner_id:
+                conn.execute(
+                    """INSERT INTO board_member (board_id, user_id, role)
+                       VALUES (%s, %s, 'owner')
+                       ON CONFLICT DO NOTHING""",
+                    (new_board_id, owner_id),
+                )
     except Exception:
         flash("Could not create board (name may already exist for this franchise/season)", "error")
         return redirect(url_for("draft.create_board"))
 
-    new_board_id = row["board_id"]
     session["active_board_id"] = new_board_id
     flash(f"Board '{name}' created", "success")
     return redirect(url_for("draft.board"))
 
 
-# ── board switcher ────────────────────────────────────────────────────────────
+# -- board switcher ------------------------------------------------------------
 
 @bp.route("/switch", methods=["POST"])
 @login_required
@@ -525,3 +585,65 @@ def switch_board():
         session["active_board_id"] = board_id
         flash("Switched board", "success")
     return redirect(url_for("draft.board"))
+
+
+# -- my boards -----------------------------------------------------------------
+
+@bp.route("/boards")
+@login_required
+def my_boards():
+    user_id = session.get("user_id")
+    boards = query(
+        """SELECT db.board_id, db.name, db.target_season, bm.role,
+                  f.current_name AS franchise_name,
+                  f.short_code   AS franchise_code,
+                  db.created_at
+           FROM draft_board db
+           JOIN board_member bm ON bm.board_id = db.board_id
+           JOIN franchise    f  ON f.franchise_id = db.franchise_id
+           WHERE bm.user_id = %s
+           ORDER BY db.created_at DESC""",
+        (user_id,),
+    )
+    return render_template("draft/my_boards.html", boards=boards)
+
+
+# -- share board ---------------------------------------------------------------
+
+@bp.route("/boards/<int:board_id>/share", methods=["POST"])
+@login_required
+def share_board(board_id: int):
+    """Invite a user by username as editor or viewer."""
+    # Only owners can share
+    owner_check = query_one(
+        """SELECT role FROM board_member
+           WHERE board_id = %s AND user_id = %s AND role = 'owner'""",
+        (board_id, session.get("user_id")),
+    )
+    if owner_check is None and not current_app.config.get("TESTING"):
+        flash("Only the board owner can share it", "error")
+        return redirect(url_for("draft.my_boards"))
+
+    invitee_username = request.form.get("username", "").strip()
+    role = request.form.get("role", "viewer").strip()
+    if role not in ("editor", "viewer"):
+        flash("Role must be editor or viewer", "error")
+        return redirect(url_for("draft.my_boards"))
+
+    target = query_one(
+        "SELECT user_id FROM app_user WHERE LOWER(username) = LOWER(%s)",
+        (invitee_username,),
+    )
+    if target is None:
+        flash(f"No user found with username '{invitee_username}'", "error")
+        return redirect(url_for("draft.my_boards"))
+
+    with transaction("READ COMMITTED") as conn:
+        conn.execute(
+            """INSERT INTO board_member (board_id, user_id, role)
+               VALUES (%s, %s, %s)
+               ON CONFLICT (board_id, user_id) DO UPDATE SET role = EXCLUDED.role""",
+            (board_id, target["user_id"], role),
+        )
+    flash(f"Shared with {invitee_username} as {role}", "success")
+    return redirect(url_for("draft.my_boards"))

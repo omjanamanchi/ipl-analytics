@@ -6,7 +6,7 @@
 
 DROP MATERIALIZED VIEW IF EXISTS mv_player_phase_stats  CASCADE;
 DROP MATERIALIZED VIEW IF EXISTS mv_player_season_stats CASCADE;
-DROP TABLE IF EXISTS draft_pick, draft_board, scout,
+DROP TABLE IF EXISTS draft_pick, board_member, draft_board, app_user,
                      season_award, award,
                      dismissal_fielder, dismissal, delivery, innings,
                      match_player, match, contract, player,
@@ -239,12 +239,24 @@ CREATE TABLE season_award (
 -- 5. Application tables (the only tables the web app writes to)
 -- ---------------------------------------------------------------------
 
-CREATE TABLE scout (
-    scout_id      SERIAL PRIMARY KEY,
-    username      VARCHAR(40) NOT NULL UNIQUE,
-    display_name  TEXT        NOT NULL,
-    password_hash TEXT
+CREATE TABLE app_user (
+    user_id        SERIAL PRIMARY KEY,
+    username       VARCHAR(40)  NOT NULL,
+    email          TEXT         NOT NULL,
+    password_hash  TEXT         NOT NULL,
+    display_name   TEXT         NOT NULL,
+    created_at     TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    last_login_at  TIMESTAMPTZ,
+    failed_logins  SMALLINT     NOT NULL DEFAULT 0,
+    locked_until   TIMESTAMPTZ,
+    is_active      BOOLEAN      NOT NULL DEFAULT TRUE,
+    -- Case-insensitive uniqueness via expression indexes (added below)
+    CONSTRAINT app_user_username_key UNIQUE (username),
+    CONSTRAINT app_user_email_key    UNIQUE (email)
 );
+-- Case-insensitive lookups: login by username OR email, both lowercased
+CREATE UNIQUE INDEX app_user_username_ci ON app_user (LOWER(username));
+CREATE UNIQUE INDEX app_user_email_ci    ON app_user (LOWER(email));
 
 -- A franchise's plan for an upcoming auction. Rules copied from the season row
 -- at creation so the board keeps working even if the season row changes.
@@ -258,7 +270,16 @@ CREATE TABLE draft_board (
     max_overseas     SMALLINT     NOT NULL CHECK (max_overseas >= 0),
     overseas_cap_cr  NUMERIC(6,2),
     created_at       TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    owner_id         INTEGER      REFERENCES app_user(user_id),
     UNIQUE (franchise_id, target_season, name)
+);
+
+-- Who can access each board and in what capacity
+CREATE TABLE board_member (
+    board_id  INTEGER      NOT NULL REFERENCES draft_board(board_id) ON DELETE CASCADE,
+    user_id   INTEGER      NOT NULL REFERENCES app_user(user_id)     ON DELETE CASCADE,
+    role      VARCHAR(6)   NOT NULL CHECK (role IN ('owner','editor','viewer')),
+    PRIMARY KEY (board_id, user_id)
 );
 
 -- MAIN TABLE for Requirement 1 (add / edit / delete).
@@ -272,7 +293,7 @@ CREATE TABLE draft_pick (
     status         VARCHAR(6)   NOT NULL DEFAULT 'Target' CHECK (status IN ('Target','Bought','Lost')),
     price_paid_cr  NUMERIC(5,2) CHECK (price_paid_cr IS NULL OR price_paid_cr > 0),
     notes          TEXT,
-    updated_by     INTEGER      REFERENCES scout(scout_id),
+    updated_by     INTEGER      REFERENCES app_user(user_id),
     updated_at     TIMESTAMPTZ  NOT NULL DEFAULT now(),
     version        INTEGER      NOT NULL DEFAULT 1,      -- optimistic concurrency control
     UNIQUE (board_id, player_id),                         -- a player appears once per board

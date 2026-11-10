@@ -22,7 +22,7 @@ END $$;
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM ipl_app;
 GRANT USAGE ON SCHEMA public TO ipl_app;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO ipl_app;               -- includes views and materialized views
-GRANT INSERT, UPDATE, DELETE ON draft_pick, draft_board, scout TO ipl_app;
+GRANT INSERT, UPDATE, DELETE ON draft_pick, draft_board, app_user, board_member TO ipl_app;
 GRANT USAGE, SELECT ON SEQUENCE draft_pick_pick_id_seq,
                                 draft_board_board_id_seq,
-                                scout_scout_id_seq TO ipl_app;
+                                app_user_user_id_seq TO ipl_app;
