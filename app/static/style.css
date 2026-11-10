@@ -32,3 +32,46 @@ th { color: var(--muted); font-weight: 600; font-size: .85rem; }
 .flash-error { border-color: var(--bad); color: var(--bad); }
 .flash-success { border-color: var(--ok); color: var(--ok); }
 .footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 1.5rem 1rem; }
+
+/* ── buttons ── */
+.btn { display:inline-block; padding:.35rem .75rem; border-radius:6px; border:1px solid transparent;
+       font-size:.875rem; font-weight:500; cursor:pointer; text-decoration:none; line-height:1.4;
+       transition:opacity .15s; }
+.btn:hover { opacity:.85; }
+.btn-primary   { background:var(--brand); color:#fff; border-color:var(--brand); }
+.btn-secondary { background:transparent; color:var(--ink); border-color:var(--line); }
+.btn-danger    { background:var(--bad);   color:#fff; border-color:var(--bad); }
+.btn-sm        { padding:.18rem .45rem; font-size:.8rem; }
+
+/* ── form helpers ── */
+.form-row   { display:flex; flex-wrap:wrap; gap:.75rem; align-items:flex-end; margin-bottom:.75rem; }
+.form-group { display:flex; flex-direction:column; flex:1; min-width:120px; }
+.form-label { font-size:.82rem; color:var(--muted); font-weight:600; margin-bottom:.25rem; }
+.form-input { padding:.35rem .6rem; border:1px solid var(--line); border-radius:6px;
+              background:var(--surface); color:var(--ink); font-size:.9rem; }
+.form-input:focus { outline:2px solid var(--brand); outline-offset:1px; }
+
+/* ── status badges ── */
+.badge        { display:inline-block; padding:.1rem .4rem; border-radius:5px;
+                font-size:.78rem; font-weight:600; }
+.badge-target { background:#e8edf8; color:#1d3b8b; }
+.badge-bought { background:#d4edda; color:#1f7a4d; }
+.badge-lost   { background:#f8d7da; color:#b3261e; }
+.badge-ov     { background:var(--accent); color:#14182b; font-size:.7rem;
+                padding:.05rem .28rem; border-radius:3px; font-weight:700; }
+
+/* ── player-search autocomplete ── */
+.ac-wrap        { position:relative; }
+.ac-suggestions { position:absolute; top:calc(100% + 2px); left:0; right:0; z-index:100;
+                  background:var(--surface); border:1px solid var(--line); border-radius:6px;
+                  max-height:220px; overflow-y:auto; box-shadow:0 4px 12px #0002; }
+.ac-item        { padding:.4rem .65rem; cursor:pointer; font-size:.88rem; }
+.ac-item:hover  { background:var(--bg); }
+
+/* ── draft board ── */
+.scout-bar { display:flex; align-items:center; gap:.6rem; padding:.45rem .75rem;
+             background:var(--surface); border:1px solid var(--line); border-radius:8px;
+             flex-wrap:wrap; margin-bottom:.75rem; }
+.pick-row-bought td { opacity:.7; }
+.pick-row-lost   td { opacity:.5; text-decoration:line-through; }
+.pick-actions    { white-space:nowrap; }

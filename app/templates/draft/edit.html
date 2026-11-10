@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Edit Pick — IPL Analytics{% endblock %}
+{% block content %}
+<section class="card" style="max-width:580px;margin:1.5rem auto">
+  <h2>Edit: {{ pick.display_name }}</h2>
+  <p style="color:var(--muted);margin:.25rem 0 1rem">
+    {{ pick.country }}
+    {% if pick.is_overseas %}&nbsp;·&nbsp;<strong>Overseas</strong>{% endif %}
+    &nbsp;·&nbsp;{{ pick.role_name }}
+  </p>
+
+  <form method="post" action="{{ url_for('draft.update_pick', pick_id=pick.pick_id) }}">
+    {# CSRF token (Flask-WTF) and optimistic-lock version #}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="version"    value="{{ pick.version }}">
+
+    {# Role slot dropdown — loaded from the role table (plan.md section 10) #}
+    <div class="form-group" style="margin-bottom:.75rem">
+      <label class="form-label" for="role_slot">Role slot</label>
+      <select name="role_slot" id="role_slot" class="form-input">
+        {% for r in roles %}
+          <option value="{{ r.role_code }}"
+            {% if r.role_code == pick.role_slot %}selected{% endif %}>
+            {{ r.description }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="priority">Priority (1 = highest)</label>
+        <select name="priority" id="priority" class="form-input">
+          {% for p in range(1, 6) %}
+            <option value="{{ p }}"{% if p == pick.priority %} selected{% endif %}>{{ p }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="max_bid_cr">Max bid (₹ cr)</label>
+        <input type="number" step="0.01" min="0.01" name="max_bid_cr" id="max_bid_cr"
+               class="form-input" value="{{ pick.max_bid_cr }}" required>
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:.75rem">
+      <label class="form-label" for="status">Status</label>
+      <select name="status" id="status" class="form-input" onchange="togglePrice()">
+        <option value="Target" {% if pick.status == 'Target' %}selected{% endif %}>Target</option>
+        <option value="Bought" {% if pick.status == 'Bought' %}selected{% endif %}>Bought</option>
+        <option value="Lost"   {% if pick.status == 'Lost'   %}selected{% endif %}>Lost</option>
+      </select>
+    </div>
+
+    {# Price paid — shown only when status = Bought; triggers the buy transaction #}
+    <div id="price_group" class="form-group" style="margin-bottom:.75rem;
+      {% if pick.status != 'Bought' %}display:none{% endif %}">
+      <label class="form-label" for="price_paid_cr">Price paid (₹ cr)</label>
+      <input type="number" step="0.01" min="0.01" name="price_paid_cr" id="price_paid_cr"
+             class="form-input"
+             value="{{ pick.price_paid_cr if pick.price_paid_cr else '' }}">
+      <small style="color:var(--muted);margin-top:.2rem">
+        Saving as Bought runs the auction-rules check and locks the board row.
+      </small>
+    </div>
+
+    <div class="form-group" style="margin-bottom:1rem">
+      <label class="form-label" for="notes">Notes</label>
+      <input type="text" name="notes" id="notes" class="form-input"
+             value="{{ pick.notes or '' }}" placeholder="Optional scouting note">
+    </div>
+
+    <div style="display:flex;gap:.5rem">
+      <button type="submit" class="btn btn-primary">Save changes</button>
+      <a href="{{ url_for('draft.board') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</section>
+
+<script>
+function togglePrice() {
+  const show = document.getElementById('status').value === 'Bought';
+  document.getElementById('price_group').style.display = show ? '' : 'none';
+}
+</script>
+{% endblock %}

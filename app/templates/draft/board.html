@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block title %}Draft Board — IPL Analytics{% endblock %}
+{% block content %}
+
+{# ── scout selector: dropdown loaded from the scout table (plan.md section 10) ── #}
+<form class="scout-bar" method="post" action="{{ url_for('draft.set_scout') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="scout_sel" style="font-weight:600;white-space:nowrap">Editing as:</label>
+  <select id="scout_sel" name="scout_id" class="form-input" style="width:auto">
+    <option value="">— select scout —</option>
+    {% for sc in scouts %}
+      <option value="{{ sc.scout_id }}"
+        {% if sc.scout_id == scout_id %}selected{% endif %}>
+        {{ sc.display_name }}
+      </option>
+    {% endfor %}
+  </select>
+  <button class="btn btn-secondary btn-sm" type="submit">Switch</button>
+</form>
+
+{# ── board summary header (from v_draft_board_summary) ── #}
+{% if summary %}
+<section class="stats">
+  <div class="stat">
+    <span class="num">₹{{ "%.2f"|format(summary.remaining_cr|float) }}</span>
+    <span class="label">purse left (cr)</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ summary.squad_count }} / {{ summary.max_squad }}</span>
+    <span class="label">squad</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ summary.overseas_count }} / {{ summary.max_overseas }}</span>
+    <span class="label">overseas</span>
+  </div>
+  <div class="stat">
+    <span class="num">
+      {{ summary.bat_count }}B&nbsp;{{ summary.wk_count }}WK&nbsp;{{ summary.ar_count }}AR&nbsp;{{ summary.bowl_count }}BO
+    </span>
+    <span class="label">role balance</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ summary.targets }}</span>
+    <span class="label">targets</span>
+  </div>
+</section>
+{% endif %}
+
+{# ── add target player ── #}
+<section class="card" style="margin:1rem 0">
+  <h2>Add a target player</h2>
+  <form method="post" action="{{ url_for('draft.add_pick') }}" id="add_form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {# player_id is set by the autocomplete widget #}
+    <input type="hidden" name="player_id" id="player_id" value="">
+
+    <div class="form-row">
+      <div class="form-group" style="flex:3;min-width:200px">
+        <label class="form-label" for="player_search">Player (type to search)</label>
+        <div class="ac-wrap">
+          <input type="text" id="player_search" class="form-input"
+                 placeholder="e.g. Kohli, Bumrah…"
+                 autocomplete="off" aria-label="Player search" aria-autocomplete="list"
+                 aria-controls="ac_list">
+          <div id="ac_list" class="ac-suggestions" hidden role="listbox"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="role_slot">Role slot</label>
+        {# Dropdown loaded from the role table (plan.md section 10) #}
+        <select name="role_slot" id="role_slot" class="form-input">
+          {% for r in roles %}
+            <option value="{{ r.role_code }}">{{ r.description }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group" style="max-width:100px">
+        <label class="form-label" for="priority">Priority</label>
+        <select name="priority" id="priority" class="form-input">
+          {% for p in range(1, 6) %}
+            <option value="{{ p }}"{% if p == 3 %} selected{% endif %}>{{ p }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group" style="max-width:130px">
+        <label class="form-label" for="max_bid_cr">Max bid (₹ cr)</label>
+        <input type="number" step="0.01" min="0.01" name="max_bid_cr" id="max_bid_cr"
+               class="form-input" placeholder="e.g. 15" required>
+      </div>
+      <div class="form-group" style="flex:2">
+        <label class="form-label" for="notes">Notes</label>
+        <input type="text" name="notes" id="notes" class="form-input"
+               placeholder="Optional scouting note">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"
+            onclick="if(!document.getElementById('player_id').value){alert('Pick a player from the dropdown');return false}">
+      Add to board
+    </button>
+  </form>
+</section>
+
+{# ── pick list ── #}
+<section class="card">
+  <h2>{{ summary.name if summary else "2027 Auction Plan" }}</h2>
+  {% if picks %}
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Player</th>
+        <th>Country · Last team</th>
+        <th>Role slot</th>
+        <th class="r">Max bid</th>
+        <th class="r">Price paid</th>
+        <th>Status</th>
+        <th>Last editor</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for pick in picks %}
+      <tr class="pick-row-{{ pick.status|lower }}">
+        <td>{{ pick.priority }}</td>
+        <td>
+          {{ pick.display_name }}
+          {% if pick.is_overseas %}<span class="badge-ov">OV</span>{% endif %}
+        </td>
+        <td>{{ pick.country }}{% if pick.last_team %} · {{ pick.last_team }}{% endif %}</td>
+        <td>{{ pick.role_name }}</td>
+        <td class="r">₹{{ "%.2f"|format(pick.max_bid_cr|float) }}</td>
+        <td class="r">
+          {% if pick.price_paid_cr %}₹{{ "%.2f"|format(pick.price_paid_cr|float) }}
+          {% else %}—{% endif %}
+        </td>
+        <td><span class="badge badge-{{ pick.status|lower }}">{{ pick.status }}</span></td>
+        <td style="color:var(--muted);font-size:.85rem">{{ pick.updated_by_name or '—' }}</td>
+        <td style="color:var(--muted);font-size:.85rem">{{ pick.notes or '—' }}</td>
+        <td class="pick-actions">
+          <a class="btn btn-secondary btn-sm"
+             href="{{ url_for('draft.edit_pick', pick_id=pick.pick_id) }}">Edit</a>
+          <form method="post"
+                action="{{ url_for('draft.delete_pick', pick_id=pick.pick_id) }}"
+                style="display:inline"
+                onsubmit="return confirm('Remove this pick?')">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="btn btn-danger btn-sm" type="submit">Del</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+    <p style="color:var(--muted);padding:.5rem 0">No picks yet — add a target player above.</p>
+  {% endif %}
+</section>
+
+{# ── vanilla-JS autocomplete ── #}
+<script>
+(function () {
+  const searchInput = document.getElementById('player_search');
+  const playerIdInput = document.getElementById('player_id');
+  const list = document.getElementById('ac_list');
+
+  searchInput.addEventListener('input', async () => {
+    const q = searchInput.value.trim();
+    playerIdInput.value = '';      // clear whenever the text changes
+    if (q.length < 2) { list.hidden = true; return; }
+
+    let players;
+    try {
+      const res = await fetch('/draft/players/search?q=' + encodeURIComponent(q));
+      players = await res.json();
+    } catch (_) { return; }
+
+    list.innerHTML = '';
+    if (!players.length) { list.hidden = true; return; }
+
+    players.forEach(p => {
+      const item = document.createElement('div');
+      item.className = 'ac-item';
+      item.setAttribute('role', 'option');
+      item.textContent = p.display_name + ' (' + p.country + ', ' + p.role_code + ')';
+      item.addEventListener('mousedown', (e) => {
+        e.preventDefault();                    // keep focus on the text input
+        searchInput.value = p.display_name;
+        playerIdInput.value = p.player_id;
+        list.hidden = true;
+      });
+      list.appendChild(item);
+    });
+    list.hidden = false;
+  });
+
+  // Close suggestions when clicking elsewhere
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !list.contains(e.target)) {
+      list.hidden = true;
+    }
+  });
+})();
+</script>
+{% endblock %}

@@ -80,3 +80,4 @@ _Required by the course AI policy. Keep this up to date and discuss it in the St
 |---|---|---|---|
 | 2026-11-09 | Claude | Schema, loader, views, indexes, deploy scripts, plan.md | Ran the loader and 15 tests against official stats; reviewed the schema |
 | 2026-11-09 | Claude Code | Added .gitattributes (LF for .sh/.sql), python-dotenv, renamed app title to IPL Analytics | Ran 15 tests (all passed); verified app starts on port 8080 |
+| 2026-11-09 | Claude Code | Built Draft Board blueprint (Phase 2): all CRUD routes, buy transaction, Flask-WTF CSRF, autocomplete, 8 new tests | Ran 23 tests (all passed); walked through every SQL statement |

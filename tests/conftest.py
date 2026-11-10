@@ -22,4 +22,5 @@ def client():
 
     app = create_app(DB_URL)
     app.config["TESTING"] = True
+    app.config["WTF_CSRF_ENABLED"] = False   # disable CSRF tokens in tests
     return app.test_client()
