@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}IPL Auction War Room{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('core.home') }}">IPL Auction War Room</a>
+    <nav>
+      <a href="{{ url_for('core.home') }}">Home</a>
+      {# Added in plan.md Phase 2 / 3 #}
+      {% if has_endpoint('draft.board') %}<a href="{{ url_for('draft.board') }}">Draft Board</a>{% endif %}
+      {% if has_endpoint('report.scouting') %}<a href="{{ url_for('report.scouting') }}">Scouting Report</a>{% endif %}
+    </nav>
+  </header>
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for cat, msg in messages %}<div class="flash flash-{{ cat }}">{{ msg }}</div>{% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    Ball-by-ball data: <a href="https://cricsheet.org/">Cricsheet</a> (ODC-BY) ·
+    Player data: cricketdata R package (GPL-3) · CS348 project
+  </footer>
+</body>
+</html>

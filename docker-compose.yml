@@ -1,0 +1,14 @@
+# Local PostgreSQL 16 (same major version as Cloud SQL). Start with: docker compose up -d
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ipl
+      POSTGRES_PASSWORD: ipl_local_dev   # local only; never reuse in the cloud
+      POSTGRES_DB: ipl
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Build the 2027 squad with evidence</h1>
+  <p>Every IPL ball from {{ counts.first_season }} to {{ counts.last_season }}, loaded into PostgreSQL.</p>
+</section>
+
+<section class="stats">
+  <div class="stat"><span class="num">{{ "{:,}".format(counts.matches) }}</span><span class="label">matches</span></div>
+  <div class="stat"><span class="num">{{ "{:,}".format(counts.deliveries) }}</span><span class="label">deliveries</span></div>
+  <div class="stat"><span class="num">{{ "{:,}".format(counts.players) }}</span><span class="label">players</span></div>
+</section>
+
+<div class="grid2">
+  <section class="card">
+    <h2>{{ counts.last_season }} season leaders</h2>
+    <table>
+      <thead><tr><th>Award</th><th>Player</th><th class="r">Value</th></tr></thead>
+      <tbody>
+      {% for l in leaders %}
+        <tr><td>{{ l.award_name }}</td><td>{{ l.display_name }}</td><td class="r">{{ '%g' % l.stat_value }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  <section class="card">
+    <h2>Recent finals</h2>
+    <table>
+      <thead><tr><th>Season</th><th>Champion</th><th>Runner-up</th></tr></thead>
+      <tbody>
+      {% for c in champions %}
+        <tr><td>{{ c.season_year }}</td><td>{{ c.champion }}</td><td>{{ c.runner_up }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}

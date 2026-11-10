@@ -1,0 +1,790 @@
+cricsheet_id,cricinfo_id,unique_name,full_name,country,dob,batting_style,bowling_style,playing_role
+00ea847a,398438,MA Agarwal,Mayank Anurag Agarwal,India,1991-02-16,Right hand Bat,Right arm Offbreak,Batter
+012829ff,228622,JW Hastings,John Wayne Hastings,Australia,1985-11-04,Right hand Bat,Right arm Fast medium,Allrounder
+0164b064,376169,MG Neser,Michael Gertges Neser,Australia,1990-03-29,Right hand Bat,Right arm Medium fast,Bowling Allrounder
+0184dc35,28114,R Dravid,Rahul Sharad Dravid,India,1973-01-11,Right hand Bat,Right arm Offbreak,Top order Batter
+025c4400,1175426,MJ Suthar,Manav Jagdusakumar Suthar,India,2002-08-03,Left hand Bat,Slow Left arm Orthodox,
+0264c10e,278482,D Salunkhe,Dinesh Salunkhe,India,1982-11-12,Right hand Bat,Legbreak,Bowler
+030f3089,1206495,K Yadav,Kuldip Yadav,India,1996-10-15,Left hand Bat,Left arm Fast medium,Bowler
+034b4b7d,35281,VRV Singh,Vikram Raj Vir Singh,India,1984-09-17,Right hand Bat,Right arm Medium fast,
+03806cf8,288284,JR Hazlewood,Josh Reginald Hazlewood,Australia,1991-01-08,Left hand Bat,Right arm Fast medium,Bowler
+03a83c50,1153149,V Viyaskanth,Vijayakanth Viyaskanth,Sri Lanka,2001-12-05,Right hand Bat,Legbreak,Bowler
+0404d43c,536936,Liton Das,Litton Kumer Das,Bangladesh,1994-10-13,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+0494fa6e,732293,Vishnu Vinod,Vishnu Vinod,India,1993-12-02,Right hand Bat,,Wicketkeeper Batter
+04a418e8,1079434,R Parag,Riyan Parag,India,2001-11-10,Right hand Bat,Legbreak,Top order Batter
+05c2ca46,47850,RE van der Merwe,Roelof Erasmus van der Merwe,Netherlands,1984-12-31,Right hand Bat,Slow Left arm Orthodox,Allrounder
+0604ef16,27225,SB Bangar,Sanjay Bapusaheb Bangar,India,1972-10-11,Right hand Bat,Right arm Medium fast,
+063b3673,36071,DH Yagnik,Dishant Harendra Yagnik,India,1983-06-22,Left hand Bat,,Wicketkeeper
+08548b13,784373,PHKD Mendis,Pasqual Handi Kamindu Dilanka Mendis,Sri Lanka,1998-09-30,Left hand Bat,"Right arm Offbreak, Slow Left arm Orthodox",Allrounder
+0890552f,778963,A Manohar,Abhinav Manohar,India,1994-09-16,Right hand Bat,Legbreak Googly,Batting Allrounder
+0994d0ae,477021,V Shankar,Vijay Shankar,India,1991-01-26,Right hand Bat,Right arm Medium,Allrounder
+0a3d54b9,360911,VR Aaron,Varun Raymond Aaron,India,1989-10-29,Right hand Bat,Right arm Fast,Bowler
+0a476045,28235,S Dhawan,Shikhar Dhawan,India,1985-12-05,Left hand Bat,Right arm Offbreak,Opening Batter
+0a4ebc61,45434,T Henderson,Tyron Henderson,South Africa,1974-08-01,Right hand Bat,Right arm Fast medium,Bowler
+0a509d6b,723105,RK Singh,Rinku Khanchand Singh,India,1997-10-12,Left hand Bat,Right arm Offbreak,Middle order Batter
+0a67aec0,1176959,Akash Deep,Akash Deep,India,1996-12-15,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+0a8fce53,330902,Mustafizur Rahman,Mustafizur Rahman,Bangladesh,1995-09-06,Left hand Bat,Left arm Fast medium,Bowler
+0aadc906,34282,PR Shah,Pinal Rohitbhai Shah,India,1987-11-03,Right hand Bat,,Wicketkeeper Batter
+0af3426f,279862,SS Mundhe,Shrikant Shrihari Mundhe,India,1988-10-27,Right hand Bat,Right arm Medium,Allrounder
+0b60eb09,267724,KA Maharaj,Keshav Athmanand Maharaj,South Africa,1990-02-07,Right hand Bat,Slow Left arm Orthodox,Bowler
+0bacade8,974087,Rahmanullah Gurbaz,Rahmanullah Gurbaz,Afghanistan,2001-11-28,Right hand Bat,,Wicketkeeper Batter
+0bf15e52,422847,Harmeet Singh (2),Harmeet Singh,India,1992-09-07,Left hand Bat,Slow Left arm Orthodox,
+0c2730df,30176,A Kumble,Anil Kumble,India,1970-10-17,Right hand Bat,Legbreak Googly,Bowler
+0c432afb,279562,P Parameswaran,Prasanth Parameswaran,India,1985-05-30,Right hand Bat,Left arm Medium,
+0c94f480,446499,UBT Chand,Unmukt Bharat Thakur Chand,India,1993-03-26,Right hand Bat,Right arm Offbreak,Top order Batter
+0c9652b0,1175423,HR Shokeen,Hrithik Rakesh Shokeen,India,2000-08-14,Right hand Bat,Right arm Offbreak,Bowler
+0d232ffd,30220,MA Khote,Musavir Asmat Khote,India,1980-04-22,Right hand Bat,Right arm Medium,
+0dc00542,42639,Shahid Afridi,Sahibzada Mohammad Shahid Khan Afridi,Pakistan,1980-03-01,Right hand Bat,Legbreak Googly,Allrounder
+0ebfb1ad,431901,E Lewis,Evin Lewis,West Indies,1991-12-27,Left hand Bat,,Opening Batter
+0ed0cdbf,236810,H Das,Halhadar Das,India,1986-12-10,Right hand Bat,,
+0edcb652,1059577,Subhransu Senapati,Subhranshu Pradeep Senapati,India,1996-12-30,Right hand Bat,Right arm Medium,Top order Batter
+0f12f9df,233514,NLTC Perera,Narangoda Liyanaarachchilage Thisara Chirantha Perera,Sri Lanka,1989-04-03,Left hand Bat,Right arm Medium fast,Bowling Allrounder
+0f721006,391485,JO Holder,Jason Omar Holder,West Indies,1991-11-05,Right hand Bat,Right arm Medium fast,Bowling Allrounder
+0fa5042b,7502,L Ronchi,Luke Ronchi,New Zealand,1981-04-23,Right hand Bat,,Wicketkeeper Batter
+107c26fb,1294342,KT Maphaka,Kwena Tshegofatso Maphaka,South Africa,2006-04-08,Left-hand bat,Left-arm fast,
+10a91f35,42655,Shoaib Akhtar,Shoaib Akhtar,Pakistan,1975-08-13,Right hand Bat,Right arm Fast,Bowler
+11614d87,327830,D Pretorius,Dwaine Pretorius,South Africa,1989-03-29,Right hand Bat,Right arm Medium fast,Bowling Allrounder
+119678fd,30288,KV Sharma,Karn Vinod Sharma,India,1987-10-23,Left hand Bat,Legbreak Googly,Bowler
+11df3dc8,16406,MJ Lumb,Michael John Lumb,England,1980-02-12,Left hand Bat,Right arm Medium,Top order Batter
+12314277,1244751,Arshad Khan (2),Mohd Arshad Khan,India,1997-12-20,Left hand Bat,Left arm Medium,Bowler
+12b610c2,530011,TM Head,Travis Michael Head,Australia,1993-12-29,Left hand Bat,Right arm Offbreak,Middle order Batter
+12eddf28,5779,RJ Harris,Ryan James Harris,Australia,1979-10-11,Right hand Bat,Right arm Fast,Bowler
+1399b39c,851261,Anmolpreet Singh,Anmolpreet Singh,India,1998-03-28,Right hand Bat,Right arm Offbreak,Batter
+13c35c9e,232364,TG Southee,Timothy Grant Southee,New Zealand,1988-12-11,Right hand Bat,Right arm Medium fast,Bowler
+14b14cd8,277472,DM Bravo,Darren Michael Bravo,West Indies,1989-02-06,Left hand Bat,Right arm Medium,Top order Batter
+14f96089,379504,A Zampa,Adam Zampa,Australia,1992-03-31,Right hand Bat,Legbreak Googly,Bowler
+1558d83b,499660,GS Sandhu,Gurinder Singh Sandhu,Australia,1993-06-14,Left hand Bat,Right arm Fast medium,Bowler
+16043342,6553,AB McDonald,Andrew Barry McDonald,Australia,1981-06-05,Right hand Bat,Right arm Fast medium,Allrounder
+1647bd37,322535,Karanveer Singh,Karanveer Singh,India,1987-11-08,Right hand Bat,Legbreak Googly,
+16605a1b,422106,AA Kazi,Abrar Anjum Kazi,India,1989-09-29,Left hand Bat,Slow Left arm Orthodox,Bowler
+16dfcc19,43524,Umar Gul,Umar Gul,Pakistan,1982-10-15,Right hand Bat,Right arm Fast medium,Bowler
+172dff15,594322,C Bosch,Corbin Bosch,South Africa,1994-09-10,Right hand Bat,Right arm Fast medium,Allrounder
+1763bc6c,319744,X Thalaivan Sargunam,Xavier Thalaivan Sargunam,India,1985-05-15,Right hand Bat,Right arm Offbreak,
+18c78b11,46148,RE Levi,Richard Ernst Levi,South Africa,1988-01-14,Right hand Bat,Right arm Medium,Opening Batter
+18e6906e,527299,A Choudhary,Aniket Vinod Choudhary,India,1990-01-28,Right hand Bat,Left arm Medium,Bowler
+19b9f399,787073,CJ Green,Christopher James Green,Australia,1993-10-01,Right hand Bat,Right arm Offbreak,Bowling Allrounder
+1a0c3177,323131,P Awana,Parvinder Awana,India,1986-07-19,Right hand Bat,Right arm Medium,Bowler
+1a156c88,308798,DJM Short,D'Arcy John Matthew Short,Australia,1990-08-09,Left hand Bat,Left arm Wrist spin,Opening Batter
+1a2676c5,398666,SA Abbott,Sean Anthony Abbott,Australia,1992-02-29,Right hand Bat,Right arm Fast medium,Allrounder
+1abb78f8,475281,SN Thakur,Shardul Narendra Thakur,India,1991-10-16,Right hand Bat,Right arm Medium,Bowler
+1ac746c8,1125958,Atharva Taide,Atharva Taide,India,2000-04-26,Left hand Bat,Slow Left arm Orthodox,Batting Allrounder
+1b7b0fa7,1252370,Vivrant Sharma,Vivrant Sharma,India,1999-10-30,Left hand Bat,Legbreak Googly,
+1be70c88,50431,LPC Silva,Lindamlilage Prageeth Chamara Silva,Sri Lanka,1979-12-14,Right hand Bat,Legbreak,Batter
+1c17e270,35582,RV Uthappa,Robin Venu Uthappa,India,1985-11-11,Right hand Bat,Right arm Medium,Batter
+1c2a64cd,389605,A Ashish Reddy,Ammana Ashish Reddy,India,1991-02-24,Right hand Bat,Right arm Medium,Allrounder
+1c914163,36084,Yuvraj Singh,Yuvraj Singh,India,1981-12-12,Left hand Bat,Slow Left arm Orthodox,Middle order Batter
+1cb14aa4,545467,CJ Dala,Carl Junior Dala,South Africa,1989-12-29,Right hand Bat,Right arm Medium,Bowler
+1da489ff,917213,S Kaushik,Shivil Kaushik,India,1995-09-07,Right hand Bat,Left arm Wrist spin,Bowler
+1dc12ab9,33335,SK Raina,Suresh Kumar Raina,India,1986-11-27,Left hand Bat,Right arm Offbreak,Middle order Batter
+1e66c162,390484,JD Unadkat,Jaydev Dipakbhai Unadkat,India,1991-10-18,Right hand Bat,Left arm Medium,Bowler
+1ee08e9a,774223,JA Richardson,Jhye Avon Richardson,Australia,1996-09-20,Right hand Bat,Right arm Fast,Bowler
+1efb8a28,4498,AC Blizzard,Aiden Craig Blizzard,Australia,1984-06-27,Left hand Bat,Left arm Medium,Batter
+1fc6ef83,581379,SD Hope,Shai Diego Hope,West Indies,1993-11-10,Right hand Bat,,Wicketkeeper Batter
+2049f3a0,34245,SJ Srivastava,Shalabh Jagdishprasad Srivastava,India,1981-09-22,Right hand Bat,Left arm Fast medium,Bowler
+20a941bb,46592,M Ntini,Makhaya Ntini,South Africa,1977-07-06,Right hand Bat,Right arm Fast,Bowler
+21ac077a,27572,RR Bose,Ranadeb Ranjit Bose,India,1979-02-27,Right hand Bat,Right arm Fast medium,
+21d4e29b,700167,NA Saini,Navdeep Amarjeet Saini,India,1992-11-23,Right hand Bat,Right arm Fast,Bowler
+235c2bb6,436757,H Klaasen,Heinrich Klaasen,South Africa,1991-07-30,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+23ac69e6,211854,RJ Quiney,Robert John Quiney,Australia,1982-08-20,Left hand Bat,Right arm Medium,Batter
+23cca426,820691,OF Smith,Odean Fabian Smith,West Indies,1996-11-01,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+23eeb873,447261,DL Chahar,Deepak Lokandersingh Chahar,India,1992-08-07,Right hand Bat,Right arm Medium,Bowler
+244048f6,1125976,Arshdeep Singh,Arshdeep Singh,India,1999-02-05,Left hand Bat,Left arm Medium fast,Bowler
+245c97cb,459257,TS Mills,Tymal Solomon Mills,England,1992-08-12,Right hand Bat,Left arm Fast,Bowler
+2461eef2,376109,PA Reddy,Produturi Akshath Reddy,India,1991-02-11,Right hand Bat,Legbreak,Opening Batter
+2498e163,5702,JR Hopes,James Redfern Hopes,Australia,1978-10-24,Right hand Bat,Right arm Medium,Allrounder
+249abedf,237199,Jalaj S Saxena,Jalaj Sahai Saxena,India,1986-12-15,Right hand Bat,"Right arm Offbreak, Legbreak Googly",Allrounder
+249d60c9,244497,AU Rashid,Adil Usman Rashid,England,1988-02-17,Right hand Bat,Legbreak,Bowler
+24d94623,422992,Ankit Sharma,Ankit Nagendra Sharma,India,1991-04-20,Left hand Bat,Slow Left arm Orthodox,Bowler
+2503e881,46569,A Nel,Andre Nel,South Africa,1977-07-15,Right hand Bat,Right arm Fast medium,Bowler
+25228673,1216159,Harsh Dubey,Harsh Surendra Dubey,India,2002-07-23,Left hand Bat,Slow Left arm Orthodox,
+25eeb281,35630,PC Valthaty,Paul Chandrashekar Valthaty,India,1983-12-07,Right hand Bat,Right arm Medium,Batter
+25f7b7d6,877051,T Banton,Tom Banton,England,1998-11-11,Right hand Bat,,Wicketkeeper Batter
+260fd380,34264,AM Salvi,Aavishkar Madhav Salvi,India,1981-10-20,Right hand Bat,Right arm Medium,Bowler
+266849c1,1350770,R Goyal,Raghav Goyal,India,2001-01-26,Left hand Bat,Left arm Wrist spin,Bowler
+26989d80,377534,Shashank Singh,Shashank Singh,India,1991-11-21,Right hand Bat,"Right arm Medium, Right arm Offbreak",Batting Allrounder
+26a85969,290727,R Dhawan,Rishi Dhawan,India,1990-02-19,Right hand Bat,Right arm Medium fast,Allrounder
+26d041c4,299572,Sikandar Raza,Sikandar Raza Butt,Zimbabwe,1986-04-24,Right hand Bat,Right arm Offbreak,Batting Allrounder
+26d76ad9,720465,Virat Singh,Virat Binod Singh,India,1997-12-08,Left hand Bat,Legbreak Googly,Top order Batter
+26e5cabf,35565,MK Tiwary,Manoj Kumar Tiwary,India,1985-11-14,Right hand Bat,Legbreak Googly,Batter
+26ff4c29,46750,RJ Peterson,Robin John Peterson,South Africa,1979-08-04,Left hand Bat,Slow Left arm Orthodox,Bowler
+271f83cd,446507,SA Yadav,Suryakumar Ashok Yadav,India,1990-09-14,Right hand Bat,"Right arm Medium, Right arm Offbreak",Batter
+2728e7e9,28160,P Dogra,Paras Dogra,India,1984-11-19,Right hand Bat,Legbreak,Batter
+272d796e,388678,BR Dunk,Ben Robert Dunk,Australia,1987-03-11,Left hand Bat,Right arm Offbreak,Wicketkeeper Batter
+27af6414,7547,BJ Rohrer,Ben James Rohrer,Australia,1981-03-26,Left hand Bat,,Middle order Batter
+27e71d47,431876,K Upadhyay,Krishnakant Upadhyay,India,1986-06-18,Right hand Bat,Right arm Medium,
+280fff14,1340422,Sakib Hussain,Sakib Hussain,India,2004-12-14,Right hand Bat,Right arm Medium,
+2815fe50,29702,AA Jhunjhunwala,Abhishek Arunkumar Jhunjhunwala,India,1982-12-01,Right hand Bat,Right arm Offbreak,Batter
+287686fd,32084,S Narwal,Sumit Narwal,India,1982-04-16,Left hand Bat,Right arm Medium,Allrounder
+28c78fb3,340854,Harpreet Singh,Harpreet Singh Bhatia,India,1991-08-11,Left hand Bat,Right arm Medium,Batter
+297b26da,36130,Yashpal Singh,Yashpal Singh,India,1981-11-27,Right hand Bat,Right arm Medium,Batter
+29d72eb2,337913,AA Chavan,Ankeet Anil Chavan,India,1985-10-28,Left hand Bat,Slow Left arm Orthodox,Batter
+29e95537,277916,AM Rahane,Ajinkya Madhukar Rahane,India,1988-06-06,Right hand Bat,Right arm Medium,Top order Batter
+2a2e6343,4864,DT Christian,Daniel Trevor Christian,Australia,1983-05-04,Right hand Bat,Right arm Fast medium,Allrounder
+2a72fd4f,391128,Harmeet Singh,Harmeet Singh Bansal,India,1987-10-09,Right hand Bat,Right arm Medium,Bowler
+2af1b6d2,228430,AN Ahmed,Abu Nechim Ahmed,India,1988-11-05,Right hand Bat,Right arm Medium fast,Bowler
+2b6e6dec,5390,AC Gilchrist,Adam Craig Gilchrist,Australia,1971-11-14,Left hand Bat,Right arm Offbreak,Wicketkeeper Batter
+2b801189,1079847,Mayank Rawat,Mayank Ram Rawat,India,1999-12-04,Right-hand bat,Right-arm offbreak,
+2bb09eb2,55988,Mohammad Ashraful,Mohammad Ashraful,Bangladesh,1984-07-07,Right hand Bat,"Right arm Offbreak, Legbreak",Middle order Batter
+2be41edb,226492,MJ Guptill,Martin James Guptill,New Zealand,1986-09-30,Right hand Bat,Right arm Offbreak,Opening Batter
+2c25d4f5,1119026,D Padikkal,Devdutt Padikkal,India,2000-07-07,Left hand Bat,Right arm Offbreak,Top order Batter
+2c76b512,528985,DJ Muthuswami,Domnic Joseph Muthuswami,India,1981-03-09,Right hand Bat,Right arm Medium,
+2cdce1be,1131754,C Sakariya,Chetan Sakariya,India,1998-02-28,Left hand Bat,Left arm Medium fast,Bowler
+2cffab74,926851,Mukesh Kumar,Mukesh Kumar,India,1993-10-12,Right hand Bat,Right arm Medium,Bowler
+2d140b79,1403153,AA Kulkarni,Arshin Atul Kulkarni,India,2005-02-15,Right-hand bat,Right-arm medium,
+2e11c706,230371,BCJ Cutting,Benjamin Colin James Cutting,Australia,1987-01-30,Right hand Bat,Right arm Fast medium,Allrounder
+2e171977,554691,AR Patel,Axar Rajeshbhai Patel,India,1994-01-20,Left hand Bat,Slow Left arm Orthodox,Bowling Allrounder
+2e78f685,1163695,KR Sen,Kuldeep Rampal Sen,India,1996-10-22,Right hand Bat,Right arm Fast,Bowler
+2e81a32d,326016,B Kumar,Bhuvneshwar Kumar Singh,India,1990-02-05,Right hand Bat,Right arm Medium,Bowler
+2e8994e7,44932,JP Duminy,Jean-Paul Duminy,South Africa,1984-04-14,Left hand Bat,Right arm Offbreak,Batting Allrounder
+2e9fdf9b,362541,DAJ Bracewell,Douglas Andrew John Bracewell,New Zealand,1990-09-28,Right hand Bat,Right arm Fast medium,Bowler
+2ed569a0,1064812,RD Chahar,Rahul Desraj Chahar,India,1999-08-04,Right hand Bat,Legbreak Googly,Bowler
+2eeb4370,31104,C Madan,Chandan Madan,India,1982-10-15,Right hand Bat,,Wicketkeeper
+2f3817ce,34139,TP Sudhindra,Taduri Prakash Chandra Sudhindra,India,1984-04-24,Left hand Bat,Right arm Fast,
+2f49c897,940973,Mohammed Siraj,Mohammed Siraj,India,1994-03-13,Right hand Bat,Right arm Fast,Bowler
+2f9d0389,493773,LH Ferguson,Lachlan Hammond Ferguson,New Zealand,1991-06-13,Right hand Bat,Right arm Fast,Bowler
+30a2649b,302208,CM Gautam,Chidhambaram Muralidharen Gautam,India,1986-03-08,Right hand Bat,,Wicketkeeper
+30a45b23,267192,SPD Smith,Steven Peter Devereux Smith,Australia,1989-06-02,Right hand Bat,Legbreak Googly,Middle order Batter
+30df8c66,1159722,Simarjeet Singh,Simarjeet Singh,India,1998-01-17,Right hand Bat,Right arm Medium fast,Bowler
+30e37810,35282,Sunny Singh,Sunny Singh,India,1986-12-18,Right hand Bat,Right arm Medium fast,Batter
+3204c99f,596010,G Coetzee,Gerald Coetzee,South Africa,2000-10-02,Right hand Bat,Right arm Fast,Bowler
+32198ae0,5961,MC Henriques,Moises Constantino Henriques,Australia,1987-02-01,Right hand Bat,Right arm Fast medium,Allrounder
+3241e3fd,604302,N Pooran,Nicholas Pooran,West Indies,1995-10-02,Left hand Bat,Right arm Offbreak,Wicketkeeper Batter
+327b58d3,552152,PVD Chameera,Pathira Vasan Dushmantha Chameera,Sri Lanka,1992-01-11,Right hand Bat,Right arm Fast,Bowler
+331ea488,215155,UT Khawaja,Usman Tariq Khawaja,Australia,1986-12-18,Left hand Bat,Right arm Medium,Top order Batter
+3355b542,44828,F du Plessis,Francois du Plessis,South Africa,1984-07-13,Right hand Bat,Legbreak,Middle order Batter
+33a364a6,26907,R Bhatia,Rajat Bhatia,India,1979-10-22,Right hand Bat,Right arm Medium fast,Allrounder
+33cb3411,43652,Younis Khan,Mohammad Younis Khan,Pakistan,1977-11-29,Right hand Bat,"Right arm Medium, Legbreak",Middle order Batter
+33ffc3dd,1048841,R Sanjay Yadav,Ramsingh  Sanjay Yadav,India,1995-05-10,Left hand Bat,Slow Left arm Orthodox,Allrounder
+342d8ade,48835,CRD Fernando,Congenige Randhi Dilhara Fernando,Sri Lanka,1979-07-19,Right hand Bat,Right arm Fast medium,Bowler
+350bb1b1,450860,AF Milne,Adam Fraser Milne,New Zealand,1992-04-13,Right hand Bat,Right arm Fast,Bowler
+35205dfc,53118,DR Smith,Dwayne Romel Smith,West Indies,1983-04-12,Right hand Bat,Right arm Medium,Allrounder
+3576e47e,26806,S Badrinath,Subramaniam Badrinath,India,1980-08-30,Right hand Bat,Right arm Offbreak,Middle order Batter
+35f173a0,595267,MP Breetzke,Matthew Paul Breetzke,South Africa,1998-11-03,Right hand Bat,,Batter
+36619795,942371,Zeeshan Ansari,Zeeshan Ansari,India,1999-12-16,Right hand Bat,Legbreak Googly,
+36d33dd0,52969,RR Sarwan,Ramnaresh Ronnie Sarwan,West Indies,1980-06-23,Right hand Bat,Legbreak,Batter
+372455c4,379143,Q de Kock,Quinton de Kock,South Africa,1992-12-17,Left hand Bat,,Wicketkeeper Batter
+378daa89,1254269,Aman Hakim Khan,Aman Hakim Khan,India,1996-11-23,Right hand Bat,Right arm Medium,Bowler
+38f2c66c,307448,VS Yeligati,Vikrant Shyam Yeligati,India,1985-04-23,Right hand Bat,Right arm Offbreak,
+39086549,1124282,JR Philippe,Joshua Ryan Philippe,Australia,1997-06-01,Right hand Bat,,Wicketkeeper Batter
+39a2dfa8,423838,R Tewatia,Rahul Tewatia,India,1993-05-20,Left hand Bat,Legbreak,Bowling Allrounder
+39ed0d2f,1246518,KS Sharma,Karan Sunny Sharma,India,1998-10-31,Right hand Bat,Right arm Offbreak,Allrounder
+39f01cdb,19296,KP Pietersen,Kevin Peter Pietersen,England,1980-06-27,Right hand Bat,Right arm Offbreak,Top order Batter
+39f82db3,5583,DJ Harris,Daniel Joseph Harris,Australia,1979-12-31,Right hand Bat,Right arm Medium,
+3a02626a,324444,AG Paunikar,Amit Gajanan Paunikar,India,1988-04-18,Right hand Bat,,Wicketkeeper Batter
+3a60e0b5,265564,WD Parnell,Wayne Dillon Parnell,South Africa,1989-07-30,Left hand Bat,Left arm Medium fast,Bowler
+3ae3f034,430401,AUK Pathan,Asad Ullah Khan Pathan,India,1984-06-17,Right hand Bat,Right arm Medium,Bowler
+3b53243a,1050545,XC Bartlett,Xavier Colin Bartlett,Australia,1998-12-17,Right hand Bat,Right arm Fast medium,Bowler
+3c28853f,1161050,Sediqullah Atal,Sediqullah Atal,Afghanistan,2001-08-12,Left hand Bat,,Opening Batter
+3c55c703,1194959,JG Bethell,Jacob Graham Bethell,England,2003-10-23,Left hand Bat,Slow Left arm Orthodox,Batting Allrounder
+3c6ffae8,32498,YK Pathan,Yusuf Khan Pathan,India,1982-11-17,Right hand Bat,Right arm Offbreak,Allrounder
+3cea23da,1292506,N Sindhu,Nishant Sindhu,India,2004-04-09,Left hand Bat,Slow Left arm Orthodox,Allrounder
+3d284ca3,669365,PD Salt,Philip Dean Salt,England,1996-08-28,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+3d7e087f,35353,SK Trivedi,Siddharth Kishorkumar Trivedi,India,1982-09-04,Right hand Bat,Right arm Medium,Bowler
+3d8feaf8,272450,MR Marsh,Mitchell Ross Marsh,Australia,1991-10-20,Right hand Bat,Right arm Medium,Allrounder
+3dba85c2,31041,WA Mota,Wilkin Arvind Mota,India,1981-09-20,Right hand Bat,Right arm Medium,
+3eac9d95,38062,JDP Oram,Jacob David Philip Oram,New Zealand,1978-07-28,Left hand Bat,Right arm Fast medium,Allrounder
+3edb58fc,16932,AD Mascarenhas,Adrian Dimitri Mascarenhas,England,1977-10-30,Right hand Bat,Right arm Fast medium,Allrounder
+3fb19989,311592,MA Starc,Mitchell Aaron Starc,Australia,1990-01-30,Left hand Bat,Left arm Fast,Bowler
+3fca55af,228943,S Sohal,Sunny Sohal,United States of America,1987-11-10,Right hand Bat,Legbreak,Batter
+3ff033bb,437316,MD Shanaka,Madagamagamage Dasun Shanaka,Sri Lanka,1991-09-09,Right hand Bat,Right arm Medium,Allrounder
+402f8494,473191,RJ Gleeson,Richard James Gleeson,England,1987-12-02,Right hand Bat,Right arm Fast medium,Bowler
+40caa465,331855,T Kohli,Taruwar Sushil Kohli,India,1988-12-17,Right hand Bat,Right arm Medium,Top order Batter
+4125d931,527663,J Suchith,Jagadeesha Suchith,India,1994-01-16,Left hand Bat,Slow Left arm Orthodox,Bowler
+4180d897,53191,JE Taylor,Jerome Everton Taylor,West Indies,1984-06-22,Right hand Bat,Right arm Fast,Bowler
+41eb4a4f,35731,R Vinay Kumar,Ranganath Vinay Kumar,India,1984-02-12,Right hand Bat,Right arm Medium,Bowler
+4329fbb5,8180,SR Watson,Shane Robert Watson,Australia,1981-06-17,Right hand Bat,Right arm Fast medium,Allrounder
+4353bba5,224367,YA Abdulla,Yusuf Adam Abdulla,South Africa,1983-01-17,Left hand Bat,Left arm Fast medium,Bowler
+441c72ae,1159712,P Ray Barman,Prayas Ray Barman,India,2002-10-25,Right hand Bat,Legbreak Googly,Bowler
+449f4e3c,827051,B Muzarabani,Blessing Muzarabani,Zimbabwe,1996-10-02,Right hand Bat,Right arm Fast medium,Bowler
+44a89551,529436,KS Bharat,Kona Srikar Bharat,India,1993-10-03,Right hand Bat,,Wicketkeeper Batter
+44aac2f0,1148776,Arjun Tendulkar,Arjun Sachin Tendulkar,India,1999-09-24,Left hand Bat,Left arm Medium fast,Bowler
+44afbf2d,333780,NJ Maddinson,Nicolas James Maddinson,Australia,1991-12-21,Left hand Bat,Slow Left arm Orthodox,Opening Batter
+45a43fe2,1060380,RD Gaikwad,Ruturaj Dashrat Gaikwad,India,1997-01-31,Right hand Bat,Right arm Offbreak,Batter
+45c2196c,4508,DE Bollinger,Douglas Erwin Bollinger,Australia,1981-07-24,Left hand Bat,Left arm Fast medium,Bowler
+45eda7c8,326637,CA Lynn,Christopher Austin Lynn,Australia,1990-04-10,Right hand Bat,Slow Left arm Orthodox,Batter
+462411b3,625383,JJ Bumrah,Jasprit Jasbirsingh Bumrah,India,1993-12-06,Right hand Bat,Right arm Fast,Bowler
+465aa633,971349,N Burger,Nandre Burger,South Africa,1995-08-11,Left hand Bat,Left arm Medium fast,Bowling Allrounder
+4663bd23,625964,TL Seifert,Tim Louis Seifert,New Zealand,1994-12-14,Right hand Bat,,Wicketkeeper Batter
+469ea22b,49535,KMDN Kulasekara,Kulasekara Mudiyanselage Dinesh Nuwan Kulasekara,Sri Lanka,1982-07-22,Right hand Bat,Right arm Fast medium,Bowler
+46a9bea1,822553,TU Deshpande,Tushar Uday Deshpande,India,1995-05-15,Left hand Bat,Right arm Medium,Bowler
+4885bbe6,1206052,Yudhvir Singh,Yudhvir Singh Charak,India,1997-09-13,Right hand Bat,Right arm Medium fast,Bowler
+48a1d7b7,670025,SO Hetmyer,Shimron Odilon Hetmyer,West Indies,1996-12-26,Left hand Bat,,Top order Batter
+48fd7349,5939,MEK Hussey,Michael Edward Killeen Hussey,Australia,1975-05-27,Left hand Bat,Right arm Medium,Middle order Batter
+4933f499,272477,JP Behrendorff,Jason Paul Behrendorff,Australia,1990-04-20,Right hand Bat,Left arm Fast medium,Bowler
+495d42a5,26421,R Ashwin,Ravichandran Ashwin,India,1986-09-17,Right hand Bat,Right arm Offbreak,Bowling Allrounder
+4a8a2e3b,28081,MS Dhoni,Mahendra Singh Dhoni,India,1981-07-07,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+4ae1755b,911707,HC Brook,Harry Cherrington Brook,England,1999-02-22,Right hand Bat,Right arm Medium,Batter
+4b31f3a3,1070196,Yash Thakur,Yash Ravisingh Thakur,India,1998-12-28,Right hand Bat,Right arm Medium,
+4b4d1957,327127,PM Sarvesh Kumar,PM Sarvesh Kumar,India,1989-04-26,Right hand Bat,Right arm Medium,
+4b57e452,237095,M Vijay,Murali Vijay,India,1984-04-01,Right hand Bat,Right arm Offbreak,Opening Batter
+4ba44e19,49636,M Muralitharan,Muthiah Muralidaran,Sri Lanka,1972-04-17,Right hand Bat,Right arm Offbreak,Bowler
+4bd09374,1206039,Akash Madhwal,Akash Madhwal,India,1993-11-25,Right hand Bat,Right arm Medium fast,Bowler
+4c4fa80b,273439,SMSM Senanayake,Senanayake Mudiyanselage Sachithra Madhushanka Senanayake,Sri Lanka,1985-02-09,Right hand Bat,Right arm Offbreak,Bowler
+4c5d73db,247235,CR Woakes,Christopher Roger Woakes,England,1989-03-02,Right hand Bat,Right arm Fast medium,Allrounder
+4d5a1617,236766,R Bishnoi,Rajesh Bishnoi,India,1987-10-08,Right hand Bat,Right arm Medium fast,Middle order Batter
+4d6d6280,42683,Salman Butt,Salman Butt,Pakistan,1984-10-07,Left hand Bat,Right arm Offbreak,Batter
+4d7f517e,530812,AJ Hosein,Akeal Jerome Hosein,West Indies,1993-04-25,Left hand Bat,Slow Left arm Orthodox,Bowler
+4e04666c,35357,YV Takawale,Yogesh Vijay Takawale,India,1984-11-05,Right hand Bat,,
+4ec07775,47660,RN ten Doeschate,Ryan Neil ten Doeschate,Netherlands,1980-06-30,Right hand Bat,Right arm Medium fast,Allrounder
+4f629497,36326,SE Bond,Shane Edward Bond,New Zealand,1975-06-07,Right hand Bat,Right arm Fast,Bowler
+5056011d,4451,GJ Bailey,George John Bailey,Australia,1982-09-07,Right hand Bat,Right arm Medium,Top order Batter
+50758325,5472,B Geeves,Brett Geeves,Australia,1982-06-13,Right hand Bat,Right arm Fast medium,Bowler
+508a1ea7,6683,SE Marsh,Shaun Edward Marsh,Australia,1983-07-09,Left hand Bat,Slow Left arm Orthodox,Top order Batter
+50c6bc2b,403902,LS Livingstone,Liam Stephen Livingstone,England,1993-08-04,Right hand Bat,Legbreak,Batting Allrounder
+51a3c5ef,319439,MJ McClenaghan,Mitchell John McClenaghan,New Zealand,1986-06-11,Left hand Bat,Left arm Fast medium,Bowler
+51ec3919,1292527,T Vijay,Tripurana Vijay,India,2001-09-05,Right-hand bat,Right-arm offbreak,
+52294a79,1350761,H Sharma,Himanshu Sharma,India,1998-06-06,Right hand Bat,Legbreak,Bowler
+529eb9e0,906783,OC McCoy,Obed  Christopher McCoy,West Indies,1997-01-04,Left hand Bat,Left arm Fast medium,Bowler
+531f0278,314622,K Santokie,Krishmar Santokie,West Indies,1984-12-20,Left hand Bat,Left arm Medium,Bowler
+53f27a35,430125,BB Samantray,Biplab Bipin Samantray,India,1988-12-14,Right hand Bat,Right arm Medium,Allrounder
+53fe6ee4,6285,DS Lehmann,Darren Scott Lehmann,Australia,1970-02-05,Left hand Bat,Slow Left arm Orthodox,Top order Batter
+541f85c9,302579,SP Goswami,Shreevats Pratyush Goswami,India,1989-05-18,Left hand Bat,,Wicketkeeper Batter
+5451a2c1,27685,B Chipli,Bharat Chipli,India,1983-01-27,Right hand Bat,Right arm Medium,Batter
+54e52590,777815,Vijaykumar Vyshak,Vijaykumar Vyshak,India,1997-01-31,Right hand Bat,Right arm Medium,Bowler
+557153ca,371814,KK Cooper,Kevon Keston Cooper,West Indies,1989-02-16,Right hand Bat,Right arm Medium,Allrounder
+5574750c,669855,JC Archer,Jofra Chioke Archer,England,1995-04-01,Right hand Bat,Right arm Fast,Bowler
+5673a3fc,37749,NL McCullum,Nathan Leslie McCullum,New Zealand,1980-09-01,Right hand Bat,Right arm Offbreak,Bowler
+56ab442f,261354,NM Coulter-Nile,Nathan Mitchell Coulter-Nile,Australia,1987-10-11,Right hand Bat,Right arm Fast,Bowling Allrounder
+5708d0b6,505773,AV Wankhade,Apoorv Vijay Wankhade,India,1992-03-14,Right hand Bat,Right arm Medium,Middle order Batter
+5724e517,1125960,Tanush Kotian,Tanush Karunakar Kotian,India,1998-10-16,Right hand Bat,Right arm Offbreak,Bowling Allrounder
+5748e866,7252,TD Paine,Timothy David Paine,Australia,1984-12-08,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+5750bcb4,1306214,E Malinga,Kiribathgala Kankanamalage Eshan Malinga Dharmasena,Sri Lanka,2001-02-04,Left-hand bat,Right-arm fast-medium,
+57ca01b3,1207295,Kumar Kushagra,Kumar Kushagra,India,2004-10-23,Right hand Bat,,
+57ee1fde,430246,YS Chahal,Yuzvendra Singh Chahal,India,1990-07-23,Right hand Bat,Legbreak Googly,Bowler
+57efa3be,38407,SB Styris,Scott Bernard Styris,New Zealand,1975-07-10,Right hand Bat,Right arm Medium,Allrounder
+59559bc2,510530,J Overton,Jamie Overton,England,1994-04-10,Right hand Bat,Right arm Fast,Bowling Allrounder
+5afd4539,27280,MS Bisla,Manvinder Sultansingh Bisla,India,1984-12-27,Right hand Bat,,Wicketkeeper
+5b040b81,26789,A Singh,Amit Singh,India,1981-06-21,Right hand Bat,Right arm Medium fast,Bowler
+5b16a806,574178,A Dananjaya,Mahamarakkala Kurukulasooriya Patabendige Akila Dananjaya Perera,Sri Lanka,1993-10-04,Left hand Bat,"Right arm Offbreak, Legbreak",Allrounder
+5b615e7c,1122621,Raghu Sharma,Raghu Shivam Sharma,India,1993-03-11,Right hand Bat,Legbreak Googly,
+5b627626,477071,B Aparajith,Baba Aparajith,India,1994-07-08,Right hand Bat,Right arm Offbreak,Batting Allrounder
+5b7ab5a9,1108375,CV Varun,Varun Chakravarthy Vinod,India,1991-08-29,Right hand Bat,Legbreak Googly,Bowler
+5b8c830e,471342,KH Pandya,Krunal Himanshu Pandya,India,1991-03-24,Left hand Bat,Slow Left arm Orthodox,Allrounder
+5bb1a1c4,236779,I Sharma,Ishant Sharma,India,1988-09-02,Right hand Bat,Right arm Fast medium,Bowler
+5bb5a915,46538,M Morkel,Morne Morkel,South Africa,1984-10-06,Left hand Bat,Right arm Fast,Bowler
+5bdcdb72,48472,TM Dilshan,Tillakaratne Mudiyanselage Dilshan,Sri Lanka,1976-10-14,Right hand Bat,Right arm Offbreak,Allrounder
+5d096f3d,32391,RR Powar,Ramesh Rajaram Powar,India,1978-05-20,Right hand Bat,Right arm Offbreak,Bowler
+5d1e7582,629074,BKG Mendis,Balapuwaduge Kusal Gimhan Mendis,Sri Lanka,1995-02-02,Right hand Bat,Legbreak,Wicketkeeper Batter
+5d2eea49,1122918,Kartik Tyagi,Kartik Tyagi,India,2000-11-08,Right hand Bat,Right arm Fast,Bowler
+5d9a1a73,272994,R Sharma,Rahul Sharma,India,1986-11-30,Right hand Bat,Legbreak Googly,Bowler
+5f26df4f,31738,VS Malik,Vikramjeet Singh Malik,India,1983-05-09,Right hand Bat,Right arm Medium,Bowler
+5f4e9e8f,290713,RR Raje,Rohan Ravindra Raje,India,1986-09-03,Right hand Bat,Right arm Fast medium,
+5f547c8b,793463,Rashid Khan,Rashid Khan Arman,Afghanistan,1998-09-20,Right hand Bat,Legbreak Googly,Bowling Allrounder
+5f5d3ad4,377437,SS Shaikh,Shoaib Shabbir Shaikh,India,1987-01-18,Right hand Bat,Right arm Medium,
+5fa06777,32685,IK Pathan,Irfan Khan Pathan,India,1984-10-27,Left hand Bat,Left arm Medium fast,Allrounder
+5ffc0565,1449074,V Nigam,Vipraj Nigam,India,2004-07-28,Right-hand bat,Legbreak,
+6042bf26,7443,NJ Rimmington,Nathan John Rimmington,Australia,1982-11-11,Right hand Bat,Right arm Fast medium,Bowler
+60500956,1201520,RV Patel,Ripal Vinubhai Patel,India,1995-09-28,Right hand Bat,Right arm Medium fast,Middle order Batter
+605b7efa,390480,MC Juneja,Manprit Charanjit Juneja,India,1990-09-12,Right hand Bat,Right arm Offbreak,Top order Batter
+60aa2db3,1385640,LG Pretorius,Lhuan-dre Gilbert  Pretorius,South Africa,2006-03-27,Left-hand bat,,
+611926bc,17991,GR Napier,Graham Richard Napier,England,1980-01-06,Right hand Bat,Right arm Medium,Bowling Allrounder
+6165bca6,302582,A Mukund,Abhinav Mukund,India,1990-01-06,Left hand Bat,Legbreak Googly,Top order Batter
+619aa81f,29646,W Jaffer,Wasim Jaffer,India,1978-02-16,Right hand Bat,Right arm Offbreak,Top order Batter
+62175638,793467,Karim Janat,Karim Janat,Afghanistan,1998-08-11,Right hand Bat,Right arm Medium,Bowling Allrounder
+622cc511,30235,U Kaul,Uday Kaul,India,1987-12-02,Left hand Bat,,Wicketkeeper
+626c5379,33870,R Sathish,Rajagopal Sathish,India,1981-01-14,Right hand Bat,Right arm Medium,Allrounder
+62af8546,25913,Mohammad Nabi,Mohammad Nabi,Afghanistan,1985-01-01,Right hand Bat,Right arm Offbreak,Allrounder
+62e07f92,340063,KH Devdhar,Kedar Hemant Devdhar,India,1989-12-14,Right hand Bat,,Wicketkeeper
+63bff7f9,5605,SM Harwood,Shane Michael Harwood,Australia,1974-03-01,Right hand Bat,Right arm Fast medium,Bowler
+641ac5ff,559066,IS Sodhi,Inderbir Singh Sodhi,New Zealand,1992-10-31,Right hand Bat,Legbreak,Bowler
+64775749,961713,RP Meredith,Riley Patrick Meredith,Australia,1996-06-21,Right hand Bat,Right arm Fast,Bowler
+64839cb3,1194795,M Pathirana,Matheesha Pathirana,Sri Lanka,2002-12-18,Right hand Bat,Right arm Medium,Bowler
+64a4c383,34118,S Sriram,Sridharan Sriram,India,1976-02-21,Left hand Bat,Slow Left arm Orthodox,Middle order Batter
+64c34cd0,42657,Shoaib Malik,Shoaib Malik,Pakistan,1982-02-01,Right hand Bat,Right arm Offbreak,Allrounder
+64d43928,43265,Sohail Tanvir,Sohail Tanvir,Pakistan,1984-12-12,Left hand Bat,Left arm Medium fast,Bowler
+650d5e49,820351,R Powell,Rovman Powell,West Indies,1993-07-23,Right hand Bat,Right arm Medium fast,Middle order Batter
+6581d753,45797,JM Kemp,Justin Miles Kemp,South Africa,1977-10-02,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+65b6943c,573170,L Wood,Luke Wood,England,1995-08-02,Left hand Bat,Left arm Fast medium,Bowling Allrounder
+662c47a6,317786,Y Nagar,Yogesh Nagar,India,1990-01-06,Right hand Bat,Right arm Offbreak,Allrounder
+663b5e34,956871,PN Mankad,Prerak Nileshkumar Mankad,India,1994-04-23,Right hand Bat,Right arm Medium,Allrounder
+66b30f71,227712,AB Dinda,Ashok Bhimchandra Dinda,India,1984-03-25,Right hand Bat,Right arm Medium fast,Bowler
+66cf56a5,310958,A Mithun,Abhimanyu Mithun,India,1989-10-25,Right hand Bat,Right arm Medium,Bowler
+670709ec,29725,SB Joshi,Sunil Bandacharya Joshi,India,1970-06-06,Left hand Bat,Slow Left arm Orthodox,Allrounder
+67af6f81,55698,RW Price,Raymond William Price,Zimbabwe,1976-06-12,Right hand Bat,Slow Left arm Orthodox,Bowler
+6821ac10,47693,JJ van der Wath,Johannes Jacobus van der Wath,South Africa,1978-01-10,Right hand Bat,Right arm Medium fast,Allrounder
+6834d1f2,533042,B Stanlake,Billy James Stanlake,Australia,1994-11-04,Left hand Bat,Right arm Fast,Bowler
+68c56d09,625960,KA Jamieson,Kyle Alex Jamieson,New Zealand,1994-12-30,Right hand Bat,Right arm Fast medium,Bowler
+69762509,6513,DR Martyn,Damien Richard Martyn,Australia,1971-10-21,Right hand Bat,Right arm Medium,Top order Batter
+69be866a,376324,Anureet Singh,Kathuria Anureet Singh,India,1988-03-02,Right hand Bat,Right arm Medium,Bowler
+69d03465,326434,AT Carey,Alex Tyson Carey,Australia,1991-08-27,Left hand Bat,,Wicketkeeper Batter
+6a26221c,600498,AK Markram,Aiden Kyle Markram,South Africa,1994-10-04,Right hand Bat,Right arm Offbreak,Opening Batter
+6ab96cc2,1048867,Sonu Yadav,Ramsingh Sonu Yadav,India,1999-11-11,Right hand Bat,Right arm Medium fast,Allrounder
+6ad3a659,290629,P Amarnath,Palani Amarnath,India,1982-06-01,Right hand Bat,Right arm Medium,
+6aed7e79,587152,PV Tambe,Pravin Vijay Tambe,India,1971-10-08,Right hand Bat,Legbreak,Bowler
+6afb26d6,31028,MD Mishra,Mohnish Dinesh Mishra,India,1984-02-09,Right hand Bat,Right arm Offbreak,Batter
+6b19d823,31107,A Mishra,Amit Mishra,India,1982-11-24,Right hand Bat,Legbreak,Bowler
+6b2ff18f,1252585,SB Dubey,Shubham Badriprasad Dubey,India,1994-08-27,Left hand Bat,Right arm Offbreak,Middle order Batter
+6b71e6cf,50710,KC Sangakkara,Kumar Chokshanada Sangakkara,Sri Lanka,1977-10-27,Left hand Bat,Right arm Offbreak,Wicketkeeper Batter
+6b8eb6e5,34274,S Sreesanth,Shanthakumaran Sreesanth,India,1983-02-06,Right hand Bat,Right arm Fast medium,Bowler
+6c19c6e5,1151278,YBK Jaiswal,Yashasvi Bhupendra Kumar Jaiswal,India,2001-12-28,Left hand Bat,Legbreak,Opening Batter
+6c6591ab,32130,PP Ojha,Pragyan Prayash Ojha,India,1986-09-05,Left hand Bat,Slow Left arm Orthodox,Bowler
+6c79c098,362710,DA Payne,David Alan Payne,England,1991-02-15,Right hand Bat,Left arm Fast medium,Bowler
+6c882e9a,342619,PBB Rajapaksa,Pramod Bhanuka Bandara Rajapaksa,Sri Lanka,1991-10-24,Left hand Bat,Right arm Medium,Top order Batter
+6dbcf855,554699,VH Zol,Vijay Hari Zol,India,1994-11-23,Left hand Bat,Right arm Offbreak,
+6eb146d2,537124,Gurkeerat Singh,Gurkeerat Rupinder Singh,India,1990-06-29,Right hand Bat,Right arm Offbreak,Middle order Batter
+6ec424a9,12440,ND Doshi,Nayan Dilip Doshi,England,1978-10-06,Right hand Bat,Slow Left arm Orthodox,Bowler
+6ef60d3a,391121,Kamran Khan,Kamran Khan,India,1991-03-10,Left hand Bat,Left arm Medium fast,Bowler
+6f49cc6e,717201,Shivam Sharma,Shivam Sharma,India,1993-09-09,Right hand Bat,Right arm Offbreak,
+7023d182,220435,AN Ghosh,Arindam Nanigopal Ghosh,India,1986-10-19,Right hand Bat,Right arm Medium,Batter
+7050a1e7,328163,DB Das,Debabrata Baidya Das,India,1986-09-22,Right hand Bat,Legbreak Googly,Top order Batter
+709b0bac,35390,SS Tiwary,Saurabh Sunil Tiwary,India,1989-12-30,Left hand Bat,,Top order Batter
+70d205c9,33141,AT Rayudu,Ambati Thirupathi Rayudu,India,1985-09-23,Right hand Bat,Right arm Offbreak,Middle order Batter
+710dd98c,47711,MN van Wyk,Morne Nico van Wyk,South Africa,1979-03-20,Right hand Bat,Slow Left arm Orthodox,Wicketkeeper Batter
+7210d461,1159720,Yash Dayal,Yash Dayal,India,1997-12-13,Right hand Bat,Left arm Medium fast,Bowler
+725529bc,28779,SC Ganguly,Sourav Chandidas Ganguly,India,1972-07-08,Left hand Bat,Right arm Medium,Batter
+72861603,47270,GC Smith,Graeme Craig Smith,South Africa,1981-02-01,Left hand Bat,Right arm Offbreak,Opening Batter
+73ad96ed,497121,DJ Hooda,Deepak Jagbir Hooda,India,1995-04-19,Right hand Bat,Right arm Offbreak,Allrounder
+73c18486,348056,KR Mayers,Kyle Rico Mayers,West Indies,1992-09-08,Left hand Bat,Right arm Medium,Batting Allrounder
+740742ef,34102,RG Sharma,Rohit Gurunath Sharma,India,1987-04-30,Right hand Bat,Right arm Offbreak,Top order Batter
+75224f22,677081,KMA Paul,Keemo Mandela Angus Paul,West Indies,1998-02-21,Right hand Bat,Right arm Fast medium,Allrounder
+752f7486,720471,Ishan Kishan,Ishan Pranav Kumar Pandey Kishan,India,1998-07-18,Left hand Bat,,Wicketkeeper Batter
+756389bd,35619,S Vidyut,Vidyut Sivaramakrishnan,India,1981-12-03,Left hand Bat,Slow Left arm Orthodox,Batting Allrounder
+759ac88f,537119,MM Sharma,Mohit Mahipal Sharma,India,1988-09-18,Right hand Bat,Right arm Medium,Bowler
+75de770f,55805,T Taibu,Tatenda Taibu,Zimbabwe,1983-05-14,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+76388dc8,51433,S Badree,Samuel Badree,West Indies,1981-03-09,Right hand Bat,Legbreak,Bowler
+765a4731,1125688,Mukesh Choudhary,Mukesh Choudhary,India,1996-07-06,Left hand Bat,Left arm Medium,Bowler
+77255a9e,446763,RA Tripathi,Rahul Ajay Tripathi,India,1991-03-02,Right hand Bat,Right arm Medium,Top order Batter
+77b1aa15,1312645,Harshit Rana,Harshit Pradeep Rana,India,2001-12-22,Right hand Bat,Right arm Medium fast,Bowler
+78eb4223,230553,KAJ Roach,Kemar Andre Jamal Roach,West Indies,1988-06-30,Right hand Bat,Right arm Fast medium,Bowler
+798934ea,28764,C Ganapathy,Chandrasekar Ganapathy,India,1981-06-10,Right hand Bat,Right arm Medium,
+798cc28e,1083030,KM Asif,KM Asif,India,1993-07-24,Right hand Bat,Right arm Medium,Bowler
+7a8bd078,344580,S Gopal,Shreyas Gopal,India,1993-09-04,Right hand Bat,Legbreak,Allrounder
+7bb62642,26252,Anirudh Singh,Anirudh Singh,India,1980-08-02,Left hand Bat,Right arm Medium,
+7bf96684,20123,OA Shah,Owais Alam Shah,England,1978-10-22,Right hand Bat,Right arm Offbreak,Batter
+7c390b03,279460,RA Shaikh,Rahil Akhil Ahmed Shaikh,India,1985-06-12,Left hand Bat,Left arm Medium,
+7c3b3b78,1209292,VG Arora,Vaibhav Gopal Arora,India,1997-12-14,Right hand Bat,Right arm Fast medium,Bowler
+7c3c0337,1159732,Auqib Nabi,Auqib Nabi,India,1996-11-04,Right hand Bat,Right arm Medium,
+7c503806,44149,J Botha,Johan Botha,South Africa,1982-05-02,Right hand Bat,Right arm Offbreak,Allrounder
+7c7d63a2,459508,AJ Tye,Andrew James Tye,Australia,1986-12-12,Right hand Bat,Right arm Medium fast,Bowler
+7ca5e05d,10582,RS Bopara,Ravinder Singh Bopara,England,1985-05-04,Right hand Bat,Right arm Medium,Batting Allrounder
+7d3720ba,27150,RR Bhatkal,Raju Ravi Bhatkal,India,1985-09-01,Right hand Bat,Right arm Medium,Allrounder
+7d3937ed,8002,DJ Thornely,Dominic John Thornely,Australia,1978-10-01,Right hand Bat,"Right arm Medium, Right arm Offbreak",Top order Batter
+7d415ea5,7133,RT Ponting,Ricky Thomas Ponting,Australia,1974-12-19,Right hand Bat,Right arm Medium,Top order Batter
+7d92277a,974109,Mujeeb Ur Rahman,Mujeeb Ur Rahman,Afghanistan,2001-03-28,Right hand Bat,Right arm Offbreak,Bowler
+7daedf2f,319745,KB Arun Karthik,Konda Bhaskir Arun Karthik,India,1986-02-15,Right hand Bat,Legbreak Googly,Wicketkeeper Batter
+7dc35884,56143,Shakib Al Hasan,Shakib Al Hasan,Bangladesh,1987-03-24,Left hand Bat,Slow Left arm Orthodox,Allrounder
+7dcb9bc9,719719,M Shahrukh Khan,Masood Shahrukh Khan,India,1995-05-27,Right hand Bat,Right arm Offbreak,Batter
+7eae4418,41378,Misbah-ul-Haq,Misbah-ul-Haq Khan Niazi,Pakistan,1974-05-28,Right hand Bat,Legbreak,Middle order Batter
+7f048519,308251,DJ Willey,David Jonathan Willey,England,1990-02-28,Left hand Bat,Left arm Fast medium,Bowling Allrounder
+800d2d97,721867,JM Sharma,Jitesh Mohan Sharma,India,1993-10-22,Right hand Bat,,Wicketkeeper Batter
+808f425a,270484,JP Faulkner,James Peter Faulkner,Australia,1990-04-29,Right hand Bat,Left arm Fast medium,Bowling Allrounder
+80b2fb19,1350768,Prince Yadav,Prince Yadav,India,2001-12-12,Right-hand bat,Right-arm fast,
+81049310,447587,J Yadav,Jayant Yadav,India,1990-01-22,Right hand Bat,Right arm Offbreak,Bowler
+81c08fa3,1246528,Umran Malik,Umran Malik,India,1999-11-22,Right hand Bat,Right arm Fast,Bowler
+81c36ee9,696401,M Jansen,Marco Jansen,South Africa,2000-05-01,Right hand Bat,Left arm Fast,Bowling Allrounder
+8291f939,371150,AL Menaria,Ashok Lakshminarayan Menaria,India,1990-10-29,Left hand Bat,Slow Left arm Orthodox,Allrounder
+8361e524,379776,SSB Magala,Sisanda Somila Bruce Magala,South Africa,1991-01-07,Right hand Bat,Right arm Fast medium,Bowler
+83c3e8e3,1123718,SH Johnson,Spencer Henry Johnson,Australia,1995-12-16,Left hand Bat,Left arm Fast medium,Bowler
+844e79d1,1070665,D Brevis,Dewald Brevis,South Africa,2003-04-29,Right hand Bat,Legbreak,Batting Allrounder
+84d9c311,1131978,Ashutosh Sharma,Ashutosh Rambabu Sharma,India,1998-09-15,Right hand Bat,,
+855a210c,333904,AP Tare,Aditya Prakash Tare,India,1987-11-07,Right hand Bat,,Wicketkeeper
+85aae393,277237,Iqbal Abdulla,Sayed Iqbal Abdulla,India,1989-12-02,Left hand Bat,Slow Left arm Orthodox,Allrounder
+85b3fab2,595978,T Stubbs,Tristan Stubbs,South Africa,2000-08-14,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+85e0cf10,917159,M Prasidh Krishna,Muralikrishna Prasidh Krishna,India,1996-02-19,Right hand Bat,Right arm Fast medium,Bowler
+85ec8e33,642519,SS Iyer,Shreyas Santosh Iyer,India,1994-12-06,Right hand Bat,"Right arm Offbreak, Legbreak Googly",Top order Batter
+864c199e,8119,AC Voges,Adam Charles Voges,Australia,1979-10-04,Right hand Bat,Slow Left arm Orthodox,Top order Batter
+86ae8ef2,240734,MB Parmar,Mohnish Bipinbhai Parmar,India,1988-04-12,Right hand Bat,Right arm Offbreak,
+86dc8f2e,45789,JH Kallis,Jacques Henry Kallis,South Africa,1975-10-16,Right hand Bat,Right arm Fast medium,Allrounder
+871e9faf,732291,Basil Thampi,Basil Thampi,India,1993-09-11,Right hand Bat,Right arm Fast medium,Bowler
+872b03f7,1151270,A Badoni,Ayush Badoni,India,1999-12-03,Right hand Bat,Right arm Offbreak,Batter
+87e562a9,51439,DJ Bravo,Dwayne John Bravo,West Indies,1983-10-07,Right hand Bat,Right arm Medium,Allrounder
+881a9bdd,51469,S Chanderpaul,Shivnarine Chanderpaul,West Indies,1974-08-16,Left hand Bat,Legbreak,Batter
+888e32bf,56283,Abdur Razzak,Abdur Razzak,Bangladesh,1982-06-15,Left hand Bat,Slow Left arm Orthodox,Bowler
+88fccd6c,46774,SM Pollock,Shaun Maclean Pollock,South Africa,1973-07-16,Right hand Bat,Right arm Fast medium,Allrounder
+890946a0,32102,NV Ojha,Naman Vinaykumar Ojha,India,1983-07-20,Right hand Bat,,Wicketkeeper Batter
+890de8cb,28758,Gagandeep Singh,Gagandeep Singh,India,1981-10-03,Right hand Bat,Right arm Medium fast,
+896d78ad,49764,AD Mathews,Angelo Davis Mathews,Sri Lanka,1987-06-02,Right hand Bat,Right arm Medium,Allrounder
+8998a68f,1159734,Sumit Kumar,Sumit Kumar,India,1995-12-12,Right hand Bat,Right arm Medium fast,Allrounder
+89f64c19,53116,LMP Simmons,Lendl Mark Platter Simmons,West Indies,1985-01-25,Right hand Bat,Right arm Medium fast,Top order Batter
+8a668774,317709,Shoaib Ahmed,Syed Mohammad Shoaib Ahmed,India,1987-11-19,Right hand Bat,Right arm Fast medium,
+8abdf100,277662,CJ Anderson,Corey James Anderson,New Zealand,1990-12-13,Left hand Bat,Left arm Medium fast,Batting Allrounder
+8ac93ca2,500135,P Chopra,Prashant Chopra,India,1992-10-07,Right hand Bat,Legbreak Googly,Opening Batter
+8b3e9c7c,1070168,PP Shaw,Prithvi Pankaj Shaw,India,1999-11-09,Right hand Bat,Right arm Offbreak,Opening Batter
+8b5b6769,29264,Harbhajan Singh,Harbhajan Singh,India,1980-07-03,Right hand Bat,Right arm Offbreak,Bowler
+8b9704ae,26236,L Ablish,Love Ablish,India,1982-12-03,Right hand Bat,Right arm Medium fast,Bowler
+8ba8195d,35263,V Sehwag,Virender Sehwag,India,1978-10-20,Right hand Bat,Right arm Offbreak,Top order Batter
+8cf9814c,481896,Mohammed Shami,Mohammed Shami Ahmed,India,1990-09-03,Right hand Bat,Right arm Fast,Bowler
+8d2c70ad,559235,Kuldeep Yadav,Kuldeep Yadav,India,1994-12-14,Left hand Bat,Left arm Wrist spin,Bowler
+8d92a2c3,351588,MA Wood,Mark Andrew Wood,England,1990-01-11,Right hand Bat,Right arm Fast,Bowler
+8db7f47f,461632,RJW Topley,Reece James William Topley,England,1994-02-21,Right hand Bat,Left arm Fast medium,Bowler
+8dc152d1,595954,Duan Jansen,Duan Jansen,South Africa,2000-05-01,Right hand Bat,Left arm Fast,Bowler
+8e514b4c,1175485,Abdul Samad,Abdul Samad Farooq,India,2001-10-28,Right hand Bat,Legbreak,Batter
+8ee36b18,1028655,P Nissanka,Pathum Nissanka Silva,Sri Lanka,1998-05-18,Right hand Bat,,Top order Batter
+8f6dd463,819429,Azmatullah Omarzai,Azmatullah Omarzai,Afghanistan,2000-03-24,Right hand Bat,Right arm Medium fast,Allrounder
+8fd1a8f5,47492,DW Steyn,Dale Willem Steyn,South Africa,1983-06-27,Right hand Bat,Right arm Fast,Bowler
+9061a703,928067,J Little,Joshua Brian Little,Ireland,1999-11-01,Right hand Bat,Left arm Fast medium,Bowler
+90de905a,424377,K Gowtham,Krishnappa Gowtham,India,1988-10-20,Right hand Bat,Right arm Offbreak,Bowling Allrounder
+90edaaa9,33757,S Rana,Sachin Rana,India,1984-09-18,Right hand Bat,Right arm Medium fast,Bowler
+9170ff49,378496,Parvez Rasool,Parvez Ghulam Rasool Zargar,India,1989-02-13,Right hand Bat,Right arm Offbreak,Bowling Allrounder
+919a3be2,931581,RR Pant,Rishabh Rajendra Pant,India,1997-10-04,Left hand Bat,,Wicketkeeper Batter
+91a4a398,30102,Z Khan,Zaheer Khan,India,1978-10-08,Right hand Bat,Left arm Fast medium,Bowler
+91b9300b,262533,UA Birla,Udit Alok Birla,India,1989-11-17,Right hand Bat,Right arm Medium,
+91ffa6c6,38373,JD Ryder,Jesse Daniel Ryder,New Zealand,1984-08-06,Left hand Bat,Right arm Medium,Allrounder
+9219eff0,355269,JDS Neesham,James Douglas Sheahan Neesham,New Zealand,1990-09-17,Left hand Bat,Right arm Medium fast,Batting Allrounder
+92aeac25,249866,AD Hales,Alexander Daniel Hales,England,1989-01-03,Right hand Bat,Right arm Medium,Opening Batter
+9385de2e,1083851,SS Prabhudessai,Suyash S Prabhudessai,India,1997-12-06,Right hand Bat,Right arm Medium,Batting Allrounder
+93a17209,31732,VY Mahesh,Vijaykumar Yo Mahesh,India,1987-12-21,Right hand Bat,Right arm Medium fast,Allrounder
+93b4fc78,290630,MK Pandey,Manish Krishnanand Pandey,India,1989-09-10,Right hand Bat,Right arm Medium,Top order Batter
+9418198b,1161024,P Simran Singh,Prabhsimran Singh,India,2000-08-10,Right hand Bat,,Wicketkeeper Batter
+94253925,452044,GH Vihari,Gade Hanuma Vihari,India,1993-10-13,Right hand Bat,Right arm Offbreak,Batting Allrounder
+943fd425,31088,I Malhotra,Ishan Malhotra,India,1984-05-23,Right hand Bat,Right arm Medium fast,Bowler
+9440ef41,1350792,Suyash Sharma,Suyash Sharma,India,2003-05-15,Right hand Bat,Legbreak Googly,Bowler
+944533a5,398439,KK Nair,Karun Nair,India,1991-12-06,Right hand Bat,Right arm Offbreak,Top order Batter
+94bc776b,30719,D Kalyankrishna,Doddapaneni Kalyankrishna,India,1983-12-16,Right hand Bat,Right arm Medium fast,
+94d7f855,55395,C de Grandhomme,Colin de Grandhomme,New Zealand,1986-07-22,Right hand Bat,Right arm Medium fast,Allrounder
+94eac556,6903,CJ McKay,Clinton James McKay,Australia,1983-02-20,Right hand Bat,Right arm Fast medium,Bowler
+957532de,290632,S Aravind,Sreenath Aravind,India,1984-04-08,Left hand Bat,Left arm Medium fast,Bowler
+95a2ea61,26798,S Anirudha,Srikkanth Anirudha,India,1987-04-14,Right hand Bat,,Top order Batter
+9601c534,422342,SD Lad,Siddhesh Dinesh Lad,India,1992-05-23,Right hand Bat,Right arm Offbreak,Middle order Batter
+96fd40ae,31820,A Nehra,Ashish Nehra,India,1979-04-29,Right hand Bat,Left arm Medium fast,Bowler
+970ddd24,1339698,Suryansh Shedge,Suryansh Shedge,India,2003-01-29,Right hand Bat,,
+97290faf,1356971,S Joseph,Shamar Joseph,West Indies,1999-08-31,Left-hand bat,Right-arm fast,
+983f2f61,232292,Swapnil Singh,Swapnil Singh,India,1991-01-22,Right hand Bat,Slow Left arm Orthodox,Bowler
+9868bc75,49700,BMAJ Mendis,Balapuwaduge Manukulasuriya Amith Jeevan Mendis,Sri Lanka,1983-01-15,Left hand Bat,Legbreak,Allrounder
+989889ff,662235,JP Inglis,Joshua Patrick Inglis,Australia,1995-03-04,Right hand Bat,,Wicketkeeper Batter
+98ae73b1,32966,PP Chawla,Piyush Pramod Chawla,India,1988-12-24,Left hand Bat,Legbreak,Bowling Allrounder
+99258814,1287033,Gurnoor Brar,Gurnoor Brar,India,2000-05-25,Left hand Bat,Right arm Fast,Bowler
+9948e262,337790,HE van der Dussen,Hendrik Erasmus van der Dussen,South Africa,1989-02-07,Right hand Bat,Legbreak,Top order Batter
+99b202b3,27783,A Chandila,Ajit  Chandila,India,1983-12-05,Right hand Bat,Right arm Offbreak,Allrounder
+99b75528,308967,JC Buttler,Joseph Charles Buttler,England,1990-09-08,Right hand Bat,,Wicketkeeper Batter
+99d63244,290716,KM Jadhav,Kedar Mahadav Jadhav,India,1985-03-26,Right hand Bat,Right arm Offbreak,Batting Allrounder
+99ed60f8,230554,JPR Scantlebury-Searles,Javon Philip Ramon Scantlebury-Searles,West Indies,1986-12-21,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+9a0146b3,34155,P Sahu,Pardeep Sahu,India,1985-08-21,Right hand Bat,Legbreak Googly,Allrounder
+9a158001,39024,Azhar Mahmood,Azhar Mahmood Sagar,Pakistan,1975-02-28,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+9a46c4e5,823509,GD Phillips,Glenn Dominic Phillips,New Zealand,1996-12-06,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+9a5f2863,1349361,Mohit Rathee,Mohit Rathee,India,1999-01-13,Right hand Bat,Legbreak,Allrounder
+9a963804,19264,LE Plunkett,Liam Edward Plunkett,England,1985-04-06,Right hand Bat,Right arm Fast,Bowler
+9ab63e7b,41434,Mohammad Hafeez,Mohammad Hafeez,Pakistan,1980-10-17,Right hand Bat,Right arm Offbreak,Allrounder
+9b4935c8,5236,CJ Ferguson,Callum James Ferguson,Australia,1984-11-21,Right hand Bat,Right arm Medium,Middle order Batter
+9b6e1b3f,1168049,J Fraser-McGurk,Jake Fraser-McGurk,Australia,2002-04-11,Right hand Bat,Legbreak Googly,Batter
+9ca68676,1326798,AM Ghazanfar,AM Ghazanfar,Afghanistan,2006-03-20,Right-hand bat,Right-arm offbreak,
+9caf69a1,897549,WG Jacks,William George Jacks,England,1998-11-21,Right hand Bat,Right arm Offbreak,Batter
+9d430b40,230558,SP Narine,Sunil Philip Narine,West Indies,1988-05-26,Left hand Bat,Right arm Offbreak,Bowling Allrounder
+9d704f6f,1131607,SZ Mulani,Shams Zakir Mulani,India,1997-03-13,Left hand Bat,Slow Left arm Orthodox,Allrounder
+9d80c5e1,31872,S Nadeem,Shahbaz Nadeem,India,1989-08-12,Right hand Bat,Slow Left arm Orthodox,Bowler
+9e7225b0,1287369,Saurav Chauhan,Saurav Dilipsingh Chauhan,India,2000-05-27,Left hand Bat,Right arm Offbreak,
+9eb1455b,826915,NT Ellis,Nathan Ellis,Australia,1994-09-22,Right hand Bat,Right arm Fast medium,Bowler
+9f77963a,352048,Gulbadin Naib,Gulbadin Naib,Afghanistan,1991-06-04,Right hand Bat,Right arm Medium fast,Batting Allrounder
+9f961c14,29976,Joginder Sharma,Joginder Sharma,India,1983-10-23,Right hand Bat,Right arm Fast medium,Allrounder
+9fc0ef64,279545,PJ Sangwan,Pradeep Jaibeer Sangwan,India,1990-11-05,Right hand Bat,Left arm Medium,Bowler
+9ff100a6,28792,RS Gavaskar,Rohan Sunil Gavaskar,India,1976-02-20,Left hand Bat,Slow Left arm Orthodox,
+a03bba42,379145,T Shamsi,Tabraiz Shamsi,South Africa,1990-02-18,Right hand Bat,Left arm Wrist spin,Bowler
+a12e1d51,49758,SL Malinga,Separamadu Lasith Malinga,Sri Lanka,1983-08-28,Right hand Bat,Right arm Fast,Bowler
+a1d053dd,495551,SS Cottrell,Sheldon Shane Cottrell,West Indies,1989-08-19,Right hand Bat,Left arm Fast medium,Bowler
+a1d95bd8,379887,LB Williams,Lizaad Buyron Williams,South Africa,1993-10-01,Left hand Bat,Right arm Medium fast,Bowler
+a1f1829d,28997,K Goel,Karan Goel,India,1986-12-24,Left hand Bat,Right arm Offbreak,Opening Batter
+a24be938,851403,VR Iyer,Venkatesh Rajasekaran Iyer,India,1994-12-25,Left hand Bat,Right arm Medium,Allrounder
+a2870fb7,32240,Niraj Patel,Niraj Kanubhai Patel,India,1981-03-26,Left hand Bat,,Allrounder
+a2f46292,942645,KK Ahmed,Khaleel Khursheed Ahmed,India,1997-12-05,Right hand Bat,Left arm Medium,Bowler
+a316d663,375126,GC Viljoen,GC Viljoen,South Africa,1989-03-06,Right hand Bat,Right arm Fast,Bowler
+a343262c,303669,JE Root,Joseph Edward Root,England,1990-12-30,Right hand Bat,"Right arm Offbreak, Legbreak",Top order Batter
+a386e91b,10772,PD Collingwood,Paul David Collingwood,England,1976-05-26,Right hand Bat,Right arm Medium,Allrounder
+a3b0600d,1409976,Aniket Verma,Aniket Umashankar Verma,India,2002-02-05,Right-hand bat,Right-arm medium-fast,
+a3ecf01f,34078,RS Sodhi,Reetinder Singh Sodhi,India,1980-10-18,Right hand Bat,Right arm Medium,
+a457cfb5,942367,Mayank Dagar,Mayank J Dagar,India,1996-11-11,Right hand Bat,Slow Left arm Orthodox,Bowler
+a45a5e8d,32091,AM Nayar,Abhishek Mohan Nayar,India,1983-10-08,Left hand Bat,Right arm Medium,Allrounder
+a4cc73aa,425943,SV Samson,Sanju Viswanath Samson,India,1994-11-11,Right hand Bat,,Wicketkeeper Batter
+a4e37e47,714451,S Dube,Shivam Dube,India,1993-06-26,Left hand Bat,Right arm Medium,Allrounder
+a757b0d8,230559,KA Pollard,Kieron Adrian Pollard,West Indies,1987-05-12,Right hand Bat,Right arm Medium,Batting Allrounder
+a76d10ba,35401,TM Srivastava,Tanmay Manoj Srivastava,India,1989-11-07,Left hand Bat,Right arm Medium,Top order Batter
+a7c226e1,51782,FH Edwards,Fidel Henderson Edwards,West Indies,1982-02-06,Right hand Bat,Right arm Fast,Bowler
+a818c1be,277912,TA Boult,Trent Alexander Boult,New Zealand,1989-07-22,Right hand Bat,Left arm Fast medium,Bowler
+a84468fe,45782,DJ Jacobs,David Johan Jacobs,South Africa,1982-11-04,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+a90e53ec,605575,MW Short,Matthew William Short,Australia,1995-11-08,Right hand Bat,Right arm Offbreak,Top order Batter
+a97c8ec2,784379,PWH de Silva,Pinnaduwage Wanindu Hasaranga de Silva,Sri Lanka,1997-07-29,Right hand Bat,Legbreak,Allrounder
+a9da7784,297583,KJ Abbott,Kyle John Abbott,South Africa,1987-06-18,Right hand Bat,Right arm Fast medium,Bowler
+a9fd84fb,1081442,M Markande,Mayank Markande,India,1997-11-11,Right hand Bat,Legbreak,Bowler
+aa5d8c9e,1081183,A Tomar,Abhijeet Tomar,India,1995-03-14,Right hand Bat,Right arm Offbreak,Opening Batter
+aa8d28ae,221140,D Wiese,David Wiese,Namibia,1985-05-18,Right hand Bat,Right arm Medium fast,Allrounder
+aaa1b522,34281,TL Suman,Tirumalasetti Laxminarayana Suman,India,1983-12-15,Right hand Bat,Right arm Offbreak,Batter
+aad0c365,1175496,Nithish Kumar Reddy,Kaki Nitish Kumar Reddy,India,2003-05-26,Right hand Bat,Right arm Medium fast,Batting Allrounder
+ab89348d,49638,MF Maharoof,Mohamed Farveez Maharoof,Sri Lanka,1984-09-07,Right hand Bat,Right arm Fast medium,Allrounder
+abb83e27,297433,JM Bairstow,Jonathan Marc Bairstow,England,1989-09-26,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+abfeb126,30049,M Kartik,Murali Kartik,India,1976-09-11,Left hand Bat,Slow Left arm Orthodox,Bowler
+ac5ae4af,328026,I Udana,Isuru Udana Tillakaratna,Sri Lanka,1988-02-17,Right hand Bat,Left arm Medium fast,Allrounder
+acc1aeda,237696,SP Jackson,Sheldon Philip Jackson,India,1986-09-27,Right hand Bat,,Wicketkeeper Batter
+acd4f5dc,272949,DP Vijaykumar,David Paidikalva Vijaykumar,India,1986-10-20,Right hand Bat,Right arm Medium,
+acdc62f5,481979,A Nortje,Anrich Arno Nortje,South Africa,1993-11-16,Right hand Bat,Right arm Fast,Bowler
+acee4cc4,40618,Imran Tahir,Mohammad Imran Tahir,South Africa,1979-03-27,Right hand Bat,Legbreak Googly,Bowler
+ad3b6e95,1277545,Abishek Porel,Abishek Porel,India,2002-10-17,Left hand Bat,,Wicketkeeper Batter
+ad427b5c,930189,Lalit Yadav,Lalit Yadav,India,1997-01-03,Right hand Bat,Right arm Offbreak,Allrounder
+ad9c32a2,236489,DJ Malan,Dawid Johannes Malan,England,1987-09-03,Left hand Bat,Legbreak,Top order Batter
+ada15e88,334337,PSP Handscomb,Peter Stephen Patrick Handscomb,Australia,1991-04-26,Right hand Bat,,Batter
+addbde6c,274785,N Saini,Nitin Saini,India,1988-10-28,Right hand Bat,,Wicketkeeper Batter
+addfb70e,8076,SW Tait,Shaun William Tait,Australia,1983-02-22,Right hand Bat,Right arm Fast,Bowler
+ade90de7,1131619,S Midhun,Sudhesan Midhun,India,1994-10-07,Right hand Bat,Legbreak Googly,Bowler
+ae091d39,26782,SA Asnodkar,Swapnil Ashok Asnodkar,India,1984-03-29,Right hand Bat,Right arm Offbreak,Batter
+ae78bc32,317293,MS Gony,Manpreet Singh Gony,India,1984-01-04,Right hand Bat,Right arm Medium,Bowler
+aedc3b7c,554700,NS Naik,Nikhil Shankar Naik,India,1994-11-09,Right hand Bat,,Wicketkeeper Batter
+af2c687b,232359,C Munro,Colin Munro,New Zealand,1987-03-11,Left hand Bat,Right arm Medium fast,Opening Batter
+af7dadf7,26206,B Akhil,Balachandra Akhil,India,1977-10-07,Right hand Bat,Right arm Medium fast,Bowler
+afa7e784,230193,MS Wade,Matthew Scott Wade,Australia,1987-12-26,Left hand Bat,Right arm Medium,Wicketkeeper Batter
+afe3355a,327123,AR Bawne,Ankit Ramdas Bawne,India,1992-12-17,Right hand Bat,Right arm Offbreak,Middle order Batter
+b0482a1d,1170265,Tilak Varma,Namboori Thakur Tilak Varma,India,2002-11-08,Left hand Bat,Right arm Offbreak,Batting Allrounder
+b0946605,670031,AS Joseph,Alzarri Shaheim Joseph,West Indies,1996-11-20,Right hand Bat,Right arm Fast,Bowler
+b0c772ee,5560,BJ Haddin,Bradley James Haddin,Australia,1977-10-23,Right hand Bat,,Wicketkeeper Batter
+b0f2baf4,1132219,Sanvir Singh,Sanvir Singh,India,1996-10-12,Right hand Bat,Right arm Medium,Allrounder
+b1451597,34019,LR Shukla,Laxmi Ratan Shukla,India,1981-05-06,Right hand Bat,Right arm Medium,Allrounder
+b17e2f24,422108,KL Rahul,Kannaur Lokesh Rahul,India,1992-04-18,Right hand Bat,,Opening Batter
+b1ad996b,1292563,MP Yadav,Mayank Prabhu Yadav,India,2002-06-17,Right hand Bat,Right arm Medium fast,Bowler
+b2570b38,28846,RV Gomez,Raiphi Vincent Gomez,India,1985-10-16,Right hand Bat,Right arm Medium,Allrounder
+b274dbbd,340841,ER Dwivedi,Eklavya Rakesh Dwivedi,India,1988-07-22,Right hand Bat,,Wicketkeeper
+b2a79f17,315623,B Laughlin,Ben Laughlin,Australia,1982-10-03,Right hand Bat,Right arm Fast medium,Bowler
+b2ae53f5,49677,T Thushara,Magina Thilan Thushara Mirando,Sri Lanka,1981-03-01,Left hand Bat,Left arm Fast medium,Bowler
+b2b23612,424219,RG More,Ronit Gajanan More,India,1992-02-02,Right hand Bat,Right arm Medium,Bowler
+b2b50355,26829,L Balaji,Lakshmipathy Balaji,India,1981-09-27,Right hand Bat,Right arm Medium fast,Bowler
+b410bd3d,960361,S Lamichhane,Sandeep Lamichhane,Nepal,2000-08-02,Right hand Bat,Legbreak Googly,Bowler
+b4296080,451947,Milind Kumar,Milind Kumar,India,1991-02-15,Right hand Bat,Right arm Offbreak,Allrounder
+b483905d,1175458,Akash Singh,Akash Maharaj Singh,India,2002-04-26,Right hand Bat,Left arm Medium fast,Bowler
+b4b99816,1070173,Shubman Gill,Shubman Gill,India,1999-09-08,Right hand Bat,Right arm Offbreak,Opening Batter
+b4f5c2d9,1070188,KL Nagarkoti,Kamlesh Lachham Nagarkoti,India,1999-12-28,Right hand Bat,Right arm Fast,Bowler
+b51f72a5,1079668,SS Agarwal,Shubham Sanjay Agarwal,India,1993-11-21,Right hand Bat,Legbreak Googly,
+b52ffbbd,670013,FA Allen,Fabian Anthony Allen,West Indies,1995-05-07,Right hand Bat,Slow Left arm Orthodox,Bowling Allrounder
+b552a935,47569,AC Thomas,Alfonso Clive Thomas,South Africa,1977-02-09,Right hand Bat,Right arm Fast medium,Bowler
+b56dc5f7,379927,BE Hendricks,Beuran Eric Hendricks,South Africa,1990-06-08,Left hand Bat,Left arm Fast medium,Bowler
+b5797845,1175456,Priyansh Arya,Priyansh Arya,India,2001-01-18,Left hand Bat,Right arm Offbreak,
+b57f8a9a,5674,BJ Hodge,Bradley John Hodge,Australia,1974-12-29,Right hand Bat,Right arm Offbreak,Top order Batter
+b5da6c24,32242,PA Patel,Parthiv Ajay Patel,India,1985-03-09,Left hand Bat,Right arm Offbreak,Wicketkeeper Batter
+b61a3e1a,38699,LRPL Taylor,Luteru Ross Poutoa Lote Taylor,New Zealand,1984-03-08,Right hand Bat,Right arm Offbreak,Middle order Batter
+b63ab531,232284,LA Pomersbach,Luke Anthony Pomersbach,Australia,1984-09-28,Left hand Bat,Right arm Offbreak,Batter
+b63e358a,642531,RK Bhui,Ricky Kannakumar Bhui,India,1996-09-29,Right hand Bat,Legbreak Googly,Top order Batter
+b681e71e,325026,GJ Maxwell,Glenn James Maxwell,Australia,1988-10-14,Right hand Bat,Right arm Offbreak,Batting Allrounder
+b69e69ed,6938,AA Noffke,Ashley Allan Noffke,Australia,1977-04-30,Right hand Bat,Right arm Fast medium,Allrounder
+b720a5d6,237701,DB Ravi Teja,Dwaraka Bhamidipati Ravi Teja,India,1987-09-05,Right hand Bat,Legbreak Googly,Batter
+b822e99c,853259,NB Singh,Nathu Bharat Singh,India,1995-09-08,Right hand Bat,Right arm Medium,Bowler
+b8527c3d,1161489,Rasikh Salam,Rasikh Salam Dar,India,2000-04-05,Right hand Bat,Right arm Medium,Bowler
+b8a55852,37737,BB McCullum,Brendon Barrie McCullum,New Zealand,1981-09-27,Right hand Bat,"Right arm Medium, Right arm Offbreak",Wicketkeeper Batter
+b8d490fd,5334,AJ Finch,Aaron James Finch,Australia,1986-11-17,Right hand Bat,Slow Left arm Orthodox,Top order Batter
+b970a03f,6161,M Klinger,Michael Klinger,Australia,1980-07-04,Right hand Bat,,Batter
+b9be6507,36110,AS Yadav,Arjun Shivlal Yadav,India,1981-12-23,Right hand Bat,Right arm Offbreak,Batter
+ba5e1069,959767,R Ravindra,Rachin Ravindra,New Zealand,1999-11-18,Left hand Bat,Slow Left arm Orthodox,Batting Allrounder
+ba607b88,253802,V Kohli,Virat Kohli,India,1988-11-05,Right hand Bat,Right arm Medium,Top order Batter
+ba6b2f91,1292502,RA Bawa,,India,2002-11-12,Left hand Bat,Right arm Medium fast,Allrounder
+bae11797,28830,Y Gnaneswara Rao,Yalaka Gnaneswara Rao,India,1984-08-25,Right hand Bat,Right arm Medium,Allrounder
+bb18be76,8166,SK Warne,Shane Keith Warne,Australia,1969-09-13,Right hand Bat,Legbreak Googly,Bowler
+bb345e0b,28763,G Gambhir,Gautam Gambhir,India,1981-10-14,Left hand Bat,Legbreak,Top order Batter
+bb351c23,8917,MM Ali,Moeen Munir Ali,England,1987-06-18,Left hand Bat,Right arm Offbreak,Batting Allrounder
+bb965e9a,1070180,PK Garg,Priyam K Garg,India,2000-11-30,Right hand Bat,Right arm Medium,Top order Batter
+bbd41817,276298,AD Russell,Andre Dwayne Russell,West Indies,1988-04-29,Right hand Bat,Right arm Fast,Allrounder
+bcce309e,50804,WPUJC Vaas,Warnakulasuriya Patabendige Ushantha Joseph Chaminda Vaas,Sri Lanka,1974-01-27,Left hand Bat,Left arm Fast medium,Bowler
+bcf325d2,1175488,Dhruv Jurel,Dhruv Chand Jurel,India,2001-01-21,Right hand Bat,,Wicketkeeper Batter
+bd17b45f,27223,STR Binny,Stuart Terence Roger Binny,India,1984-06-03,Right hand Bat,Right arm Medium,Allrounder
+bd54eef5,1048813,N Jagadeesan,Narayan Jagadeesan,India,1995-12-24,Right hand Bat,,Opening Batter
+bd77eb62,7702,A Symonds,Andrew Symonds,Australia,1975-06-09,Right hand Bat,"Right arm Medium, Right arm Offbreak",Allrounder
+bdadf7da,12454,JL Denly,Joseph Liam Denly,England,1986-03-16,Right hand Bat,Legbreak,Top order Batter
+be24ead0,1079470,Ramandeep Singh,Ramandeep Singh,India,1997-04-13,Right hand Bat,Right arm Medium,Middle order Batter
+be869ccf,643433,GHS Garton,George Henry Simmons Garton,England,1997-04-15,Left hand Bat,Left arm Fast,Bowling Allrounder
+bf74b130,959759,FH Allen,Finnley Hugh Allen,New Zealand,1999-04-22,Right hand Bat,,Top order Batter
+bff458c6,26946,AA Bilakhia,Azharuddin Anjum Bilakhia,India,1986-05-31,Right hand Bat,Right arm Medium,
+c03c6200,53115,DJG Sammy,Daren Julius Garvey Sammy,West Indies,1983-12-20,Right hand Bat,Right arm Medium,Allrounder
+c03e2850,532856,M Vohra,Manan Vohra,India,1993-07-18,Right hand Bat,Right arm Medium,Opening Batter
+c03f1114,30045,KD Karthik,Krishnakumar Dinesh Karthik,India,1985-06-01,Right hand Bat,Right arm Offbreak,Wicketkeeper Batter
+c05edf8e,1168641,Harpreet Brar,Harpreet Brar,India,1995-09-16,Left hand Bat,Slow Left arm Orthodox,Bowler
+c0c411cb,793447,Naveen-ul-Haq,Naveen-ul-Haq Murid,Afghanistan,1999-09-23,Right hand Bat,Right arm Medium fast,Bowler
+c15e2193,28671,FY Fazal,Faiz Yakub Fazal,India,1985-09-07,Left hand Bat,Right arm Medium,Opening Batter
+c16d4035,297628,SW Billings,Samuel William Billings,England,1991-06-15,Right hand Bat,,Wicketkeeper Batter
+c18496e1,35928,Bipul Sharma,Bipul Sharma,India,1983-09-28,Left hand Bat,Slow Left arm Orthodox,Allrounder
+c24a2c5d,317784,S Tyagi,Sudeep Tyagi,India,1987-09-17,Right hand Bat,Right arm Medium,Bowler
+c28e9f12,1082859,Tejas Baroka,Tejas Baroka,India,1996-02-01,Right hand Bat,Legbreak Googly,Bowler
+c2dd89ea,917231,BR Sharath,Belur Ravi Sharath,India,1996-09-28,Right hand Bat,,Wicketkeeper Batter
+c33d8116,1132005,Mohsin Khan (2),Mohsin Khan,India,1998-07-15,Left hand Bat,Left arm Medium fast,Bowler
+c38d3503,1079848,Shivam Mavi,Shivam Pankaj Mavi,India,1998-11-26,Right hand Bat,Right arm Fast medium,Bowler
+c3a96caf,398506,Mandeep Singh,Mandeep Singh,India,1991-12-18,Right hand Bat,Right arm Medium,Allrounder
+c3c92b42,1175429,RS Hangargekar,Rajvardhan S Hangargekar,India,2002-11-10,Right hand Bat,Right arm Medium,Bowling Allrounder
+c3d1402f,35280,RP Singh,Rudra Pratap Singh,India,1985-12-06,Right hand Bat,Left arm Fast medium,Bowler
+c3d35165,46248,JA Morkel,Johannes Albertus Morkel,South Africa,1981-06-10,Left hand Bat,Right arm Medium fast,Bowling Allrounder
+c404f58a,6981,DP Nannes,Dirk Peter Nannes,Australia,1976-05-16,Right hand Bat,Left arm Fast,Bowler
+c42aaf71,31001,M Manhas,Mithun Manhas,India,1979-10-12,Right hand Bat,Right arm Offbreak,Allrounder
+c4487b84,44936,AB de Villiers,Abraham Benjamin de Villiers,South Africa,1984-02-17,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+c5aef772,677077,R Shepherd,Romario Shepherd,West Indies,1994-11-26,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+c6097d68,914567,O Thomas,Oshane Romaine Thomas,West Indies,1997-02-18,Left hand Bat,Right arm Fast,Bowler
+c64c2443,35261,J Syed Mohammad,Jamaluddin Syed Mohammad,India,1983-06-03,Left hand Bat,Slow Left arm Orthodox,Bowler
+c654af19,46393,R McLaren,Ryan McLaren,South Africa,1983-02-09,Left hand Bat,Right arm Medium fast,Allrounder
+c695b423,1252337,PH Solanki,Prashant Hitesh Solanki,India,2000-02-22,Right hand Bat,Legbreak,Bowler
+c69a7b5c,230593,AS Raut,Abhishek Santosh Raut,India,1987-03-03,Right hand Bat,Legbreak Googly,Allrounder
+c740ea83,823703,RM Patidar,Rajat Manohar Patidar,India,1993-06-01,Right hand Bat,Right arm Offbreak,Top order Batter
+c7a995d3,1048739,R Sai Kishore,Ravisrinivasan Sai Kishore,India,1996-11-06,Left hand Bat,Slow Left arm Orthodox,Bowler
+c8179c68,29655,SB Jakati,Shadab Bashir Jakati,India,1980-11-27,Left hand Bat,Slow Left arm Orthodox,Bowler
+c8f5f961,1123073,Anuj Rawat,Anuj Rawat,India,1999-10-17,Left hand Bat,,Wicketkeeper Batter
+c96f6ac5,698189,PWA Mulder,Pieter Willem Adriaan Mulder,South Africa,1998-02-19,Right hand Bat,Right arm Medium,Allrounder
+c995d726,45705,CA Ingram,Colin Alexander Ingram,South Africa,1985-07-03,Left hand Bat,Legbreak,Top order Batter
+c9cac448,24790,T Mishra,Tanmay Mishra,India,1986-12-22,Right hand Bat,Right arm Fast medium,Middle order Batter
+c9d33ef5,32305,RV Pawar,Rajesh Vithal Pawar,India,1979-09-06,Left hand Bat,Slow Left arm Orthodox,Bowler
+caa89a48,34402,SS Sarkar,Sourav Subrata Sarkar,India,1984-12-15,Right hand Bat,Right arm Medium,Bowler
+cad00a4d,318845,RR Rossouw,Rilee Roscoe Rossouw,South Africa,1989-10-09,Left hand Bat,Right arm Offbreak,Top order Batter
+caf69bf7,826901,DR Sams,Daniel Richard Sams,Australia,1992-10-27,Right hand Bat,Left arm Fast medium,Allrounder
+cb9b8664,1211825,W O'Rourke,,New Zealand,2001-08-06,Right hand Bat,Right arm Fast medium,
+cbf58a86,1292497,SK Rasheed,Shaik Rasheed,India,2004-09-24,Right hand Bat,Legbreak,
+cc1e8c68,376116,UT Yadav,Umeshkumar Tilak Yadav,India,1987-10-25,Right hand Bat,Right arm Fast,Bowler
+cc777ffa,1287067,Abdul Basith,Pappanayil Abdul Basith,India,1998-10-09,Right hand Bat,Right arm Offbreak,
+cca50cd6,23460,LJ Wright,Luke James Wright,England,1985-03-07,Right hand Bat,Right arm Medium,Top order Batter
+cd8d2859,1111917,DG Nalkande,Darshan Girish Nalkande,India,1998-10-04,Right hand Bat,Right arm Fast medium,Bowler
+cdc6bdba,592735,S Sandeep Warrier,Sankarankutty Sandeep Warrier,India,1991-04-04,Right hand Bat,Right arm Medium,Bowler
+ce4cc4d5,353669,R Ninan,Ryan Ninan,India,1985-11-19,Right hand Bat,Right arm Offbreak,Allrounder
+ce794613,802575,T Natarajan,Thangarasu Natarajan,India,1991-04-04,Left hand Bat,Left arm Medium,Bowler
+ce820073,438362,Sandeep Sharma,Sandeep Sharma,India,1993-05-18,Right hand Bat,Right arm Medium,Bowler
+cedc1d9a,431213,P Suyal,Pawan Shakland Suyal,India,1989-10-15,Right hand Bat,Left arm Medium,Bowler
+cf0ccafa,1151286,M Siddharth,Manimaran Siddharth,India,1998-07-03,Right hand Bat,Slow Left arm Orthodox,Bowler
+cf59b3f0,1131570,Urvil Patel,Urvil Mukesh Patel,India,1998-10-17,Right hand Bat,,
+cf73ad76,37004,JEC Franklin,James Edward Charles Franklin,New Zealand,1980-11-07,Left hand Bat,Left arm Medium,Allrounder
+cfa4bd2b,1121579,Y Prithvi Raj,Prithvi Raj Yarra,India,1998-02-20,Left hand Bat,Left arm Medium,Bowler
+cfad138c,209457,CK Kapugedera,Chamara Kantha Kapugedera,Sri Lanka,1987-02-24,Right hand Bat,Right arm Medium,Middle order Batter
+d014d5ac,914541,SE Rutherford,Sherfane Eviston Rutherford,West Indies,1998-08-15,Left hand Bat,Right arm Fast medium,Middle order Batter
+d027ba9f,277906,KS Williamson,Kane Stuart Williamson,New Zealand,1990-08-08,Right hand Bat,Right arm Offbreak,Top order Batter
+d0513f63,8291,CL White,Cameron Leon White,Australia,1983-08-18,Right hand Bat,Legbreak Googly,Middle order Batter
+d167edd3,446548,SM Boland,Scott Michael Boland,Australia,1989-04-11,Right hand Bat,Right arm Fast medium,Bowler
+d18f9182,49289,DPMD Jayawardene,Denagamage Proboth Mahela de Silva Jayawardene,Sri Lanka,1977-05-27,Right hand Bat,Right arm Medium,Batter
+d1a60072,1151273,N Wadhera,Nehal Wadhera,India,2000-09-04,Left hand Bat,Legbreak,Top order Batter
+d1c36f5c,298438,JJ Roy,Jason Jonathan Roy,England,1990-07-21,Right hand Bat,,Opening Batter
+d1c94b25,45963,CK Langeveldt,Charl Kenneth Langeveldt,South Africa,1974-12-17,Right hand Bat,Right arm Fast medium,Bowler
+d2340a43,26797,Anand Rajan,Anand Rajan,India,1987-04-17,Right hand Bat,Right arm Medium,Bowler
+d2a6c0e6,24598,EJG Morgan,Eoin Joseph Gerard Morgan,England,1986-09-10,Left hand Bat,Right arm Medium,Middle order Batter
+d2a989fc,277955,DS Kulkarni,Dhawal Sunil Kulkarni,India,1988-12-10,Right hand Bat,Right arm Medium,Bowler
+d2c2b2d5,35320,SR Tendulkar,Sachin Ramesh Tendulkar,India,1973-04-24,Right hand Bat,"Right arm Offbreak, Legbreak Googly",Top order Batter
+d2d4bb0a,4292,TR Birt,Travis Rodney Birt,Australia,1981-12-09,Left hand Bat,Right arm Medium,Middle order Batter
+d3611425,573930,LI Meriwala,Lukman Iqbal Meriwala,India,1991-12-11,Left hand Bat,Left arm Fast medium,Bowler
+d3a3e82d,274926,AB Barath,Adrian Boris Barath,West Indies,1990-04-14,Right hand Bat,Right arm Offbreak,Opening Batter
+d45c29b1,1209126,Ashwani Kumar,Ashwani Kumar,India,2001-08-29,Left hand Bat,Left arm Medium,
+d4d929b0,1155262,V Kaverappa,Vidwath Kaverappa,India,1999-02-25,Right hand Bat,Right arm Fast medium,Bowler
+d4eef961,393279,M de Lange,Marchant de Lange,South Africa,1990-10-13,Right hand Bat,Right arm Fast,Bowler
+d4f9dbd4,32540,CA Pujara,Cheteshwar Arvind Pujara,India,1988-01-25,Right hand Bat,Legbreak,Top order Batter
+d5130a30,1151288,B Sai Sudharsan,Bhardwaj Sai Sudharsan,India,2001-10-15,Left hand Bat,Legbreak,Top order Batter
+d67d5f00,321777,DA Miller,David Andrew Miller,South Africa,1989-06-10,Left hand Bat,Right arm Offbreak,Middle order Batter
+d68e7f48,52912,R Rampaul,Ravindranath Rampaul,West Indies,1984-10-15,Left hand Bat,Right arm Fast medium,Bowler
+d7017798,1292495,A Raghuvanshi,Angkrish Raghuvanshi,India,2004-06-05,Right-hand bat,Slow left-arm orthodox,
+d718440b,528967,V Pratap Singh,Veer Pratap Singh,India,1992-05-03,Right hand Bat,Right arm Medium,
+d7a57f75,44938,D du Preez,Dillon du Preez,South Africa,1981-11-08,Right hand Bat,Right arm Fast medium,
+d7b3a420,376102,Jaskaran Singh,Jaskaran Singh Buttar,India,1989-09-04,Right hand Bat,Right arm Medium,Bowler
+d7c6af50,38710,DL Vettori,Daniel Luca Vettori,New Zealand,1979-01-27,Left hand Bat,Slow Left arm Orthodox,Allrounder
+d84378a4,29990,M Kaif,Mohammad Kaif,India,1980-12-01,Right hand Bat,Right arm Offbreak,Batter
+d8699ab7,5616,ML Hayden,Matthew Lawrence Hayden,Australia,1971-10-29,Left hand Bat,Right arm Medium,Opening Batter
+d872f52a,4541,LA Carseldine,Lee Andrew Carseldine,Australia,1975-11-17,Left hand Bat,Left arm Medium,Allrounder
+d8b2f218,537126,BB Sran,Barinder Balbirsingh Sran,India,1992-12-10,Left hand Bat,Left arm Medium,Bowler
+d8d67045,1300795,Akshat Raghuwanshi,Akshat Raghuwanshi,India,2003-09-15,Right hand Bat,Right arm Offbreak,
+d9273ee7,325012,MP Stoinis,Marcus Peter Stoinis,Australia,1989-08-16,Right hand Bat,Right arm Medium,Batting Allrounder
+d92e42f5,269170,KP Appanna,Kotarangada Prabhu Appanna,India,1988-12-20,Right hand Bat,Slow Left arm Orthodox,
+da934ee8,853265,MK Lomror,Mahipal Krishan Lomror,India,1999-11-16,Left hand Bat,Slow Left arm Orthodox,Allrounder
+dadbdb68,547766,JA Duffy,Jacob Andrew Duffy,New Zealand,1994-08-02,Right hand Bat,Right arm Fast medium,Bowler
+db31895a,591650,AS Rajpoot,Ankit Singh Rajpoot,India,1993-12-04,Right hand Bat,Right arm Medium,Bowler
+db584dad,51880,CH Gayle,Christopher Henry Gayle,West Indies,1979-09-21,Left hand Bat,Right arm Offbreak,Allrounder
+dbc50253,236694,AP Dole,Aditya Pradip Dole,India,1987-10-09,Right hand Bat,Right arm Medium fast,Bowler
+dbe50b21,625371,HH Pandya,Hardik Himanshu Pandya,India,1993-10-11,Right hand Bat,Right arm Medium fast,Allrounder
+dc4686e6,433410,BA Bhatt,Bhargav Ashok Bhatt,India,1990-05-13,Left hand Bat,Slow Left arm Orthodox,Bowler
+dc9dd038,432783,Sachin Baby,Sachin Baby,India,1988-12-18,Left hand Bat,Right arm Offbreak,Batter
+dcce6f09,219889,DA Warner,David Andrew Warner,Australia,1986-10-27,Left hand Bat,Legbreak,Opening Batter
+dce2019b,44410,F Behardien,Farhaan Behardien,South Africa,1983-10-09,Right hand Bat,Right arm Fast medium,Batting Allrounder
+dcf81436,326017,S Kaul,Siddarth Kaul,India,1990-05-19,Right hand Bat,Right arm Medium,Bowler
+dd09ff8e,6278,B Lee,Brett Lee,Australia,1976-11-08,Right hand Bat,Right arm Fast,Bowler
+dd7e9b3b,1292498,YV Dhull,Yash Vijay Dhull,India,2002-11-11,Right hand Bat,Right arm Offbreak,Top order Batter
+ddb00822,32211,P Prasanth,Padmanabhan Prasanth,India,1985-09-03,Left hand Bat,Slow Left arm Orthodox,Allrounder
+ddc0828d,12856,A Flintoff,Andrew Flintoff,England,1977-12-06,Right hand Bat,Right arm Fast medium,Allrounder
+dddca1d6,279552,SB Wagh,Shrikant Bhaskar Wagh,India,1988-10-09,Left hand Bat,Left arm Medium fast,Allrounder
+dded65e7,279554,IR Jaggi,Ishank Rajiv Jaggi,India,1989-01-27,Right hand Bat,Legbreak Googly,Batter
+de4b0555,390547,R Shukla,Rahul Shukla,India,1990-08-28,Right hand Bat,Right arm Medium,Bowler
+de7d833e,793007,D Madushanka,Lokumarakkalage Dilshan Madushanka,Sri Lanka,2000-09-18,Right hand Bat,Left arm Medium fast,Bowler
+de8cce37,30750,VVS Laxman,Vangipurappu Venkata Sai Laxman,India,1974-11-01,Right hand Bat,Right arm Offbreak,Top order Batter
+de8d3876,33440,M Rawat,Mahesh Rawat,India,1985-10-25,Right hand Bat,,Wicketkeeper Batter
+dec8e038,223642,J Theron,Juan Theron,United States of America,1985-07-24,Right hand Bat,Right arm Medium fast,Bowler
+ded9240e,489889,PJ Cummins,Patrick James Cummins,Australia,1993-05-08,Right hand Bat,Right arm Fast,Bowler
+df064e1a,1175441,Ravi Bishnoi,Ravi Bishnoi,India,2000-09-05,Right hand Bat,Legbreak Googly,Bowler
+df5a6881,379140,DP Conway,Devon Philip Conway,New Zealand,1991-07-08,Left hand Bat,Right arm Medium,Wicketkeeper Batter
+dfc4d8b5,272262,KW Richardson,Kane William Richardson,Australia,1991-02-12,Right hand Bat,Right arm Fast medium,Bowler
+e0351c86,51050,DNT Zoysa,Demuni Nuwan Tharanga Zoysa,Sri Lanka,1978-05-13,Left hand Bat,Left arm Fast medium,Bowler
+e03b66ec,41411,Mohammad Asif,Mohammad Asif,Pakistan,1982-12-20,Left hand Bat,Right arm Fast medium,Bowler
+e0407c01,447439,IC Pandey,Ishwar Chand Pandey,India,1989-08-15,Right hand Bat,Right arm Medium,Bowler
+e087956b,311158,BA Stokes,Benjamin Andrew Stokes,England,1991-06-04,Left hand Bat,Right arm Fast medium,Allrounder
+e148e6bd,1403197,PR Veer,Prashant Ramendra Veer,India,2005-11-24,Right-hand bat,Slow left-arm orthodox,
+e186f49c,56007,Mashrafe Mortaza,Mashrafe Bin Mortaza,Bangladesh,1983-10-05,Right hand Bat,Right arm Fast medium,Bowler
+e1b9f3a9,679567,BJ Dwarshuis,Benjamin James Dwarshuis,Australia,1994-06-23,Left hand Bat,Left arm Fast medium,Bowler
+e1d1b294,45224,HH Gibbs,Herschelle Herman Gibbs,South Africa,1974-02-23,Right hand Bat,Right arm Bowler,Opening Batter
+e1d9ae9c,1380113,Shivam Singh,Shivam Singh,India,1995-11-25,Right-hand bat,Right-arm offbreak,
+e249fdaa,27639,A Chopra,Aakash Chopra,India,1977-09-19,Right hand Bat,"Right arm Medium, Right arm Offbreak",Batter
+e2db2409,528067,M Ashwin,Murugan Ashwin,India,1990-09-08,Right hand Bat,Legbreak Googly,Bowler
+e32d22f6,32973,Pankaj Singh,Pankaj Singh,India,1985-05-06,Right hand Bat,Right arm Medium fast,Bowler
+e342e5fb,457249,CR Brathwaite,Carlos Ricardo Brathwaite,West Indies,1988-07-18,Right hand Bat,Right arm Fast medium,Allrounder
+e3851766,1339031,KS Rathore,Kunal Singh Rathore,India,2002-10-09,Left hand Bat,,
+e38bce7a,326968,MG Bracewell,Michael Gordon Bracewell,New Zealand,1991-02-14,Left hand Bat,Right arm Offbreak,Batting Allrounder
+e412cb64,244639,HF Gurney,Harry Frederick Gurney,England,1986-10-25,Right hand Bat,Left arm Fast medium,Bowler
+e4a0deae,502714,MJ Santner,Mitchell Josef Santner,New Zealand,1992-02-05,Left hand Bat,Slow Left arm Orthodox,Bowling Allrounder
+e4cdf230,1079839,AS Roy,Anukul Sudhakar Roy,India,1998-11-30,Left hand Bat,Slow Left arm Orthodox,Allrounder
+e5437608,481875,GF Linde,George Fredrik Linde,South Africa,1991-12-04,Left hand Bat,Slow Left arm Orthodox,Allrounder
+e62dd25d,550215,K Rabada,Kagiso Rabada,South Africa,1995-05-25,Left hand Bat,Right arm Fast,Bowler
+e66732f8,605661,RD Rickelton,Ryan David Rickelton,South Africa,1996-07-11,Left hand Bat,,Wicketkeeper Batter
+e798611a,43906,HM Amla,Hashim Mahomed Amla,South Africa,1983-03-31,Right hand Bat,"Right arm Medium, Right arm Offbreak",Top order Batter
+e84ac20c,506612,MJ Henry,Matthew James Henry,New Zealand,1991-12-14,Right hand Bat,Right arm Fast medium,Bowler
+e86754b2,550235,TK Curran,Thomas Kevin Curran,England,1995-03-12,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+e938e1bc,30732,P Kumar,Praveenkumar Sakat Singh,India,1986-10-02,Right hand Bat,Right arm Medium,Bowler
+e94915e6,662973,SM Curran,Samuel Matthew Curran,England,1998-06-03,Left hand Bat,Left arm Medium fast,Allrounder
+e96801ea,1057399,MS Bhandage,Manoj Shivaramsa Bhandage,India,1998-10-05,Left hand Bat,Right arm Medium fast,Allrounder
+e9c7f0d0,974175,Fazalhaq Farooqi,Fazalhaq Farooqi,Afghanistan,2000-09-22,Right hand Bat,Left arm Fast medium,Bowler
+ea0cdc12,268739,BAW Mendis,Balapuwaduge Ajantha Winslow Mendis,Sri Lanka,1985-03-11,Right hand Bat,Right arm Offbreak,Bowler
+eaa76d3c,1076713,C Green,Cameron Donald Green,Australia,1999-06-03,Right hand Bat,Right arm Fast medium,Batting Allrounder
+eaa90ab4,28067,P Dharmani,Pankaj Dharmani,India,1974-09-27,Right hand Bat,,
+eade4650,381743,DJ Mitchell,Daryl Joseph Mitchell,New Zealand,1991-05-20,Right hand Bat,Right arm Medium,Allrounder
+ebcfef83,805235,Himmat Singh,Himmat Singh,India,1996-11-08,Right hand Bat,Right arm Offbreak,Batter
+ed5a5510,777515,P Dubey,Praveen Dubey,India,1993-07-01,Right hand Bat,Legbreak Googly,Bowler
+edb3d4f8,777537,KC Cariappa,Konganda Charamanna Cariappa,India,1994-04-13,Right hand Bat,Legbreak,Bowler
+ee1b6c27,955235,N Thushara,Ilandari Dewage Nuwan Thushara,Sri Lanka,1994-08-06,Right hand Bat,Right arm Medium fast,Bowler
+ee3dfa89,271315,Sunny Gupta,Sunny Gupta,India,1988-09-27,Right hand Bat,Right arm Offbreak,
+ee7d0c82,6565,GD McGrath,Glenn Donald McGrath,Australia,1970-02-09,Right hand Bat,Right arm Fast medium,Bowler
+eea6b7f1,37000,SP Fleming,Stephen Paul Fleming,New Zealand,1973-04-01,Left hand Bat,,Top order Batter
+eef2536f,694211,Avesh Khan,Avesh Khan,India,1996-12-13,Right hand Bat,Right arm Fast medium,Bowler
+ef5da05c,26490,AG Murtaza,Ali Ghulam Murtaza,India,1990-01-01,Left hand Bat,Slow Left arm Orthodox,Bowler
+efc04be7,1182529,Noor Ahmad,Noor Ahmad Lakanwal,Afghanistan,2005-01-03,Right hand Bat,Left arm Wrist spin,Bowler
+f088b960,642525,SN Khan,Sarfaraz Naushad Khan,India,1997-10-22,Right hand Bat,Legbreak,Middle order Batter
+f0af99a7,698315,D Ferreira,Donovan Ferreira,South Africa,1998-07-21,Right hand Bat,,Allrounder
+f0f628c7,32965,MM Patel,Munaf Musa Patel,India,1983-07-12,Right hand Bat,Right arm Medium fast,Bowler
+f10e94c4,500360,AD Nath,Akshdeep Deependra Nath,India,1993-05-10,Right hand Bat,Right arm Medium fast,Middle order Batter
+f1809c03,1080008,Tanay Thyagarajan,Tanay Thyagarajan,India,1995-11-15,Left hand Bat,Slow Left arm Orthodox,
+f18ba07f,1083128,Ankit Soni,Ankit Soni,India,1993-08-02,Right hand Bat,Legbreak,Allrounder
+f19ccfad,719715,Washington Sundar,Washington Sundar,India,1999-10-05,Left hand Bat,Right arm Offbreak,Bowling Allrounder
+f1f99156,892749,TH David,Timothy Hays David,Australia,1996-03-16,Right hand Bat,Right arm Offbreak,Middle order Batter
+f21043a5,300631,MDKJ Perera,Mathurage Don Kusal Janith Perera,Sri Lanka,1990-08-17,Left hand Bat,,Wicketkeeper Batter
+f233bbb4,49209,ST Jayasuriya,Sanath Teran Jayasuriya,Sri Lanka,1969-06-30,Left hand Bat,Slow Left arm Orthodox,Allrounder
+f24c6701,1138316,M Theekshana,Morawakage Maheesh Theekshana,Sri Lanka,2000-08-01,Right hand Bat,Right arm Offbreak,Bowler
+f24ca2ba,32093,C Nanda,Chetanya Nanda,India,1979-03-29,Right hand Bat,Legbreak,
+f29185a1,1070183,Abhishek Sharma,Abhishek Sharma,India,2000-09-04,Left hand Bat,Slow Left arm Orthodox,Allrounder
+f2c936d7,1213979,MJ Owen,Mitchell J Owen,Australia,2001-09-16,Right hand Bat,Right arm Medium,Middle order Batter
+f3171936,5941,BW Hilfenhaus,Benjamin William Hilfenhaus,Australia,1983-03-15,Right hand Bat,Right arm Fast medium,Bowler
+f3cb53a1,44111,MV Boucher,Mark Verdon Boucher,South Africa,1976-12-03,Right hand Bat,Right arm Medium,Wicketkeeper Batter
+f48cf4da,32389,DT Patil,Devraj Thyagaraj Patil,India,1984-12-06,Right hand Bat,,
+f4cb4f53,31750,AP Majumdar,Anustup Prabir Majumdar,India,1984-04-30,Right hand Bat,Legbreak Googly,
+f4f0fafd,253798,B Sumanth,Bodapati Apparao Sumanth,India,1988-05-10,Right hand Bat,Right arm Medium fast,Middle order Batter
+f5180fe6,6033,MG Johnson,Mitchell Guy Johnson,Australia,1981-11-02,Left hand Bat,Left arm Fast,Bowler
+f5f18a18,50438,S Randiv,Hewa Kaluhalamullage Suraj Randiv Kaluhalamulla,Sri Lanka,1985-01-30,Right hand Bat,Right arm Offbreak,Bowler
+f62772e5,530773,P Negi,Pawan Negi,India,1993-01-06,Left hand Bat,Slow Left arm Orthodox,Bowler
+f663ef00,26291,J Arunkumar,Jagadeesh Arunkumar,India,1975-01-18,Right hand Bat,Right arm Offbreak,
+f6d8a7ab,1159843,K Kartikeya,Kumar Kartikeya Singh,India,1997-12-26,Right hand Bat,"Slow Left arm Orthodox, Left arm Wrist spin",Bowler
+f708a0bc,5681,GB Hogg,George Bradley Hogg,Australia,1971-02-06,Left hand Bat,Left arm Wrist spin,Allrounder
+f752db61,272465,JL Pattinson,James Lee Pattinson,Australia,1990-05-03,Left hand Bat,Right arm Fast medium,Bowler
+f834dcfc,542023,L Ngidi,Lungisani True-man Ngidi,South Africa,1996-03-29,Right hand Bat,Right arm Fast medium,Bowler
+f836b33d,470633,T Kohler-Cadmore,Tom Kohler-Cadmore,England,1994-08-19,Right hand Bat,Right arm Offbreak,Batter
+f842c2cf,4578,MJ Clarke,Michael John Clarke,Australia,1981-04-02,Right hand Bat,Slow Left arm Orthodox,Middle order Batter
+f846de6a,52983,MN Samuels,Marlon Nathaniel Samuels,West Indies,1981-02-05,Right hand Bat,Right arm Offbreak,Top order Batter
+f89d3b11,1175489,Sameer Rizvi,Sameer Rizvi,India,2003-12-06,Right hand Bat,Right arm Offbreak,
+f986ca1a,390481,HV Patel,Harshal Vikram Patel,India,1990-11-23,Right hand Bat,Right arm Medium,Bowler
+f9e6e7ef,1159711,Shahbaz Ahmed,Shahbaz Ahmed,India,1994-12-11,Left hand Bat,Slow Left arm Orthodox,Allrounder
+fa2f1dde,1083033,K Khejroliya,Kulwant Khejroliya,India,1992-03-13,Left hand Bat,Left arm Medium fast,Bowler
+fa463154,26184,AB Agarkar,Ajit Bhalchandra Agarkar,India,1977-12-04,Right hand Bat,Right arm Fast,Bowler
+faa7365d,590327,DR Shorey,Dhruv Ranjan Shorey,India,1992-06-05,Right hand Bat,Right arm Offbreak,Top order Batter
+facb9086,337916,SD Chitnis,Siddharth Dilip Chitnis,India,1987-05-06,Right hand Bat,Right arm Offbreak,Batter
+fb24e76c,694209,Monu Kumar,Monu Kumar Singh,India,1994-11-05,Right hand Bat,Right arm Medium,Bowling Allrounder
+fb2d1dda,604527,N Rana,Nitish Rana,India,1993-12-27,Left hand Bat,"Right arm Medium, Right arm Offbreak",Middle order Batter
+fb66ce1f,439952,CH Morris,Christopher Henry Morris,South Africa,1987-04-30,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+fb693839,317292,S Ladda,Sarabjit Ladda,India,1986-07-10,Right hand Bat,Legbreak,Bowler
+fcc21ace,1175428,A Kamboj,Anshul Kamboj,India,2000-12-06,Right hand Bat,Right arm Medium,Allrounder
+fd835ab3,5766,DJ Hussey,David John Hussey,Australia,1977-07-15,Right hand Bat,Right arm Offbreak,Allrounder
+fdcb08c2,35586,A Uniyal,Amit Uniyal,India,1981-11-21,Left hand Bat,Left arm Medium,
+fdedb37c,6128,SM Katich,Simon Mathew Katich,Australia,1975-08-21,Left hand Bat,Left arm Wrist spin,Batter
+fdf7491e,967603,IC Porel,Ishan Chandranath Porel,India,1998-09-05,Right hand Bat,Right arm Medium,Bowler
+fe11caa6,279810,WP Saha,Wriddhiman Prasanta Saha,India,1984-10-24,Right hand Bat,,Wicketkeeper Batter
+fe366f34,1210488,C Connolly,Cooper Connolly,Australia,2003-08-22,Left hand Bat,Slow Left arm Orthodox,Top order Batter
+fe763256,35805,Y Venugopal Rao,Yalaka Venugopal Rao,India,1982-02-26,Right hand Bat,Right arm Offbreak,Middle order Batter
+fe93fd9d,234675,RA Jadeja,Ravindrasinh Anirudhsinh Jadeja,India,1988-12-06,Left hand Bat,Slow Left arm Orthodox,Allrounder
+fef92afc,539548,SC Kuggeleijn,Scott Christopher Kuggeleijn,New Zealand,1992-01-03,Right hand Bat,Right arm Fast medium,Bowling Allrounder
+ff077124,41028,Kamran Akmal,Kamran Akmal,Pakistan,1982-01-13,Right hand Bat,,Wicketkeeper Batter
+ff154ecd,1112537,JM Cox,Jordan Matthew Cox,England,2000-10-21,Right hand Bat,,Wicketkeeper Batter
+ff1e12a0,500268,AJ Turner,Ashton James Turner,Australia,1993-01-25,Right hand Bat,Right arm Offbreak,Middle order Batter
+ff1e68fa,477069,B Indrajith,Baba Indrajith,India,1994-07-08,Right hand Bat,Legbreak Googly,Top order Batter
+ffe699c0,288992,CJ Jordan,Christopher James Jordan,England,1988-10-04,Right hand Bat,Right arm Fast medium,Bowler
+fffa744b,1287032,Naman Dhir,Naman Dhir,India,1999-12-31,Right-hand bat,Right-arm offbreak,

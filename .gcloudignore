@@ -1,0 +1,15 @@
+.git/
+.gitignore
+.venv/
+__pycache__/
+*.pyc
+data/
+db/
+etl/
+tests/
+deploy/
+docs/
+*.md
+docker-compose.yml
+Makefile
+.env*
