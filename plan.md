@@ -1,4 +1,4 @@
-# IPL Auction War Room — Build Plan
+# IPL Analytics — Build Plan
 
 CS348 semester project (Fall 2026). This file is the single source of truth for building
 the app with Claude Code. Work through the phases in order. Each phase ends with a

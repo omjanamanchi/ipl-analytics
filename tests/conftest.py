@@ -2,7 +2,10 @@ import os
 
 import psycopg
 import pytest
+from dotenv import load_dotenv
 from psycopg.rows import dict_row
+
+load_dotenv()  # load .env before reading DATABASE_URL
 
 DB_URL = os.environ.get("DATABASE_URL", "postgresql://localhost/ipl")
 

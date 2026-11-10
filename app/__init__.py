@@ -1,4 +1,4 @@
-"""IPL Auction War Room - Flask application factory."""
+"""IPL Analytics - Flask application factory."""
 from flask import Flask
 
 from . import db

@@ -1,5 +1,5 @@
 -- =====================================================================
--- IPL Auction War Room - PostgreSQL 16 schema
+-- IPL Analytics - PostgreSQL 16 schema
 -- Run with:  psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f db/schema.sql
 -- Re-running this file DROPS and recreates every table (data is lost).
 -- =====================================================================

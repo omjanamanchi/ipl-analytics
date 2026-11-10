@@ -1,6 +1,6 @@
 # CLAUDE.md — house rules for this repo
 
-CS348 database course project: **IPL Auction War Room** (Flask + PostgreSQL 16, deployed to
+CS348 database course project: **IPL Analytics** (Flask + PostgreSQL 16, deployed to
 Google App Engine + Cloud SQL). The full build plan, specs and demo scripts are in
 **plan.md**: read the relevant section before starting any task.
 

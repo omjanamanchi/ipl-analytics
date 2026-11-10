@@ -3,3 +3,4 @@ gunicorn==23.*
 psycopg[binary]==3.2.*
 psycopg-pool==3.2.*
 google-cloud-secret-manager==2.*
+python-dotenv==1.*
