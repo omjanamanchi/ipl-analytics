@@ -81,3 +81,4 @@ _Required by the course AI policy. Keep this up to date and discuss it in the St
 | 2026-11-09 | Claude | Schema, loader, views, indexes, deploy scripts, plan.md | Ran the loader and 15 tests against official stats; reviewed the schema |
 | 2026-11-09 | Claude Code | Added .gitattributes (LF for .sh/.sql), python-dotenv, renamed app title to IPL Analytics | Ran 15 tests (all passed); verified app starts on port 8080 |
 | 2026-11-09 | Claude Code | Built Draft Board blueprint (Phase 2): all CRUD routes, buy transaction, Flask-WTF CSRF, autocomplete, 8 new tests | Ran 23 tests (all passed); walked through every SQL statement |
+| 2026-11-10 | Claude Code | Built Scouting Report blueprint (Phase 3): all filters from DB, SORT_COLUMNS whitelist, REPEATABLE READ snapshot, before/after demo, 18 new tests | Ran 41 tests (all passed); performed the before/after demo manually |

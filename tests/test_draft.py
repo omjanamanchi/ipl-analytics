@@ -10,20 +10,11 @@ from __future__ import annotations
 
 from decimal import Decimal
 
-import psycopg
 import pytest
 
 
 # ── fixtures ──────────────────────────────────────────────────────────────────
-
-@pytest.fixture(scope="session")
-def board_id(conn):
-    """Return the seeded board's id (board_id = 1 after make load)."""
-    row = conn.execute(
-        "SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1"
-    ).fetchone()
-    return row["board_id"]
-
+# board_id is defined in conftest.py and shared across test files.
 
 @pytest.fixture
 def clean_picks(conn, board_id):

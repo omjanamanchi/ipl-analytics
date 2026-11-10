@@ -24,3 +24,12 @@ def client():
     app.config["TESTING"] = True
     app.config["WTF_CSRF_ENABLED"] = False   # disable CSRF tokens in tests
     return app.test_client()
+
+
+@pytest.fixture(scope="session")
+def board_id(conn):
+    """Return the seeded board's id — shared by test_draft.py and test_report.py."""
+    row = conn.execute(
+        "SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1"
+    ).fetchone()
+    return row["board_id"]

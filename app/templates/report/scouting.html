@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% block title %}Scouting Report — IPL Analytics{% endblock %}
+{% block content %}
+<div class="report-layout">
+
+{# ══════════════════════════════════════════════════════════════════════════
+   LEFT PANEL — filter form (GET so the URL is shareable)
+   All dropdowns / checkboxes come from the database (plan.md § 10).
+   ══════════════════════════════════════════════════════════════════════════ #}
+<aside class="filter-panel">
+  <div class="card">
+  <form method="get" action="">
+
+    <h3>Season</h3>
+    <div class="form-row" style="gap:.4rem">
+      <div class="form-group">
+        <label class="form-label" for="season_from">From</label>
+        {# Loaded from: SELECT DISTINCT season_year FROM match #}
+        <select name="season_from" id="season_from" class="form-input">
+          {% for y in all_seasons %}
+            <option value="{{ y }}" {% if y == filters.season_from %}selected{% endif %}>{{ y }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="season_to">To</label>
+        <select name="season_to" id="season_to" class="form-input">
+          {% for y in all_seasons %}
+            <option value="{{ y }}" {% if y == filters.season_to %}selected{% endif %}>{{ y }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <h3>Phase</h3>
+    {# Loaded from: SELECT DISTINCT phase FROM mv_player_phase_stats #}
+    {% for ph in all_phases %}
+      <label style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;font-size:.88rem">
+        <input type="checkbox" name="phase" value="{{ ph }}"
+               {% if ph in filters.phases %}checked{% endif %}>
+        {{ ph }}
+      </label>
+    {% endfor %}
+
+    <h3>Role</h3>
+    {# Loaded from: SELECT role_code, description FROM role ORDER BY sort_order #}
+    {% for code, desc in all_roles %}
+      <label style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;font-size:.88rem">
+        <input type="checkbox" name="role" value="{{ code }}"
+               {% if code in filters.roles %}checked{% endif %}>
+        {{ desc }}
+      </label>
+    {% endfor %}
+
+    <h3>Current team</h3>
+    {# Loaded from: SELECT franchise_id, current_name FROM franchise WHERE is_active #}
+    <select name="team_id" class="form-input">
+      <option value="">Any</option>
+      {% for fr in franchises %}
+        <option value="{{ fr.franchise_id }}"
+          {% if fr.franchise_id == filters.team_id %}selected{% endif %}>
+          {{ fr.current_name }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <h3>Nationality</h3>
+    {% for val, label in [("", "Any"), ("Indian", "Indian"), ("Overseas", "Overseas")] %}
+      <label style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;font-size:.88rem">
+        <input type="radio" name="nationality" value="{{ val }}"
+               {% if filters.nationality == val %}checked{% endif %}>
+        {{ label }}
+      </label>
+    {% endfor %}
+
+    <h3>Bowling type</h3>
+    {# Loaded from: SELECT DISTINCT bowling_type FROM player #}
+    <select name="bowling_type" class="form-input">
+      <option value="">Any</option>
+      {% for bt in all_bowling_types %}
+        <option value="{{ bt }}" {% if filters.bowling_type == bt %}selected{% endif %}>{{ bt }}</option>
+      {% endfor %}
+    </select>
+
+    <h3>Age</h3>
+    <div class="form-row" style="gap:.4rem">
+      <div class="form-group">
+        <label class="form-label">Min</label>
+        <input type="number" name="age_min" class="form-input" min="15" max="60"
+               value="{{ filters.age_min or '' }}" placeholder="—">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Max</label>
+        <input type="number" name="age_max" class="form-input" min="15" max="60"
+               value="{{ filters.age_max or '' }}" placeholder="—">
+      </div>
+    </div>
+
+    <h3>Salary (₹ cr)</h3>
+    <div class="form-row" style="gap:.4rem">
+      <div class="form-group">
+        <label class="form-label">Min</label>
+        <input type="number" step="0.01" name="price_min" class="form-input"
+               value="{{ filters.price_min or '' }}" placeholder="—">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Max</label>
+        <input type="number" step="0.01" name="price_max" class="form-input"
+               value="{{ filters.price_max or '' }}" placeholder="—">
+      </div>
+    </div>
+
+    <h3>Min balls</h3>
+    <input type="number" name="min_balls" class="form-input" min="1"
+           value="{{ filters.min_balls }}" style="width:100%">
+    <small style="color:var(--muted)">faced or bowled</small>
+
+    <h3>Sort by</h3>
+    <select name="sort" class="form-input">
+      {% for key, label in sort_labels.items() %}
+        <option value="{{ key }}" {% if filters.sort == key %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+
+    <div style="margin-top:.75rem">
+      <label style="display:flex;align-items:center;gap:.4rem;font-size:.88rem">
+        <input type="checkbox" name="hide_on_board" value="1"
+               {% if filters.hide_on_board %}checked{% endif %}>
+        Hide board players
+      </label>
+    </div>
+
+    <div style="margin-top:.9rem;display:flex;gap:.5rem">
+      <button type="submit" class="btn btn-primary" style="flex:1">Apply</button>
+      <a href="{{ url_for('report.scouting') }}" class="btn btn-secondary">Reset</a>
+    </div>
+  </form>
+  </div>
+</aside>
+
+{# ══════════════════════════════════════════════════════════════════════════
+   MAIN PANEL — summary cards, board panel, results table
+   ══════════════════════════════════════════════════════════════════════════ #}
+<div class="report-main">
+
+  {# ── summary cards ─────────────────────────────────────────────────────── #}
+  <div class="summary-cards">
+    <div class="stat">
+      <span class="num">{{ cards.n_players }}</span>
+      <span class="label">players</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ "{:,}".format(cards.total_runs) }}</span>
+      <span class="label">total runs</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ cards.overall_sr or '—' }}</span>
+      <span class="label">overall SR</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ cards.overall_econ or '—' }}</span>
+      <span class="label">overall eco</span>
+    </div>
+    <div class="stat">
+      <span class="num">{% if cards.avg_salary %}₹{{ cards.avg_salary }}{% else %}—{% endif %}</span>
+      <span class="label">avg salary cr</span>
+    </div>
+    {% if cards.best_value %}
+    <div class="stat">
+      <span class="num" style="font-size:1rem">{{ cards.best_value.player }}</span>
+      <span class="label">best value ({{ cards.best_value.mvp_per_crore }} MVP/₹cr)</span>
+    </div>
+    {% endif %}
+  </div>
+
+  {# ── board panel (from v_draft_board_summary, same REPEATABLE READ snapshot) #}
+  {% if summary %}
+  <div class="board-panel">
+    <div class="stat">
+      <span class="num">₹{{ "%.2f"|format(summary.remaining_cr|float) }}</span>
+      <span class="label">purse left (cr)</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ summary.squad_count }} / {{ summary.max_squad }}</span>
+      <span class="label">squad</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ summary.overseas_count }} / {{ summary.max_overseas }}</span>
+      <span class="label">overseas</span>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── results table ─────────────────────────────────────────────────────── #}
+  {% if rows %}
+  <div class="report-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Role</th>
+        <th class="r">Age</th>
+        <th>OV</th>
+        <th class="r">Salary</th>
+        <th class="r">M</th>
+        <th class="r">Runs</th>
+        <th class="r">SR</th>
+        <th class="r">Avg</th>
+        <th class="r">Bdry%</th>
+        <th class="r">SR(P)</th>
+        <th class="r">SR(S)</th>
+        <th class="r">Wkts</th>
+        <th class="r">Eco</th>
+        <th class="r">Dot%</th>
+        <th class="r">MVP</th>
+        <th class="r">MVP/₹cr</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for r in rows %}
+      <tr>
+        <td>{{ r.player }}</td>
+        <td>{{ r.team or '—' }}</td>
+        <td>{{ r.role_code }}</td>
+        <td class="r">{{ r.age or '—' }}</td>
+        <td>{% if r.is_overseas %}<span class="badge-ov">OV</span>{% endif %}</td>
+        <td class="r">{% if r.price_cr %}₹{{ r.price_cr }}{% else %}—{% endif %}</td>
+        <td class="r">{{ r.matches or '—' }}</td>
+        <td class="r">{{ r.runs or '—' }}</td>
+        <td class="r">{{ r.strike_rate or '—' }}</td>
+        <td class="r">{{ r.batting_avg or '—' }}</td>
+        <td class="r">{{ r.boundary_pct or '—' }}</td>
+        <td class="r">{{ r.sr_vs_pace or '—' }}</td>
+        <td class="r">{{ r.sr_vs_spin or '—' }}</td>
+        <td class="r">{{ r.wickets or '—' }}</td>
+        <td class="r">{{ r.economy or '—' }}</td>
+        <td class="r">{{ r.dot_pct_bowled or '—' }}</td>
+        <td class="r">{{ r.mvp_points or '—' }}</td>
+        <td class="r">{{ r.mvp_per_crore or '—' }}</td>
+        <td>
+          {% if r.board_status %}
+            <span class="badge badge-{{ r.board_status|lower }}">{{ r.board_status }}</span>
+          {% else %}
+            {# Add to board: POST to /draft/picks with CSRF token #}
+            <form class="add-btn-form" method="post" action="{{ url_for('draft.add_pick') }}">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              <input type="hidden" name="player_id"  value="{{ r.player_id }}">
+              <input type="hidden" name="role_slot"  value="{{ r.role_code }}">
+              <input type="hidden" name="priority"   value="3">
+              <input type="hidden" name="max_bid_cr" value="{{ r.price_cr or '1' }}">
+              <input type="hidden" name="notes"      value="">
+              <button type="submit" class="btn btn-secondary btn-sm"
+                      title="Add {{ r.player }} to the draft board">+Board</button>
+            </form>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+  <div class="card" style="color:var(--muted);padding:1.5rem;text-align:center">
+    No players match. Try lowering Min balls or broadening your filters.
+  </div>
+  {% endif %}
+
+</div>{# /report-main #}
+</div>{# /report-layout #}
+{% endblock %}
