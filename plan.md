@@ -619,8 +619,21 @@ and its built-in Unix socket reaches Cloud SQL without opening the database to t
 mostly free-tier. New Google Cloud accounts get a $300 credit. **Do not** use the Cloud SQL
 "free trial instance": it stops after 30 days, so one created now ends before 12/23.
 
+**Paying with the course coupon:** CS348 provides a Google Cloud education coupon (Ed post #58).
+- **Request it** with your @purdue.edu email (one per address, by 12/26/2026). Redeem it from
+  the confirmation email; the credit is valid through 8/26/2027.
+- **Redeeming creates a billing account** funded by the coupon. Link the project to that
+  account, not to a personal card.
+- **Its value is in the email.** This project needs about $10–15 for Nov–Dec. Put the
+  coupon's billing account ID in `BILLING_ACCOUNT` (`deploy/gcp.env`) so the budget alert
+  watches it.
+- **When the credit runs out,** Google stops billable resources rather than charging you.
+  That would take the app offline during grading, so keep an eye on the budget alert emails.
+
 **Steps (run on your laptop):**
-1. Install the gcloud CLI, then `gcloud auth login`. Create a project and link billing in the console.
+1. Install the gcloud CLI, then `gcloud auth login`. Create a project in the console and link it
+   to the **coupon's billing account** (Billing → Link a billing account). Find the account ID
+   with `gcloud billing accounts list`.
 2. `cp deploy/gcp.env.example deploy/gcp.env` and set `PROJECT_ID` (optionally `BILLING_ACCOUNT`).
 3. `make deploy-setup`. This enables APIs, creates Postgres 16 (about 10 min), the `ipl` DB, the
    `ipl_app` user with a random password, secrets, IAM, App Engine and the import bucket.
