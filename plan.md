@@ -131,6 +131,22 @@ make test           # 15 tests: awards, NRR, champions match official results
 make run            # http://localhost:8080
 ```
 
+**Windows (PowerShell). `make` is not installed by default, so run the same steps directly:**
+```powershell
+copy .env.example .env
+py -3.12 -m venv .venv; .\.venv\Scripts\pip install -r requirements-dev.txt
+docker compose up -d db                      # needs Docker Desktop (WSL 2 backend)
+$env:DATABASE_URL="postgresql://ipl:ipl_local_dev@localhost:5432/ipl"
+.\.venv\Scripts\python -m etl.download_data
+.\.venv\Scripts\python -m etl.load_cricsheet --reset
+.\.venv\Scripts\pytest -q
+.\.venv\Scripts\flask --app main run --debug --port 8080
+```
+- **Without Docker:** install PostgreSQL 16 with the EDB Windows installer, create a database
+  named `ipl`, and set `DATABASE_URL` to match.
+- **Deploy scripts:** run the `deploy/*.sh` scripts from **Git Bash** (installed with Git for
+  Windows). They also need the gcloud CLI and `pg_dump` (from the PostgreSQL install) on PATH.
+
 Native Postgres instead of Docker (macOS): `brew install postgresql@16 && brew services start postgresql@16 && createdb ipl`,
 then set `DATABASE_URL=postgresql://localhost/ipl` in `.env`.
 

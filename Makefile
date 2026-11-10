@@ -1,4 +1,4 @@
-# Common tasks. Run `make help`.
+# Common tasks (macOS/Linux/Git Bash with make). Windows PowerShell: see plan.md section 3.
 SHELL := /bin/bash
 -include .env
 export
