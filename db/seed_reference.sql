@@ -77,5 +77,5 @@ INSERT INTO award (award_name, description) VALUES
 -- password_hash is set by etl/load_cricsheet.py using the DEMO_USER_PASSWORD env var.
 -- Do NOT hard-code passwords here.
 INSERT INTO app_user (username, email, display_name, password_hash) VALUES
-  ('om',     'om@ipl.local',     'Om Janamanchi',   'PLACEHOLDER'),
-  ('scout2', 'scout2@ipl.local', 'Assistant Scout',  'PLACEHOLDER');
+  ('omjanamanchi', 'om@ipl.local',     'Om Janamanchi',  'PLACEHOLDER'),
+  ('scout2',       'scout2@ipl.local', 'Assistant Scout', 'PLACEHOLDER');
