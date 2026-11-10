@@ -124,7 +124,7 @@ Prereqs: Python 3.12+, Docker Desktop (or a native PostgreSQL 16), git.
 ```bash
 cp .env.example .env
 make setup          # virtualenv + packages
-make db-up          # PostgreSQL 16 in Docker on localhost:5432
+make db-up          # PostgreSQL 16 in Docker on localhost:5433
 make data           # download Cricsheet IPL JSON (~4 MB zip)
 make load           # build schema + load everything (~15 s)
 make test           # 15 tests: awards, NRR, champions match official results
@@ -136,7 +136,7 @@ make run            # http://localhost:8080
 copy .env.example .env
 py -3.12 -m venv .venv; .\.venv\Scripts\pip install -r requirements-dev.txt
 docker compose up -d db                      # needs Docker Desktop (WSL 2 backend)
-$env:DATABASE_URL="postgresql://ipl:ipl_local_dev@localhost:5432/ipl"
+$env:DATABASE_URL="postgresql://ipl:ipl_local_dev@localhost:5433/ipl"
 .\.venv\Scripts\python -m etl.download_data
 .\.venv\Scripts\python -m etl.load_cricsheet --reset
 .\.venv\Scripts\pytest -q
@@ -154,7 +154,7 @@ To test the app as the restricted user, as in production:
 ```sql
 CREATE ROLE ipl_app LOGIN PASSWORD 'devpass';   -- then: psql $DATABASE_URL -f db/grants.sql
 ```
-Then use `DATABASE_URL=postgresql://ipl_app:devpass@localhost:5432/ipl`.
+Then use `DATABASE_URL=postgresql://ipl_app:devpass@localhost:5433/ipl`.
 
 **Phase 0 checklist:** `make test` is green; the home page shows 1,243 matches and the 2026 leaders.
 

@@ -175,6 +175,44 @@ def load_players(conn: psycopg.Connection, files: list[Path]) -> dict[str, int]:
     return ids
 
 
+# Grounds that were renamed, or that Cricsheet spells differently from our canonical name.
+VENUE_RENAMES = {
+    "Feroz Shah Kotla": "Arun Jaitley Stadium",
+    "Sardar Patel Stadium": "Narendra Modi Stadium",
+    "Subrata Roy Sahara Stadium": "Maharashtra Cricket Association Stadium",
+    "M.Chinnaswamy Stadium": "M Chinnaswamy Stadium",
+    "Punjab Cricket Association Stadium": "Punjab Cricket Association IS Bindra Stadium",
+    "Zayed Cricket Stadium": "Sheikh Zayed Stadium",
+    "Andhra Cricket Association-Visakhapatnam District Cricket Association Stadium":
+        "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium",
+    "Wanderers Stadium": "New Wanderers Stadium",
+    "Diamond Oval": "De Beers Diamond Oval",
+    "Mangaung Oval": "OUTsurance Oval",
+}
+
+
+def resolve_venue(conn, vid: dict, raw: str, city: str | None) -> int:
+    """Map a raw Cricsheet venue string to a venue_id, adding a venue_alias row.
+
+    'Feroz Shah Kotla, Delhi' -> base name 'Feroz Shah Kotla' -> renamed 'Arun Jaitley Stadium'.
+    A ground we have never seen gets a new venue row (and a notice) instead of failing.
+    """
+    base = raw.split(",")[0].strip()
+    name = VENUE_RENAMES.get(base, base)
+    with conn.cursor() as cur:
+        cur.execute("SELECT venue_id FROM venue WHERE name = %s", (name,))
+        row = cur.fetchone()
+        if row is None:
+            cur.execute("INSERT INTO venue (name, city) VALUES (%s, %s) RETURNING venue_id",
+                        (name, city or "Unknown"))
+            row = cur.fetchone()
+            print(f"  + new venue: {name} ({city})")
+        cur.execute("INSERT INTO venue_alias (alias, venue_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                    (raw, row[0]))
+    vid[raw] = row[0]
+    return row[0]
+
+
 def load_match(conn, doc: dict, match_id: int, pid: dict, fid: dict, vid: dict) -> int:
     info = doc["info"]
     reg = info["registry"]["people"]
@@ -384,6 +422,11 @@ def main() -> None:
                 continue
             doc = json.loads(path.read_text())
             try:
+                # Map a venue spelling we have not seen before (committed on its own,
+                # so the cache stays valid even if the match below is rolled back).
+                if doc["info"]["venue"] not in vid:
+                    with conn.transaction():
+                        resolve_venue(conn, vid, doc["info"]["venue"], doc["info"].get("city"))
                 with conn.transaction():
                     balls += load_match(conn, doc, match_id, pid, fid, vid)
                 loaded += 1
