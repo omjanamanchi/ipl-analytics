@@ -1,4 +1,4 @@
-# IPL Auction War Room
+# IPL Analytics
 
 A database-backed web app that helps an IPL franchise plan its **2027 auction**. It scouts every
 player using ball-by-ball data from 2008 to 2026 and builds a squad that obeys the real auction
