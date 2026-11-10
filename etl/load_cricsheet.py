@@ -114,6 +114,15 @@ def seed_reference(conn: psycopg.Connection) -> None:
                 (r["alias"], r["venue_name"]),
             )
     run_sql_file(conn, DB_DIR / "seed_reference.sql")
+    # Set default dev password "scout123" for all scouts seeded above.
+    from werkzeug.security import generate_password_hash
+    with conn.cursor() as cur:
+        rows = cur.execute("SELECT scout_id FROM scout").fetchall()
+        for row in rows:
+            cur.execute(
+                "UPDATE scout SET password_hash = %s WHERE scout_id = %s",
+                (generate_password_hash("scout123"), row[0]),
+            )
     conn.commit()
 
 

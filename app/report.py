@@ -9,7 +9,7 @@ from __future__ import annotations
 import pathlib
 from decimal import Decimal, InvalidOperation
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 
 from .db import query, query_one, transaction
 
@@ -54,6 +54,12 @@ _PHASE_ORDER     = {"Powerplay": 0, "Middle": 1, "Death": 2}
 # ── helpers ───────────────────────────────────────────────────────────────────
 
 def _board_id() -> int:
+    """Return the active board id; session["active_board_id"] takes precedence."""
+    board_id = session.get("active_board_id")
+    if board_id:
+        row = query_one("SELECT board_id FROM draft_board WHERE board_id = %s", (board_id,))
+        if row:
+            return row["board_id"]
     row = query_one("SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1")
     if row is None:
         raise RuntimeError("No draft board — run make load")

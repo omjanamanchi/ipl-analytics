@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Scouting Report — IPL Analytics{% endblock %}
+{% block extra_head %}
+<style>
+  /* Widen the container on this page so the 19-column table fits */
+  .container { max-width: 1540px; }
+  .filter-panel { width: 200px; }
+</style>
+{% endblock %}
 {% block content %}
 <div class="report-layout">
 
@@ -193,7 +200,7 @@
 
   {# ── results table ─────────────────────────────────────────────────────── #}
   {% if rows %}
-  <div class="report-scroll">
+  <div class="report-table-wrap">
   <table>
     <thead>
       <tr>
@@ -221,8 +228,19 @@
     <tbody>
     {% for r in rows %}
       <tr>
-        <td>{{ r.player }}</td>
-        <td>{{ r.team or '—' }}</td>
+        <td>
+          {% if has_endpoint('players.profile') %}
+            <a href="{{ url_for('players.profile', player_id=r.player_id) }}"
+               style="font-weight:600;text-decoration:none">{{ r.player }}</a>
+          {% else %}
+            {{ r.player }}
+          {% endif %}
+        </td>
+        <td>
+          {% if r.team %}
+            <span class="team-badge team-{{ r.team }}">{{ r.team }}</span>
+          {% else %}—{% endif %}
+        </td>
         <td>{{ r.role_code }}</td>
         <td class="r">{{ r.age or '—' }}</td>
         <td>{% if r.is_overseas %}<span class="badge-ov">OV</span>{% endif %}</td>
@@ -260,7 +278,7 @@
     {% endfor %}
     </tbody>
   </table>
-  </div>
+  </div>{# /report-table-wrap #}
   {% else %}
   <div class="card" style="color:var(--muted);padding:1.5rem;text-align:center">
     No players match. Try lowering Min balls or broadening your filters.

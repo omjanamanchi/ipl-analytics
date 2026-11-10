@@ -2,7 +2,67 @@
 {% block title %}Draft Board — IPL Analytics{% endblock %}
 {% block content %}
 
-{# ── scout selector: dropdown loaded from the scout table (plan.md section 10) ── #}
+{# ── board-banner (dark gradient header with stat tiles) ── #}
+{% if summary %}
+<div class="board-banner">
+  <div class="board-banner-title">
+    <span>{{ summary.name }}</span>
+    <div style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.55);margin-top:.15rem;letter-spacing:.03em;text-transform:uppercase">
+      2027 Auction Draft Board
+    </div>
+  </div>
+  <div class="board-tiles">
+    <div class="board-tile">
+      <span class="num">₹{{ "%.2f"|format(summary.remaining_cr|float) }}</span>
+      <span class="label">purse left (cr)</span>
+    </div>
+    <div class="board-tile">
+      <span class="num">{{ summary.squad_count }} / {{ summary.max_squad }}</span>
+      <span class="label">squad</span>
+    </div>
+    <div class="board-tile">
+      <span class="num">{{ summary.overseas_count }} / {{ summary.max_overseas }}</span>
+      <span class="label">overseas</span>
+    </div>
+    <div class="board-tile">
+      <span class="num" style="font-size:1rem">
+        {{ summary.bat_count }}B&nbsp;{{ summary.wk_count }}WK&nbsp;{{ summary.ar_count }}AR&nbsp;{{ summary.bowl_count }}BO
+      </span>
+      <span class="label">role balance</span>
+    </div>
+    <div class="board-tile">
+      <span class="num">{{ summary.targets }}</span>
+      <span class="label">targets</span>
+    </div>
+  </div>
+  <div style="display:flex;gap:.5rem;flex-shrink:0">
+    <a href="{{ url_for('draft.create_board') }}" class="btn btn-gold btn-sm">+ New Board</a>
+  </div>
+</div>
+{% else %}
+<div style="display:flex;justify-content:flex-end;margin-bottom:.75rem">
+  <a href="{{ url_for('draft.create_board') }}" class="btn btn-primary btn-sm">+ Create Board</a>
+</div>
+{% endif %}
+
+{# ── board switcher ── #}
+{% if boards and boards|length > 1 %}
+<div class="board-switcher">
+  <span style="font-size:.85rem;color:var(--muted);font-weight:600">Board:</span>
+  <form method="post" action="{{ url_for('draft.switch_board') }}" style="display:flex;gap:.5rem;align-items:center">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <select name="board_id" class="form-input" style="width:auto">
+      {% for b in boards %}
+        <option value="{{ b.board_id }}"
+          {% if b.board_id == board_id %}selected{% endif %}>{{ b.name }}</option>
+      {% endfor %}
+    </select>
+    <button class="btn btn-secondary btn-sm" type="submit">Switch</button>
+  </form>
+</div>
+{% endif %}
+
+{# ── scout selector ── #}
 <form class="scout-bar" method="post" action="{{ url_for('draft.set_scout') }}">
   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
   <label for="scout_sel" style="font-weight:600;white-space:nowrap">Editing as:</label>
@@ -18,40 +78,11 @@
   <button class="btn btn-secondary btn-sm" type="submit">Switch</button>
 </form>
 
-{# ── board summary header (from v_draft_board_summary) ── #}
-{% if summary %}
-<section class="stats">
-  <div class="stat">
-    <span class="num">₹{{ "%.2f"|format(summary.remaining_cr|float) }}</span>
-    <span class="label">purse left (cr)</span>
-  </div>
-  <div class="stat">
-    <span class="num">{{ summary.squad_count }} / {{ summary.max_squad }}</span>
-    <span class="label">squad</span>
-  </div>
-  <div class="stat">
-    <span class="num">{{ summary.overseas_count }} / {{ summary.max_overseas }}</span>
-    <span class="label">overseas</span>
-  </div>
-  <div class="stat">
-    <span class="num">
-      {{ summary.bat_count }}B&nbsp;{{ summary.wk_count }}WK&nbsp;{{ summary.ar_count }}AR&nbsp;{{ summary.bowl_count }}BO
-    </span>
-    <span class="label">role balance</span>
-  </div>
-  <div class="stat">
-    <span class="num">{{ summary.targets }}</span>
-    <span class="label">targets</span>
-  </div>
-</section>
-{% endif %}
-
 {# ── add target player ── #}
-<section class="card" style="margin:1rem 0">
+<section class="card" style="margin:0 0 1rem">
   <h2>Add a target player</h2>
   <form method="post" action="{{ url_for('draft.add_pick') }}" id="add_form">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    {# player_id is set by the autocomplete widget #}
     <input type="hidden" name="player_id" id="player_id" value="">
 
     <div class="form-row">
@@ -125,10 +156,19 @@
       <tr class="pick-row-{{ pick.status|lower }}">
         <td>{{ pick.priority }}</td>
         <td>
-          {{ pick.display_name }}
+          <a href="{{ url_for('players.profile', player_id=pick.player_id) }}"
+             style="font-weight:600;text-decoration:none;color:var(--blue)">
+            {{ pick.display_name }}
+          </a>
           {% if pick.is_overseas %}<span class="badge-ov">OV</span>{% endif %}
         </td>
-        <td>{{ pick.country }}{% if pick.last_team %} · {{ pick.last_team }}{% endif %}</td>
+        <td>
+          {{ pick.country }}
+          {% if pick.last_team %}
+            · <img src="{{ url_for('static', filename='img/teams/' + pick.last_team|lower + '-logo.png') }}"
+                   class="team-logo" alt="{{ pick.last_team }}" title="{{ pick.last_team }}">
+          {% endif %}
+        </td>
         <td>{{ pick.role_name }}</td>
         <td class="r">₹{{ "%.2f"|format(pick.max_bid_cr|float) }}</td>
         <td class="r">
@@ -168,7 +208,7 @@
 
   searchInput.addEventListener('input', async () => {
     const q = searchInput.value.trim();
-    playerIdInput.value = '';      // clear whenever the text changes
+    playerIdInput.value = '';
     if (q.length < 2) { list.hidden = true; return; }
 
     let players;
@@ -186,7 +226,7 @@
       item.setAttribute('role', 'option');
       item.textContent = p.display_name + ' (' + p.country + ', ' + p.role_code + ')';
       item.addEventListener('mousedown', (e) => {
-        e.preventDefault();                    // keep focus on the text input
+        e.preventDefault();
         searchInput.value = p.display_name;
         playerIdInput.value = p.player_id;
         list.hidden = true;
@@ -196,7 +236,6 @@
     list.hidden = false;
   });
 
-  // Close suggestions when clicking elsewhere
   document.addEventListener('click', (e) => {
     if (!searchInput.contains(e.target) && !list.contains(e.target)) {
       list.hidden = true;

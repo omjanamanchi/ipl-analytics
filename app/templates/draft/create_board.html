@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Create Board — IPL Analytics{% endblock %}
+{% block content %}
+<section class="card" style="max-width:520px;margin:1.5rem auto">
+  <h2>Create a new draft board</h2>
+  <p style="color:var(--muted);margin:.25rem 0 1.25rem">
+    Set up a new auction plan. Purse, squad and overseas limits are copied from the season row.
+  </p>
+
+  <form method="post" action="{{ url_for('draft.create_board_post') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <div class="form-group" style="margin-bottom:.75rem">
+      <label class="form-label" for="name">Board name</label>
+      <input type="text" name="name" id="name" class="form-input"
+             placeholder="e.g. 2027 Auction Plan" required maxlength="80">
+    </div>
+
+    <div class="form-group" style="margin-bottom:.75rem">
+      <label class="form-label" for="franchise_id">Franchise</label>
+      {# Loaded from: SELECT franchise_id, current_name FROM franchise WHERE is_active #}
+      <select name="franchise_id" id="franchise_id" class="form-input" required>
+        <option value="">— select franchise —</option>
+        {% for fr in franchises %}
+          <option value="{{ fr.franchise_id }}">{{ fr.current_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-bottom:1.25rem">
+      <label class="form-label" for="target_season">Target season</label>
+      {# Loaded from: SELECT season_year FROM season WHERE season_year >= 2027 #}
+      <select name="target_season" id="target_season" class="form-input" required>
+        <option value="">— select season —</option>
+        {% for s in seasons %}
+          <option value="{{ s.season_year }}">{{ s.season_year }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div style="display:flex;gap:.5rem">
+      <button type="submit" class="btn btn-primary">Create board</button>
+      <a href="{{ url_for('draft.board') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

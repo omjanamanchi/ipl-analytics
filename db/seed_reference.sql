@@ -74,6 +74,7 @@ INSERT INTO award (award_name, description) VALUES
   ('Most Valuable Player',  'Most IPL MVP points: 3.5/six, 2.5/four, 3.5/wicket, 1/dot ball, 2.5/catch or stumping'),
   ('Most Sixes',            'Most sixes in the season');
 
+-- password_hash is set by etl/load_cricsheet.py after insert (werkzeug.security)
 INSERT INTO scout (username, display_name) VALUES
   ('om',     'Om Janamanchi'),
   ('scout2', 'Assistant Scout');

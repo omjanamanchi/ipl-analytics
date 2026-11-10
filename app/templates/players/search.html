@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Players — IPL Analytics{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <h1>Player Search</h1>
+  <p>Find any IPL player and view their career statistics</p>
+  <form method="get" action="{{ url_for('players.search_page') }}" class="hero-actions">
+    <input type="text" name="q" value="{{ q }}"
+           class="form-input" placeholder="Search by name…"
+           style="min-width:260px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff"
+           autofocus>
+    <button type="submit" class="btn btn-gold">Search</button>
+  </form>
+</section>
+
+{% if q and not rows %}
+  <div class="card" style="color:var(--muted);padding:1.5rem;text-align:center">
+    No players found for <strong>{{ q }}</strong>. Try a different name.
+  </div>
+{% elif rows %}
+  <p style="color:var(--muted);font-size:.88rem;margin-bottom:.5rem">
+    {{ rows|length }} result{% if rows|length != 1 %}s{% endif %} for <strong>{{ q }}</strong>
+  </p>
+  <div class="player-cards">
+    {% for p in rows %}
+      {# avatar color based on player_id mod 7 #}
+      {% set colors = ['#1B3A8C','#C62828','#2E7D32','#6A1B9A','#E65100','#0277BD','#558B2F'] %}
+      {% set color = colors[p.player_id % 7] %}
+      {% set name_parts = p.display_name.split(' ') %}
+      {% if name_parts|length >= 2 %}
+        {% set initials = (name_parts[0][0] + name_parts[-1][0])|upper %}
+      {% else %}
+        {% set initials = p.display_name[:2]|upper %}
+      {% endif %}
+      <a class="player-card" href="{{ url_for('players.profile', player_id=p.player_id) }}">
+        <div class="player-card-avatar" style="background:{{ color }}">{{ initials }}</div>
+        <div class="player-card-info">
+          <div class="player-card-name">{{ p.display_name }}</div>
+          <div class="player-card-meta">
+            {{ p.country or 'Unknown' }}
+            {% if p.role_description %} · {{ p.role_description }}{% endif %}
+            {% if p.last_team %}
+              · <img src="{{ url_for('static', filename='img/teams/' + p.last_team|lower + '-logo.png') }}"
+                     class="team-logo" alt="{{ p.last_team }}" title="{{ p.last_team }}" style="height:20px">
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% elif not q %}
+  <p style="color:var(--muted);text-align:center;padding:2rem 0">
+    Enter at least 2 characters to search for players.
+  </p>
+{% endif %}
+
+{% endblock %}

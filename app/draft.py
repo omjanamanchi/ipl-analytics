@@ -17,6 +17,7 @@ from flask import (Blueprint, flash, jsonify, redirect, render_template,
                    request, session, url_for)
 from psycopg.errors import UniqueViolation
 
+from .auth import login_required
 from .db import query, query_one, transaction
 
 bp = Blueprint("draft", __name__, url_prefix="/draft")
@@ -25,11 +26,30 @@ bp = Blueprint("draft", __name__, url_prefix="/draft")
 # ── helpers ───────────────────────────────────────────────────────────────────
 
 def _board_id() -> int:
-    """Return the first (seeded) board's id."""
+    """Return the active board id.
+
+    Checks session["active_board_id"] first (set by switch_board), verifies it
+    still exists, then falls back to the first board by id.
+    """
+    board_id = session.get("active_board_id")
+    if board_id:
+        row = query_one("SELECT board_id FROM draft_board WHERE board_id = %s", (board_id,))
+        if row:
+            return row["board_id"]
     row = query_one("SELECT board_id FROM draft_board ORDER BY board_id LIMIT 1")
     if row is None:
         raise RuntimeError("No draft board found — run make load")
     return row["board_id"]
+
+
+def _int_or_none(value: str | None) -> int | None:
+    s = (value or "").strip()
+    if not s:
+        return None
+    try:
+        return int(s)
+    except ValueError:
+        return None
 
 
 def _escape_like(text: str) -> str:
@@ -66,6 +86,7 @@ def _parse_priority(value: str) -> int:
 # ── scout selector ────────────────────────────────────────────────────────────
 
 @bp.route("/scout", methods=["POST"])
+@login_required
 def set_scout():
     """Save the chosen scout in the session so edits are attributed to them."""
     try:
@@ -101,7 +122,7 @@ def board():
     # the 2026 contract for last-known salary and team, and scout for the editor name.
     picks = query(
         """
-        SELECT dp.pick_id, dp.priority, dp.max_bid_cr, dp.status, dp.price_paid_cr,
+        SELECT dp.pick_id, dp.player_id, dp.priority, dp.max_bid_cr, dp.status, dp.price_paid_cr,
                dp.notes, dp.version, dp.role_slot,
                p.display_name, p.is_overseas, p.country,
                r.description  AS role_name,
@@ -124,12 +145,16 @@ def board():
     scouts = query("SELECT scout_id, display_name FROM scout ORDER BY display_name")
     roles  = query("SELECT role_code, description FROM role ORDER BY sort_order")
 
+    # All boards for the switcher dropdown
+    boards = query("SELECT board_id, name FROM draft_board ORDER BY board_id")
+
     return render_template(
         "draft/board.html",
         summary=summary,
         picks=picks,
         scouts=scouts,
         roles=roles,
+        boards=boards,
         board_id=board_id,
         scout_id=session.get("scout_id"),
     )
@@ -162,6 +187,7 @@ def player_search():
 # ── add pick ──────────────────────────────────────────────────────────────────
 
 @bp.route("/picks", methods=["POST"])
+@login_required
 def add_pick():
     board_id = _board_id()
     scout_id = session.get("scout_id")
@@ -238,6 +264,7 @@ def edit_pick(pick_id: int):
 # ── update pick (ordinary edit or Bought / Lost) ──────────────────────────────
 
 @bp.route("/picks/<int:pick_id>", methods=["POST"])
+@login_required
 def update_pick(pick_id: int):
     board_id = _board_id()
     scout_id = session.get("scout_id")
@@ -319,6 +346,7 @@ def update_pick(pick_id: int):
 # ── delete pick ───────────────────────────────────────────────────────────────
 
 @bp.route("/picks/<int:pick_id>/delete", methods=["POST"])
+@login_required
 def delete_pick(pick_id: int):
     board_id = _board_id()
     with transaction("READ COMMITTED") as conn:
@@ -410,3 +438,90 @@ def _buy_player(
         if cur.rowcount == 0:
             raise ValueError("Someone else changed this pick — reload and try again")
     # Exiting the `with` block commits; any exception above rolls everything back.
+
+
+# ── create board ──────────────────────────────────────────────────────────────
+
+@bp.route("/create", methods=["GET"])
+def create_board():
+    """Show the create-board form."""
+    franchises = query(
+        "SELECT franchise_id, current_name FROM franchise WHERE is_active ORDER BY current_name"
+    )
+    seasons = query(
+        "SELECT season_year FROM season WHERE season_year >= 2027 ORDER BY season_year"
+    )
+    return render_template("draft/create_board.html", franchises=franchises, seasons=seasons)
+
+
+@bp.route("/create", methods=["POST"])
+@login_required
+def create_board_post():
+    """Create a new draft board from the posted form."""
+    name = request.form.get("name", "").strip()
+    franchise_id = _int_or_none(request.form.get("franchise_id"))
+    target_season = _int_or_none(request.form.get("target_season"))
+
+    if not name:
+        flash("Board name is required", "error")
+        return redirect(url_for("draft.create_board"))
+    if franchise_id is None or target_season is None:
+        flash("Franchise and season are required", "error")
+        return redirect(url_for("draft.create_board"))
+
+    # Validate franchise and season exist in the DB
+    fr = query_one("SELECT franchise_id FROM franchise WHERE franchise_id = %s AND is_active", (franchise_id,))
+    if fr is None:
+        flash("Invalid franchise", "error")
+        return redirect(url_for("draft.create_board"))
+    s = query_one("SELECT season_year FROM season WHERE season_year = %s", (target_season,))
+    if s is None:
+        flash("Invalid season", "error")
+        return redirect(url_for("draft.create_board"))
+
+    try:
+        with transaction("READ COMMITTED") as conn:
+            row = conn.execute(
+                """
+                INSERT INTO draft_board
+                    (name, franchise_id, target_season, purse_cr,
+                     max_squad, max_overseas, overseas_cap_cr)
+                SELECT %(name)s, %(franchise_id)s, s.season_year,
+                       COALESCE(s.purse_cr, 120),
+                       COALESCE(s.max_squad, 25),
+                       COALESCE(s.max_overseas, 8),
+                       s.overseas_cap_cr
+                FROM season s
+                WHERE s.season_year = %(target_season)s
+                RETURNING board_id
+                """,
+                {"name": name, "franchise_id": franchise_id, "target_season": target_season},
+            ).fetchone()
+    except Exception:
+        flash("Could not create board (name may already exist for this franchise/season)", "error")
+        return redirect(url_for("draft.create_board"))
+
+    new_board_id = row["board_id"]
+    session["active_board_id"] = new_board_id
+    flash(f"Board '{name}' created", "success")
+    return redirect(url_for("draft.board"))
+
+
+# ── board switcher ────────────────────────────────────────────────────────────
+
+@bp.route("/switch", methods=["POST"])
+@login_required
+def switch_board():
+    """Set the active board in the session."""
+    board_id = _int_or_none(request.form.get("board_id"))
+    if board_id is None:
+        flash("No board selected", "error")
+        return redirect(url_for("draft.board"))
+
+    row = query_one("SELECT board_id FROM draft_board WHERE board_id = %s", (board_id,))
+    if row is None:
+        flash("Board not found", "error")
+    else:
+        session["active_board_id"] = board_id
+        flash("Switched board", "success")
+    return redirect(url_for("draft.board"))

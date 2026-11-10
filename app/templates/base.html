@@ -1,20 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060B18">
   <title>{% block title %}IPL Analytics{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="{{ url_for('core.home') }}">IPL Analytics</a>
-    <nav>
-      <a href="{{ url_for('core.home') }}">Home</a>
-      {# Added in plan.md Phase 2 / 3 #}
-      {% if has_endpoint('draft.board') %}<a href="{{ url_for('draft.board') }}">Draft Board</a>{% endif %}
-      {% if has_endpoint('report.scouting') %}<a href="{{ url_for('report.scouting') }}">Scouting Report</a>{% endif %}
-    </nav>
+    <div class="topbar-inner">
+      <a class="brand" href="{{ url_for('core.home') }}">
+        <img src="{{ url_for('static', filename='img/cricket-ball.png') }}"
+             class="brand-logo" alt="IPL Analytics" style="height:40px;width:auto;object-fit:contain">
+        <span class="brand-name">IPL <span class="brand-accent">Analytics</span></span>
+      </a>
+      <nav>
+        <a href="{{ url_for('core.home') }}">Home</a>
+        {% if has_endpoint('draft.board') %}<a href="{{ url_for('draft.board') }}">Draft Board</a>{% endif %}
+        {% if has_endpoint('report.scouting') %}<a href="{{ url_for('report.scouting') }}">Scouting Report</a>{% endif %}
+        {% if has_endpoint('players.profile') %}<a href="{{ url_for('players.search_page') }}">Players</a>{% endif %}
+      </nav>
+      <div class="topbar-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17" aria-hidden="true" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        {% if current_scout %}
+          <span class="nav-user">Playing as <strong>{{ current_scout.display_name }}</strong></span>
+          <form method="post" action="{{ url_for('auth.logout') }}" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="btn btn-outline btn-sm" type="submit">Logout</button>
+          </form>
+        {% else %}
+          <a href="{{ url_for('auth.login') }}" class="btn btn-gold btn-sm">Login</a>
+        {% endif %}
+      </div>
+    </div>
   </header>
   <main class="container">
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -22,6 +54,25 @@
     {% endwith %}
     {% block content %}{% endblock %}
   </main>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var sun  = document.getElementById('icon-sun');
+    var moon = document.getElementById('icon-moon');
+    function apply(t) {
+      root.setAttribute('data-theme', t);
+      sun.style.display  = t === 'dark'  ? 'block' : 'none';
+      moon.style.display = t === 'light' ? 'block' : 'none';
+    }
+    apply(localStorage.getItem('theme') || 'dark');
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      apply(next);
+    });
+  })();
+  </script>
   <footer class="footer">
     Ball-by-ball data: <a href="https://cricsheet.org/">Cricsheet</a> (ODC-BY) ·
     Player data: cricketdata R package (GPL-3) · CS348 project

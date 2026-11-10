@@ -1,38 +1,96 @@
 {% extends "base.html" %}
+{% block title %}IPL Analytics{% endblock %}
 {% block content %}
-<section class="hero">
-  <h1>Build the 2027 squad with evidence</h1>
+
+<section class="hero cricket-pitch-bg">
+  <img src="{{ url_for('static', filename='img/cricket-ball.png') }}"
+       class="hero-ipl-logo" alt="IPL Analytics">
+  <h1>Build the 2027 Squad<br>with Evidence</h1>
   <p>Every IPL ball from {{ counts.first_season }} to {{ counts.last_season }}, loaded into PostgreSQL.</p>
+  <div class="hero-actions">
+    {% if has_endpoint('draft.board') %}
+      <a href="{{ url_for('draft.board') }}" class="btn btn-gold">Draft Board</a>
+    {% endif %}
+    {% if has_endpoint('report.scouting') %}
+      <a href="{{ url_for('report.scouting') }}" class="btn btn-outline">Scouting Report</a>
+    {% endif %}
+    {% if has_endpoint('players.search_page') %}
+      <a href="{{ url_for('players.search_page') }}" class="btn btn-outline">Players</a>
+    {% endif %}
+  </div>
 </section>
 
-<section class="stats">
-  <div class="stat"><span class="num">{{ "{:,}".format(counts.matches) }}</span><span class="label">matches</span></div>
-  <div class="stat"><span class="num">{{ "{:,}".format(counts.deliveries) }}</span><span class="label">deliveries</span></div>
-  <div class="stat"><span class="num">{{ "{:,}".format(counts.players) }}</span><span class="label">players</span></div>
-</section>
+<div class="stats stats-strip">
+  <div class="stat">
+    <span class="num">{{ "{:,}".format(counts.matches) }}</span>
+    <span class="label">Matches</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ "{:,}".format(counts.deliveries) }}</span>
+    <span class="label">deliveries</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ "{:,}".format(counts.players) }}</span>
+    <span class="label">Players</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ counts.first_season }}–{{ counts.last_season }}</span>
+    <span class="label">Seasons covered</span>
+  </div>
+</div>
+
 
 <div class="grid2">
   <section class="card">
     <h2>{{ counts.last_season }} season leaders</h2>
     <table>
-      <thead><tr><th>Award</th><th>Player</th><th class="r">Value</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Award</th>
+          <th>Player</th>
+          <th class="r">Value</th>
+        </tr>
+      </thead>
       <tbody>
       {% for l in leaders %}
-        <tr><td>{{ l.award_name }}</td><td>{{ l.display_name }}</td><td class="r">{{ '%g' % l.stat_value }}</td></tr>
+        <tr>
+          <td>{{ l.award_name }}</td>
+          <td>
+            {% if has_endpoint('players.profile') %}
+              <a href="{{ url_for('players.profile', player_id=l.player_id) }}"
+                 style="font-weight:600;text-decoration:none;color:var(--gold)">{{ l.display_name }}</a>
+            {% else %}
+              {{ l.display_name }}
+            {% endif %}
+          </td>
+          <td class="r" style="font-weight:700;color:var(--gold)">{{ '%g' % l.stat_value }}</td>
+        </tr>
       {% endfor %}
       </tbody>
     </table>
   </section>
+
   <section class="card">
     <h2>Recent finals</h2>
     <table>
-      <thead><tr><th>Season</th><th>Champion</th><th>Runner-up</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Champion</th>
+          <th>Runner-up</th>
+        </tr>
+      </thead>
       <tbody>
       {% for c in champions %}
-        <tr><td>{{ c.season_year }}</td><td>{{ c.champion }}</td><td>{{ c.runner_up }}</td></tr>
+        <tr>
+          <td style="font-weight:700;color:var(--gold)">{{ c.season_year }}</td>
+          <td style="font-weight:600;color:#fff">{{ c.champion }}</td>
+          <td style="color:var(--muted)">{{ c.runner_up }}</td>
+        </tr>
       {% endfor %}
       </tbody>
     </table>
   </section>
 </div>
+
 {% endblock %}

@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% block title %}{{ player.display_name }} — IPL Analytics{% endblock %}
+{% block content %}
+
+{# ── player hero ── #}
+<section class="player-hero">
+  <div class="player-avatar" style="background:{{ avatar_color }}">{{ initials }}</div>
+  <div class="player-hero-info">
+    <h1>{{ player.display_name }}</h1>
+    {% if player.full_name and player.full_name != player.display_name %}
+      <div style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:.35rem">{{ player.full_name }}</div>
+    {% endif %}
+    <div class="player-meta-badges">
+      {% if player.country %}
+        <span class="meta-badge">{{ player.country }}</span>
+      {% endif %}
+      {% if player.role_description %}
+        <span class="meta-badge">{{ player.role_description }}</span>
+      {% endif %}
+      {% if player.age_years %}
+        <span class="meta-badge">Age {{ player.age_years }}</span>
+      {% endif %}
+      {% if player.is_overseas %}
+        <span class="meta-badge" style="background:rgba(245,166,35,.25);color:var(--gold)">Overseas</span>
+      {% endif %}
+      {% if player.batting_hand %}
+        <span class="meta-badge">{{ player.batting_hand }}-hand bat</span>
+      {% endif %}
+      {% if player.bowling_type %}
+        <span class="meta-badge">{{ player.bowling_type }}
+          {% if player.bowling_arm %}({{ player.bowling_arm }}){% endif %}
+        </span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<div class="grid2" style="margin-bottom:1.25rem">
+
+  {# ── 2026 contract ── #}
+  <div class="card">
+    <h2>2026 Contract</h2>
+    {% if contract %}
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <img src="{{ url_for('static', filename='img/teams/' + contract.short_code|lower + '-logo.png') }}"
+             class="team-logo-lg" alt="{{ contract.short_code }}" title="{{ contract.short_code }}">
+        <span style="font-size:1.1rem;font-weight:700">{{ contract.team_name }}</span>
+        {% if contract.price_cr %}
+          <span style="margin-left:auto;font-size:1.3rem;font-weight:800;color:var(--blue)">
+            ₹{{ "%.2f"|format(contract.price_cr|float) }} cr
+          </span>
+        {% endif %}
+      </div>
+    {% else %}
+      <p style="color:var(--muted)">No 2026 IPL contract on record.</p>
+    {% endif %}
+  </div>
+
+  {# ── board status ── #}
+  <div class="card">
+    <h2>Draft Board Status</h2>
+    {% if board_status %}
+      <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+        <span class="badge badge-{{ board_status.status|lower }}">{{ board_status.status }}</span>
+        <span style="color:var(--muted);font-size:.88rem">
+          Priority {{ board_status.priority }} · Max bid ₹{{ "%.2f"|format(board_status.max_bid_cr|float) }} cr
+        </span>
+        <a class="btn btn-secondary btn-sm" style="margin-left:auto"
+           href="{{ url_for('draft.edit_pick', pick_id=board_status.pick_id) }}">Edit pick</a>
+      </div>
+    {% elif board_id %}
+      <p style="color:var(--muted);margin-bottom:.75rem">Not on the current draft board.</p>
+      <form method="post" action="{{ url_for('draft.add_pick') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="player_id" value="{{ player.player_id }}">
+        <input type="hidden" name="role_slot"  value="{{ player.role_code or 'BAT' }}">
+        <input type="hidden" name="priority"   value="3">
+        <input type="hidden" name="max_bid_cr" value="{{ contract.price_cr if contract and contract.price_cr else '1' }}">
+        <button type="submit" class="btn btn-primary btn-sm">+ Add to board</button>
+      </form>
+    {% else %}
+      <p style="color:var(--muted)">No draft board found. Run <code>make load</code>.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+{# ── career summary cards ── #}
+{% if career and career.matches %}
+<div class="stats" style="margin-bottom:1.25rem">
+  <div class="stat">
+    <span class="num">{{ career.matches or '—' }}</span>
+    <span class="label">Matches</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ career.mvp_points or '—' }}</span>
+    <span class="label">MVP points</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ career.fifties or 0 }} / {{ career.hundreds or 0 }}</span>
+    <span class="label">50s / 100s</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ career.highest_score or '—' }}</span>
+    <span class="label">Highest score</span>
+  </div>
+  <div class="stat">
+    <span class="num">{{ career.catches or 0 }}{% if career.stumpings %} / {{ career.stumpings }}{% endif %}</span>
+    <span class="label">Catches{% if career.stumpings %} / Stumpings{% endif %}</span>
+  </div>
+</div>
+{% endif %}
+
+{# ── phase splits ── #}
+{% if phases %}
+<div class="card" style="margin-bottom:1.25rem">
+  <h2>Career phase splits</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th class="r">Runs</th>
+        <th class="r">Balls</th>
+        <th class="r">SR</th>
+        <th class="r">Balls Bowled</th>
+        <th class="r">Wickets</th>
+        <th class="r">Economy</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for ph in phases %}
+      {% if ph.phase == 'Powerplay' %}{% set pill_class = 'pp' %}
+      {% elif ph.phase == 'Middle' %}{% set pill_class = 'mid' %}
+      {% else %}{% set pill_class = 'dth' %}{% endif %}
+      <tr>
+        <td><span class="phase-pill {{ pill_class }}">{{ ph.phase }}</span></td>
+        <td class="r">{{ ph.runs or '—' }}</td>
+        <td class="r">{{ ph.balls or '—' }}</td>
+        <td class="r">{{ ph.strike_rate or '—' }}</td>
+        <td class="r">{{ ph.balls_bowled or '—' }}</td>
+        <td class="r">{{ ph.wickets or '—' }}</td>
+        <td class="r">{{ ph.economy or '—' }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+{% endif %}
+
+{# ── season-by-season ── #}
+{% if seasons %}
+<div class="card" style="margin-bottom:1.25rem">
+  <h2>Season-by-season (last 10)</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Season</th>
+        <th>Team</th>
+        <th class="r">M</th>
+        <th class="r">Runs</th>
+        <th class="r">SR</th>
+        <th class="r">50s</th>
+        <th class="r">100s</th>
+        <th class="r">HS</th>
+        <th class="r">Wkts</th>
+        <th class="r">Eco</th>
+        <th class="r">Ct/St</th>
+        <th class="r">Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for s in seasons %}
+      <tr>
+        <td style="font-weight:600">{{ s.season_year }}</td>
+        <td>
+          {% if s.team %}
+            <img src="{{ url_for('static', filename='img/teams/' + s.team|lower + '-logo.png') }}"
+                 class="team-logo" alt="{{ s.team }}" title="{{ s.team }}">
+          {% else %}—{% endif %}
+        </td>
+        <td class="r">{{ s.matches or '—' }}</td>
+        <td class="r">{{ s.runs or '—' }}</td>
+        <td class="r">{{ s.sr or '—' }}</td>
+        <td class="r">{{ s.fifties or '—' }}</td>
+        <td class="r">{{ s.hundreds or '—' }}</td>
+        <td class="r">{{ s.highest_score or '—' }}</td>
+        <td class="r">{{ s.wickets or '—' }}</td>
+        <td class="r">{{ s.economy or '—' }}</td>
+        <td class="r">
+          {{ s.catches or 0 }}{% if s.stumpings %}/{{ s.stumpings }}{% endif %}
+        </td>
+        <td class="r">
+          {% if s.price_cr %}₹{{ "%.2f"|format(s.price_cr|float) }}{% else %}—{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+{% endif %}
+
+<div style="display:flex;gap:.75rem;flex-wrap:wrap">
+  <a href="{{ url_for('report.scouting') }}" class="btn btn-secondary">← Scouting Report</a>
+  <a href="{{ url_for('players.search_page') }}" class="btn btn-secondary">← Player Search</a>
+  {% if board_id %}
+    <a href="{{ url_for('draft.board') }}" class="btn btn-secondary">Draft Board</a>
+  {% endif %}
+</div>
+
+{% endblock %}

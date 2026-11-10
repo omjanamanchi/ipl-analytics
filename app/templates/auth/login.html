@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Login — IPL Analytics{% endblock %}
+{% block content %}
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-card-header">
+      <img src="{{ url_for('static', filename='img/cricket-ball.png') }}"
+           alt="IPL Analytics" style="height:70px;width:auto;margin-bottom:.75rem;mix-blend-mode:multiply">
+      <h1>IPL Analytics</h1>
+      <p>Sign in to manage your draft board</p>
+    </div>
+
+    <form method="post" action="{{ url_for('auth.login_post') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      {% if request.args.get('next') %}
+        <input type="hidden" name="next" value="{{ request.args.get('next') }}">
+      {% endif %}
+
+      <div class="form-group" style="margin-bottom:.9rem">
+        <label class="form-label" for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-input"
+               placeholder="e.g. om"
+               autocomplete="username" required autofocus>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1.25rem">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-input"
+               placeholder="••••••••"
+               autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:.55rem">
+        Sign in
+      </button>
+    </form>
+
+    <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.25rem">
+      Default dev password: <code>scout123</code>
+    </p>
+  </div>
+</div>
+{% endblock %}

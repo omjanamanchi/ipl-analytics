@@ -23,7 +23,7 @@ def home():
            ORDER BY s.season_year DESC LIMIT 5"""
     )
     leaders = query(
-        """SELECT a.award_name, p.display_name, sa.stat_value
+        """SELECT a.award_name, p.display_name, p.player_id, sa.stat_value
            FROM season_award sa JOIN award a USING (award_id) JOIN player p USING (player_id)
            WHERE sa.season_year = (SELECT MAX(season_year) FROM match)
            ORDER BY a.award_id"""

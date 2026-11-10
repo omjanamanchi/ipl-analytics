@@ -240,9 +240,10 @@ CREATE TABLE season_award (
 -- ---------------------------------------------------------------------
 
 CREATE TABLE scout (
-    scout_id     SERIAL PRIMARY KEY,
-    username     VARCHAR(40) NOT NULL UNIQUE,
-    display_name TEXT        NOT NULL
+    scout_id      SERIAL PRIMARY KEY,
+    username      VARCHAR(40) NOT NULL UNIQUE,
+    display_name  TEXT        NOT NULL,
+    password_hash TEXT
 );
 
 -- A franchise's plan for an upcoming auction. Rules copied from the season row
